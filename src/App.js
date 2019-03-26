@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Landing from './screens/Landing';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className='App'>
+        <Landing />
       </div>
     );
   }

@@ -1,0 +1,35 @@
+.landing-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 10vh 0;
+}
+
+.landing-logo {
+  text-align: center;
+}
+
+.landing-logo img {
+  max-width: 400px;
+  width: 70vw;
+}
+
+.landing-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 10vh 8vw;
+}
+
+.landing-buttons a {
+  color: #fff;
+}
+
+.reg-button {
+  background-color: map-get($color, cool);
+  margin: 1vh 0;
+}
+
+.log-button {
+  background-color: map-get($color, vivid);
+  margin: 1vh 0;
+}

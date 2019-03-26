@@ -1,6 +1,26 @@
 @import './presets';
+@import './landing';
 
-// block element modifier 
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(47, 58, 86, 1) 0%,
+    rgba(64, 109, 150, 1) 100%
+  );
+}
+
+.my-button {
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1vh 2vw;
+  text-decoration: none;
+}
+
+// block element modifier
 // .head__logo--red
 // .head__burger--close
 // .head__burger--open
