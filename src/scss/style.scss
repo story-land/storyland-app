@@ -1,14 +1,14 @@
-@import './presets';
-@import './landing';
+@import './_presets';
+@import './_landing';
+@import './_register';
+
+html {
+  min-height: 100%;
+}
 
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(47, 58, 86, 1) 0%,
-    rgba(64, 109, 150, 1) 100%
-  );
 }
 
 .my-button {
@@ -18,20 +18,5 @@ body {
   text-transform: uppercase;
   padding: 1vh 2vw;
   text-decoration: none;
+  cursor: pointer;
 }
-
-// block element modifier
-// .head__logo--red
-// .head__burger--close
-// .head__burger--open
-
-// .head {
-//   &__burger {
-//     margin:20px;
-//     &--close {
-//       color: red;
-//     }
-//     &--open {
-//     }
-//   }
-// }

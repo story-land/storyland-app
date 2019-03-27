@@ -1,8 +1,14 @@
+.landing-web {
+  background: url('../images/mobile3.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  padding: 10vw;
+}
+
 .landing-info {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  margin: 10vh 0;
 }
 
 .landing-logo {
@@ -11,13 +17,14 @@
 
 .landing-logo img {
   max-width: 400px;
-  width: 70vw;
+  max-height: 400px;
+  width: 60vw;
 }
 
 .landing-buttons {
   display: flex;
   flex-direction: column;
-  margin: 10vh 8vw;
+  margin: 10vh 0;
 }
 
 .landing-buttons a {

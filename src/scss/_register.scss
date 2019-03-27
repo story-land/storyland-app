@@ -1,0 +1,40 @@
+.reg-container {
+  background: linear-gradient(
+    45deg,
+    rgba(47, 58, 86, 1) 0%,
+    rgba(64, 109, 150, 1) 100%
+  );
+  background-size: cover;
+  color: #fff;
+  height: 100vh;
+  padding: 12vw;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-form input {
+  background-color: map-get($color, soft-blue);
+  color: #000;
+  border-radius: 8px;
+  width: 90%;
+  margin: 1vh 0;
+}
+
+.reg-form i {
+  margin-right: 2vw;
+}
+
+.error {
+  margin-bottom: 0;
+  color: red;
+  text-align: left;
+  margin-left: 12px;
+}
+
+.next-button {
+  background-color: map-get($color, cool);
+  margin: 1vh 0;
+}
