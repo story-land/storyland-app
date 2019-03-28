@@ -8,10 +8,12 @@ export const isGoodPassword = password =>
 export const checkName = (_, value, cb) =>
   value && value.length >= 3
     ? cb()
-    : cb(new Error('Name need to have at least 3 chars'));
+    : cb(new Error('Name needs at least 3 chars'));
 
 export const checkEmail = (_, value, cb) =>
   isEmail(value) ? cb() : cb(new Error('Invalid mail'));
 
 export const checkPassword = (_, value, cb) =>
-  isGoodPassword(value) ? cb() : cb(new Error('Invalid password'));
+  isGoodPassword(value)
+    ? cb()
+    : cb(new Error('Password needs uppercase, lowercase and numbers'));

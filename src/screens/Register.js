@@ -1,20 +1,14 @@
 import React, { Fragment } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-
-import BasicTopBar from '../components/BasicTopBar';
-import FirstRegisterForm from '../components/FirstRegisterForm';
-import SecondRegisterForm from '../components/SecondRegisterForm';
+import BasicTopBar from '../components/misc/BasicTopBar';
+import RegisterForm from '../components/RegisterForm';
 
 const Register = () => {
   return (
     <Fragment>
       <BasicTopBar />
-      <div className='container-fluid reg-container'>
-        <Switch>
-          <Route exact path='/register' component={FirstRegisterForm} />
-          <Route exact path='/register-2' component={SecondRegisterForm} />
-          <Redirect to='/register' />
-        </Switch>
+      <h1>Sign up</h1>
+      <div className='container-fluid'>
+        <RegisterForm />
       </div>
     </Fragment>
   );

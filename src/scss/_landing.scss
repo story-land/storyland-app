@@ -24,11 +24,12 @@
 .landing-buttons {
   display: flex;
   flex-direction: column;
-  margin: 10vh 0;
+  margin: 10vh auto;
 }
 
-.landing-buttons a {
+.landing-buttons button {
   color: #fff;
+  width: 50vw;
 }
 
 .reg-button {

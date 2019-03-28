@@ -10,12 +10,16 @@ const Landing = () => {
           <img className='img-fluid' src={logo} alt='storyland-app' />
         </div>
         <div className='landing-buttons'>
-          <button className='my-button reg-button'>
-            <Link to='/register'>Register</Link>
-          </button>
-          <button className='my-button log-button'>
-            <Link to='/login'>Login</Link>
-          </button>
+          <div>
+            <Link to='/register'>
+              <button className='my-button reg-button'>Register</button>
+            </Link>
+          </div>
+          <div>
+            <Link to='/login'>
+              <button className='my-button log-button'>Login</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

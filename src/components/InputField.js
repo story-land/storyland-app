@@ -6,7 +6,6 @@ class InputField extends Component {
     const {
       onChange,
       value,
-      placeholder,
       errors,
       onblur,
       className,
@@ -21,7 +20,6 @@ class InputField extends Component {
           value={value}
           {...(type ? { type } : null)}
           {...(allowClear ? { allowClear } : null)}
-          {...(placeholder ? { placeholder } : null)}
           {...(onblur ? { onBlur: onblur } : null)}
         />
         {hasErrors &&

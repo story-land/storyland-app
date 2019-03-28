@@ -1,7 +1,17 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
+import BasicTopBar from '../components/misc/BasicTopBar';
+import LoginForm from '../components/LoginForm';
 
-export default class Login extends Component {
-  render() {
-    return <div />;
-  }
-}
+const Login = () => {
+  return (
+    <Fragment>
+      <BasicTopBar />
+      <h1>Sign in</h1>
+      <div className='container-fluid'>
+        <LoginForm />
+      </div>
+    </Fragment>
+  );
+};
+
+export default Login;

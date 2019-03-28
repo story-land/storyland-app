@@ -4,11 +4,14 @@ import 'antd-mobile/dist/antd-mobile.css';
 import './scss/style.scss';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthStore } from './contexts/AuthStore';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <AuthStore>
+      <App />
+    </AuthStore>
   </Router>,
   document.getElementById('root')
 );
