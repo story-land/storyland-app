@@ -25,11 +25,14 @@ export default class BookDetail extends Component {
       <div className='book-detail-screen'>
         <div className='book-detail-container'>
           <figure className='book-detail-cover'>
-            <img alt={book.imageLink} />
+            <img src={book.imageLink} alt={book.title} />
           </figure>
-          <div className='book-detail-info'>
+          <div className='book-detail-title'>
             <h2>{book.title}</h2>
             <h4>{authors}</h4>
+          </div>
+          <div className='book-detail-info'>
+            <p>{book.description}</p>
           </div>
         </div>
       </div>

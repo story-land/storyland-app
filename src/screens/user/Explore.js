@@ -23,6 +23,7 @@ export default class Explore extends Component {
       <div className='explore-container'>
         <div className='screen-container'>
           <h1 className='screen-title'>Explore books that you might like</h1>
+          <h2 className='screen-subtitle'>All books</h2>
           <div className='book-container'>{books}</div>
         </div>
       </div>

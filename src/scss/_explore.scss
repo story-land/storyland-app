@@ -10,10 +10,23 @@
 
 .book-container {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .book-item {
-  width: 50%;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.book-item figure {
+  margin: 0;
+}
+
+.book-item figure img {
+  width: 100%;
+  min-width: 150px;
+  height: 230px;
 }

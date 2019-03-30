@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class BookItem extends Component {
   render() {
     const { imageLink, title, authors, id } = this.props.book;
     return (
-      <Link to={`/user/explore/${id}`}>
+      <Fragment>
         {imageLink && (
           <div className='book-item'>
-            <figure>
-              <img className='book-cover' src={imageLink} alt={title} />
-              <h4 className='book-title'>{title}</h4>
-            </figure>
+            <Link to={`/user/explore/${id}`}>
+              <figure>
+                <img className='book-cover' src={imageLink} alt={title} />
+                <h4 className='book-title'>{title}</h4>
+              </figure>
+            </Link>
           </div>
         )}
         {!imageLink && (
@@ -21,7 +23,7 @@ export default class BookItem extends Component {
             </div>
           </div>
         )}
-      </Link>
+      </Fragment>
     );
   }
 }
