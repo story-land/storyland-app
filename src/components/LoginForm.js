@@ -9,7 +9,7 @@ import { withAuthConsumer } from '../contexts/AuthStore';
 
 class LoginForm extends Component {
   state = {
-    errors: '',
+    error: '',
     isAuthenticated: false
   };
 
@@ -19,7 +19,6 @@ class LoginForm extends Component {
     form.validateFields((errors, fields) => {
       const hasErrors = errors && Object.keys(errors).length > 0;
       if (!hasErrors) {
-        console.log(fields);
         authService.login(fields).then(
           user => {
             this.setState({ isAuthenticated: true }, () => {
@@ -27,9 +26,9 @@ class LoginForm extends Component {
             });
           },
           error => {
-            const { errors } = error;
+            const { message } = error.response.data;
             this.setState({
-              errors: errors
+              error: message
             });
           }
         );
@@ -39,46 +38,52 @@ class LoginForm extends Component {
 
   render() {
     const { getFieldProps, getFieldError } = this.props.form;
-    const { errors, isAuthenticated } = this.state;
+    const { error, isAuthenticated } = this.state;
     if (isAuthenticated) {
-      return <Redirect to='/explore' />;
+      return <Redirect to='/user/explore' />;
     }
     return (
       <div className='reg-container'>
         <form onSubmit={this.submitLogin} className='reg-form'>
           <div className='form-item'>
-            <Icon type='mail' />
-            <label>Email</label>
-            <InputField
-              type='email'
-              allowClear
-              {...getFieldProps('email', {
-                validateFirst: true,
-                validateTrigger: 'onblur',
-                rules: [{ required: true, validator: checkEmail }]
-              })}
-              errors={getFieldError('email')}
-            />
+            <div className='form-item-data'>
+              <Icon type='mail' />
+              <label>Email</label>
+              <InputField
+                type='email'
+                allowClear
+                {...getFieldProps('email', {
+                  validateFirst: true,
+                  validateTrigger: 'onblur',
+                  rules: [{ required: true, validator: checkEmail }]
+                })}
+                errors={getFieldError('email')}
+              />
+            </div>
           </div>
           <div className='form-item'>
-            <Icon type='lock' />
-            <label>Password</label>
-            <InputField
-              icon='lock'
-              type='password'
-              {...getFieldProps('password', {
-                validateFirst: true,
-                validateTrigger: 'onblur',
-                rules: [{ required: true, validator: checkPassword }]
-              })}
-              errors={getFieldError('password')}
-            />
+            <div className='form-item-data'>
+              <Icon type='lock' />
+              <label>Password</label>
+              <InputField
+                icon='lock'
+                type='password'
+                {...getFieldProps('password', {
+                  validateFirst: true,
+                  validateTrigger: 'onblur',
+                  rules: [{ required: true, validator: checkPassword }]
+                })}
+                errors={getFieldError('password')}
+              />
+            </div>
           </div>
-          {errors}
+          <p className='error'>{error}</p>
           <div className='form-item'>
-            <button type='submit' className='my-button next-button'>
-              Next
-            </button>
+            <div className='form-item-data'>
+              <button type='submit' className='my-button next-button'>
+                Next
+              </button>
+            </div>
           </div>
         </form>
       </div>

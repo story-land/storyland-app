@@ -6,8 +6,8 @@ const Login = () => {
   return (
     <Fragment>
       <BasicTopBar />
-      <h1>Sign in</h1>
-      <div className='container-fluid'>
+      <div className='form-container'>
+        <h1 className='reg-title'>Login</h1>
         <LoginForm />
       </div>
     </Fragment>

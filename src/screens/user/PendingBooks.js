@@ -4,7 +4,9 @@ export default class PendingBooks extends Component {
   render() {
     return (
       <div className='container-fluid'>
-        <h1>Books that you have pending</h1>
+        <div className='screen-container'>
+          <h1 className='screen-title'>Books that you have pending</h1>
+        </div>
       </div>
     );
   }

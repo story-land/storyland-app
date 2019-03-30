@@ -6,8 +6,8 @@ const Register = () => {
   return (
     <Fragment>
       <BasicTopBar />
-      <h1>Sign up</h1>
-      <div className='container-fluid'>
+      <div className='form-container'>
+        <h1 className='reg-title'>Register</h1>
         <RegisterForm />
       </div>
     </Fragment>

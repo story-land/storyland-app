@@ -1,0 +1,16 @@
+.basic-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2vw;
+  border-bottom: 1px solid map-get($color, cool);
+}
+
+.basic-nav-list {
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+}
+
+.basic-nav-item {
+  padding: 0 2vw;
+}

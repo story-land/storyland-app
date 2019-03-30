@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import './_presets';
+@import './_navbar';
 @import './_landing';
 @import './_register';
+@import './_explore';
 
 html {
   min-height: 100%;
+}
+
+html a,
+button {
+  color: map-get($color, cool);
 }
 
 body {

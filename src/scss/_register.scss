@@ -1,25 +1,41 @@
+.reg-title {
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .reg-container {
-  background-size: cover;
   height: 100vh;
-  padding: 12vw;
+  width: 80vw;
 }
 
 .reg-form {
   display: flex;
   flex-direction: column;
-  margin: 4vh 0;
 }
 
 .reg-form .form-item {
+  width: 100%;
   margin: 2vh 0;
+}
+
+.form-item-data {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .reg-form input {
   border-radius: 8px;
   border: 1px solid map-get($color, cool);
-  margin-top: 1vh;
-  width: 100%;
+  margin: 1vh 1vw;
   height: 4vh;
+  width: 80%;
 }
 
 .reg-form i {
@@ -36,9 +52,8 @@
 
 .next-button {
   background-color: map-get($color, cool);
-  float: right;
-  margin: 1vh 0;
-  width: 30vw;
+  width: 20vw;
+  margin: 0 auto;
 }
 
 /////////Second Register
