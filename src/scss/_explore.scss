@@ -1,8 +1,19 @@
 .screen-container {
-  padding: 2vh 5vw;
+  width: 80%;
+  margin: 2vh auto;
 }
 
 .screen-title {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.book-item {
+  width: 50%;
 }

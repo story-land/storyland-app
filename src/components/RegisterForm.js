@@ -120,7 +120,7 @@ class RegisterForm extends Component {
             </div>
             <p className='error'>{error}</p>
             <div className='form-item'>
-              <div className='form-item-data'>
+              <div className='form-item-submit'>
                 <button type='submit' className='my-button next-button'>
                   Next
                 </button>

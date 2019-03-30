@@ -1,0 +1,12 @@
+//BOOK ITEM
+
+.book-cover {
+  box-shadow: 10px 10px 5px 0px map-get($color, cool);
+}
+
+//BOOK DETAIL
+
+.book-detail-container {
+  padding: 0 5vw;
+  margin: 0 auto;
+}

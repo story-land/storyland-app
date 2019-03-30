@@ -6,14 +6,15 @@ import Login from './screens/Login';
 import UserContainer from './screens/user/UserContainer';
 import { Forbidden, NotFound } from './screens/errors/Error';
 import PrivateRoute from './guards/PrivateRoute';
+import LoggedRoute from './guards/LoggedRoute';
 
 class App extends Component {
   render() {
     return (
       <div className='App'>
         <Switch>
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/login' component={Login} />
+          <LoggedRoute path='/register' component={Register} />
+          <LoggedRoute path='/login' component={Login} />
           <Route exact path='/' component={Landing} />
           <PrivateRoute path='/user' component={UserContainer} />
           <Route exact path='/forbidden' component={Forbidden} />

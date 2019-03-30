@@ -3,10 +3,11 @@
 @import './_navbar';
 @import './_landing';
 @import './_register';
+@import './_books';
 @import './_explore';
 
 html {
-  min-height: 100%;
+  min-width: 100%;
 }
 
 html a,
@@ -15,6 +16,7 @@ button {
 }
 
 body {
+  width: 100%;
   margin: 0;
   padding: 0;
   font-size: 1.1em;

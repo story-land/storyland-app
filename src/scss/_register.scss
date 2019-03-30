@@ -30,6 +30,12 @@
   margin: 0 auto;
 }
 
+.form-item-submit {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .reg-form input {
   border-radius: 8px;
   border: 1px solid map-get($color, cool);

@@ -17,7 +17,7 @@ class BasicTopBar extends Component {
     const { user } = this.props;
     return (
       <nav className='basic-nav'>
-        <p>BasicTopBar</p>
+        <p>StoryLand</p>
         <ul className='basic-nav-list'>
           {!user.email && (
             <Fragment>
