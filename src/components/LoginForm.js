@@ -46,42 +46,38 @@ class LoginForm extends Component {
       <div className='reg-container'>
         <form onSubmit={this.submitLogin} className='reg-form'>
           <div className='form-item'>
-            <div className='form-item-data'>
-              <Icon type='mail' />
-              <label>Email</label>
-              <InputField
-                type='email'
-                allowClear
-                {...getFieldProps('email', {
-                  validateFirst: true,
-                  validateTrigger: 'onblur',
-                  rules: [{ required: true, validator: checkEmail }]
-                })}
-                errors={getFieldError('email')}
-              />
-            </div>
+            <Icon type='mail' />
+            <label>Email</label>
+            <InputField
+              type='email'
+              allowClear
+              {...getFieldProps('email', {
+                validateFirst: true,
+                validateTrigger: 'onblur',
+                rules: [{ required: true, validator: checkEmail }]
+              })}
+              errors={getFieldError('email')}
+            />
           </div>
           <div className='form-item'>
-            <div className='form-item-data'>
-              <Icon type='lock' />
-              <label>Password</label>
-              <InputField
-                icon='lock'
-                type='password'
-                {...getFieldProps('password', {
-                  validateFirst: true,
-                  validateTrigger: 'onblur',
-                  rules: [{ required: true, validator: checkPassword }]
-                })}
-                errors={getFieldError('password')}
-              />
-            </div>
+            <Icon type='lock' />
+            <label>Password</label>
+            <InputField
+              type='password'
+              allowClear
+              {...getFieldProps('password', {
+                validateFirst: true,
+                validateTrigger: 'onblur',
+                rules: [{ required: true, validator: checkPassword }]
+              })}
+              errors={getFieldError('password')}
+            />
           </div>
           <p className='error'>{error}</p>
           <div className='form-item'>
             <div className='form-item-submit'>
               <button type='submit' className='my-button next-button'>
-                Next
+                Log in
               </button>
             </div>
           </div>

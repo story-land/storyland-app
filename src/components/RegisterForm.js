@@ -69,54 +69,48 @@ class RegisterForm extends Component {
         {!this.state.secondScreen && (
           <form onSubmit={this.submitFirstForm} className='reg-form'>
             <div className='form-item'>
-              <div className='form-item-data'>
-                <Icon type='user' />
-                <label>Name</label>
-                <InputField
-                  value={user.name}
-                  type='text'
-                  allowClear
-                  {...getFieldProps('name', {
-                    validateFirst: true,
-                    validateTrigger: 'onblur',
-                    rules: [{ required: true, validator: checkName }]
-                  })}
-                  errors={getFieldError('name')}
-                />
-              </div>
+              <Icon type='user' />
+              <label>Name</label>
+              <InputField
+                value={user.name}
+                type='text'
+                allowClear
+                {...getFieldProps('name', {
+                  validateFirst: true,
+                  validateTrigger: 'onblur',
+                  rules: [{ required: true, validator: checkName }]
+                })}
+                errors={getFieldError('name')}
+              />
             </div>
             <div className='form-item'>
-              <div className='form-item-data'>
-                <Icon type='mail' />
-                <label>Email</label>
-                <InputField
-                  value={user.mail}
-                  type='email'
-                  allowClear
-                  {...getFieldProps('email', {
-                    validateFirst: true,
-                    validateTrigger: 'onblur',
-                    rules: [{ required: true, validator: checkEmail }]
-                  })}
-                  errors={getFieldError('email')}
-                />
-              </div>
+              <Icon type='mail' />
+              <label>Email</label>
+              <InputField
+                value={user.mail}
+                type='email'
+                allowClear
+                {...getFieldProps('email', {
+                  validateFirst: true,
+                  validateTrigger: 'onblur',
+                  rules: [{ required: true, validator: checkEmail }]
+                })}
+                errors={getFieldError('email')}
+              />
             </div>
             <div className='form-item'>
-              <div className='form-item-data'>
-                <Icon type='lock' />
-                <label>Password</label>
-                <InputField
-                  icon='lock'
-                  type='password'
-                  {...getFieldProps('password', {
-                    validateFirst: true,
-                    validateTrigger: 'onblur',
-                    rules: [{ required: true, validator: checkPassword }]
-                  })}
-                  errors={getFieldError('password')}
-                />
-              </div>
+              <Icon type='lock' />
+              <label>Password</label>
+              <InputField
+                type='password'
+                allowClear
+                {...getFieldProps('password', {
+                  validateFirst: true,
+                  validateTrigger: 'onblur',
+                  rules: [{ required: true, validator: checkPassword }]
+                })}
+                errors={getFieldError('password')}
+              />
             </div>
             <p className='error'>{error}</p>
             <div className='form-item'>

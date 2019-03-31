@@ -17,7 +17,9 @@ class BasicTopBar extends Component {
     const { user } = this.props;
     return (
       <nav className='basic-nav'>
-        <p>StoryLand</p>
+        <div className='back-button'>
+          <i className='arrow_back' />
+        </div>
         <ul className='basic-nav-list'>
           {!user.email && (
             <Fragment>

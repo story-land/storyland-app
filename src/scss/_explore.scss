@@ -1,32 +1,46 @@
 .screen-container {
-  width: 80%;
-  margin: 2vh auto;
+  width: 90%;
+  margin: 5vh auto;
 }
 
-.screen-title {
-  font-size: 1.2em;
+.explore-title {
+  font-size: 1.4em;
   font-weight: bold;
 }
 
-.book-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
+.category-screen {
+  margin: 5vh 0;
 }
 
-.book-item {
-  width: 150px;
+.category-title {
+  font-size: 1.8em;
+}
+
+.book-card {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.book-cover {
+  width: 80px;
+  height: 130px;
+  box-shadow: 5px 5px 5px 0px map-get($color, cool);
+}
+
+.book-info {
+  height: 80px;
+  padding: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.book-item figure {
-  margin: 0;
+.book-title {
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
-.book-item figure img {
-  width: 100%;
-  min-width: 150px;
-  height: 230px;
+.book-authors {
+  font-size: 0.6em;
 }

@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 4vh auto;
 }
 
 .reg-container {
@@ -21,13 +21,8 @@
 }
 
 .reg-form .form-item {
-  width: 100%;
-  margin: 2vh 0;
-}
-
-.form-item-data {
-  width: 80%;
-  margin: 0 auto;
+  width: 70%;
+  margin: 2vh auto;
 }
 
 .form-item-submit {
@@ -41,7 +36,6 @@
   border: 1px solid map-get($color, cool);
   margin: 1vh 1vw;
   height: 4vh;
-  width: 80%;
 }
 
 .reg-form i {
