@@ -13,13 +13,17 @@ class BasicTopBar extends Component {
     });
   };
 
+  handleBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     const { user } = this.props;
     return (
       <nav className='basic-nav'>
-        <div className='back-button'>
-          <i className='arrow_back' />
-        </div>
+        <button className='back-button' onClick={this.handleBack}>
+          Back
+        </button>
         <ul className='basic-nav-list'>
           {!user.email && (
             <Fragment>

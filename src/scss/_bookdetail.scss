@@ -1,0 +1,40 @@
+//BOOK DETAIL
+
+.book-detail-screen {
+  width: 90%;
+  margin: 5vh auto;
+}
+
+.book-detail-maininfo {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-detail-title {
+  margin-left: 4vw;
+}
+
+.detail-title {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.detail-author {
+  font-size: 1.2em;
+}
+
+.book-detail-buttons {
+  margin: 2vh auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pending-button {
+  background: map-get($color, vivid);
+}
+
+.read-button {
+  background: map-get($color, cool);
+}

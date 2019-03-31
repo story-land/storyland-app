@@ -10,7 +10,7 @@ export default class BookItem extends Component {
       .map((author, index) => <span key={index}>{author}</span>);
 
     return (
-      <div className='book-card card'>
+      <li className='book-card card'>
         <Link to={`/user/explore/${id}`}>
           <figure className='card-image'>
             <img className='book-cover' src={imageLink} alt={title} />
@@ -20,7 +20,7 @@ export default class BookItem extends Component {
             <p className='book-authors'>{author}</p>
           </div>
         </Link>
-      </div>
+      </li>
     );
   }
 }

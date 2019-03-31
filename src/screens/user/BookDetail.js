@@ -6,6 +6,10 @@ export default class BookDetail extends Component {
     book: {}
   };
 
+  handlePendingBook = () => {};
+
+  handleReadBook = () => {};
+
   componentDidMount = () => {
     const { bookId } = this.props.match.params;
     booksService.getOneBook(bookId).then(book => {
@@ -24,14 +28,22 @@ export default class BookDetail extends Component {
     return (
       <div className='book-detail-screen'>
         <div className='book-detail-container'>
-          <figure className='book-detail-cover'>
-            <img src={book.imageLink} alt={book.title} />
-          </figure>
-          <div className='book-detail-title'>
-            <h2>{book.title}</h2>
-            <h4>{authors}</h4>
+          <div className='book-detail-maininfo'>
+            <figure className='book-detail-cover'>
+              <img src={book.imageLink} alt={book.title} />
+            </figure>
+            <div className='book-detail-title'>
+              <h2 className='detail-title'>{book.title}</h2>
+              <h4 className='detail-author'>{authors}</h4>
+            </div>
           </div>
-          <div className='book-detail-info'>
+          <div className='book-detail-buttons'>
+            <button className='my-button pending-button'>
+              Mark as pending
+            </button>
+            <button className='my-button read-button'>Mark as read</button>
+          </div>
+          <div className='book-detail-summary'>
             <p>{book.description}</p>
           </div>
         </div>

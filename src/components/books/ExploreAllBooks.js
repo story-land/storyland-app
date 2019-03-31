@@ -25,9 +25,9 @@ export default class ExploreAllBooks extends Component {
     return (
       <div className='category-screen'>
         <h2 className='category-title'>All books</h2>
-        <div className='book-container'>
+        <ul className='book-container'>
           <Slider {...sliderSettings}>{books}</Slider>
-        </div>
+        </ul>
       </div>
     );
   }

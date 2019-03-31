@@ -5,12 +5,12 @@
 @import './_navbar';
 @import './_landing';
 @import './_register';
-@import './_books';
+@import './_bookdetail';
 @import './_explore';
 
 html a,
 button {
-  color: map-get($color, cool);
+  color: map-get($color, soft-vivid);
 }
 
 body {
@@ -19,6 +19,11 @@ body {
   padding: 0;
   font-family: 'Nunito', sans-serif;
   font-size: 1.1em;
+}
+
+.section-title {
+  font-size: 1.4em;
+  font-weight: bold;
 }
 
 .my-button {
