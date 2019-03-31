@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReadToday from '../../components/ReadToday';
+import DateChart from '../../components/DateChart';
 
-export default class Motivation extends Component {
-  render() {
-    return (
-      <div className='container-fluid'>
-        <div className='screen-container'>
-          <h1 className='section-title'>How much did you read today?</h1>
-        </div>
+const Motivation = () => {
+  return (
+    <div className='motivation-container'>
+      <div className='screen-container'>
+        <h1 className='section-title'>How much did you read today?</h1>
+        <ReadToday />
+        <DateChart />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Motivation;

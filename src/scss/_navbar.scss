@@ -29,7 +29,6 @@ nav {
   bottom: 0;
   height: 70px;
   width: 100%;
-  padding: 5px;
   background: #fff;
   border-top: 1px solid #000;
 }
@@ -39,6 +38,10 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.usernavbar-container .active .usernavbar-item {
+  background: map-get($color, light);
 }
 
 .usernavbar-item {

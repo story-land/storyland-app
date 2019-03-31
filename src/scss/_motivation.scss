@@ -1,0 +1,24 @@
+.pages-read-container {
+  width: 40%;
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pages-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.input-field input {
+  width: 20px;
+  margin: 0 auto;
+}
+
+.confirm-pages {
+  width: 70%;
+  margin: 0 auto;
+}
