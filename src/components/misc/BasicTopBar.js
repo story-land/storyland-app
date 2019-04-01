@@ -1,8 +1,9 @@
 import React, { Fragment, Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/auth-service';
 import { withRouter } from 'react-router-dom';
+import logo from '../../images/logo2.png';
 
 class BasicTopBar extends Component {
   handleLogout = () => {
@@ -21,42 +22,47 @@ class BasicTopBar extends Component {
     const { user } = this.props;
     return (
       <nav className='basic-nav'>
-        <button className='back-button' onClick={this.handleBack}>
-          Back
-        </button>
-        <ul className='basic-nav-list'>
-          {!user.email && (
-            <Fragment>
-              <li className='basic-nav-item'>
-                <NavLink
-                  className='nav-link'
-                  activeClassName='active'
-                  to='/login'
-                >
-                  Login
-                </NavLink>
-              </li>
-              <li className='basic-nav-item'>
-                <NavLink
-                  className='nav-link'
-                  activeClassName='active'
-                  to='/register'
-                >
-                  Register
-                </NavLink>
-              </li>
-            </Fragment>
-          )}
-          {user.email && (
-            <Fragment>
-              <li className='nav-item'>
-                <button className='nav-link' onClick={this.handleLogout}>
+        <div className='nav-wrapper basic-nav-list'>
+          <ul id='nav-mobile' className='left'>
+            <li className='basic-nav-item' onClick={this.handleBack}>
+              Back
+            </li>
+          </ul>
+          <Link to='#' className='brand-logo center'>
+            <img className='basic-nav-logo' src={logo} alt='storyland-app' />
+          </Link>
+          <ul id='nav-mobile' className='right'>
+            {!user.email && (
+              <Fragment>
+                <li className='basic-nav-item'>
+                  <NavLink
+                    className='nav-link'
+                    activeClassName='active'
+                    to='/login'
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li className='basic-nav-item'>
+                  <NavLink
+                    className='nav-link'
+                    activeClassName='active'
+                    to='/register'
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </Fragment>
+            )}
+            {user.email && (
+              <Fragment>
+                <li className='basic-nav-item' onClick={this.handleLogout}>
                   Logout
-                </button>
-              </li>
-            </Fragment>
-          )}
-        </ul>
+                </li>
+              </Fragment>
+            )}
+          </ul>
+        </div>
       </nav>
     );
   }

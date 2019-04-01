@@ -77,7 +77,25 @@ class DateChart extends Component {
         </div>
         <div className='chart-graphic'>
           <Trend
-            data={[...data, 3, 4, 5]}
+            data={[
+              ...data,
+              3,
+              4,
+              5,
+              15,
+              38,
+              24,
+              10,
+              59,
+              42,
+              12,
+              25,
+              10,
+              59,
+              42,
+              12,
+              25
+            ]}
             autoDraw
             autoDrawDuration={5000}
             autoDrawEasing='ease-in-out'

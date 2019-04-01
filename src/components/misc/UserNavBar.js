@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default class UserNavBar extends Component {
   render() {
     return (
-      <div className='usernavbar navbar-fixed'>
+      <div className='usernavbar'>
         <ul className='usernavbar-container'>
           <li>
             <NavLink
@@ -55,7 +55,7 @@ export default class UserNavBar extends Component {
                 >
                   🔜
                 </span>
-                <p className='usernavbar-item-title'>Pending Books</p>
+                <p className='usernavbar-item-title'>Pending</p>
               </div>
             </NavLink>
           </li>
@@ -73,7 +73,7 @@ export default class UserNavBar extends Component {
                 >
                   📚
                 </span>
-                <p className='usernavbar-item-title'>Read Books</p>
+                <p className='usernavbar-item-title'>Read</p>
               </div>
             </NavLink>
           </li>
