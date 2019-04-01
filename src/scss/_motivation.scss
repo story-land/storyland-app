@@ -9,16 +9,33 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   margin: 0;
 }
 
-.input-field input {
-  width: 20px;
-  margin: 0 auto;
+.pages-input input[type='number'] {
+  font-size: 1.8em;
+  text-align: center;
+  width: 50px;
+  margin: 0 10px;
 }
 
 .confirm-pages {
   width: 70%;
-  margin: 0 auto;
+  margin: 1vh auto;
+  background: map-get($color, cool);
+}
+
+.chart-section {
+  margin: 8vh 0 5vh;
+}
+
+.chart-input {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.chart-input h2 {
+  margin-right: 4vw;
 }

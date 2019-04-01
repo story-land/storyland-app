@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
-import BookItem from './BookItem';
+import BookItem from '../books/BookItem';
 
 export default class ExploreAllBooks extends Component {
   state = {
