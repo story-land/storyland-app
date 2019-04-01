@@ -8,11 +8,20 @@ export default class BooksList extends Component {
   };
 
   componentDidMount = () => {
-    userbookService.getPendingBooks().then(books => {
-      this.setState({
-        books: books
+    if (this.props.state === 'pending') {
+      userbookService.getPendingBooks().then(books => {
+        this.setState({
+          books: books
+        });
       });
-    });
+    }
+    if (this.props.state === 'read') {
+      userbookService.getReadBooks().then(books => {
+        this.setState({
+          books: books
+        });
+      });
+    }
   };
 
   render() {

@@ -45,17 +45,17 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/pendingbooks'
+              to='/user/friends'
             >
               <div className='usernavbar-item'>
                 <span
                   className='usernavbar-item-icon'
                   role='img'
-                  aria-label='pending'
+                  aria-label='friends'
                 >
                   🔜
                 </span>
-                <p className='usernavbar-item-title'>Pending</p>
+                <p className='usernavbar-item-title'>Friends</p>
               </div>
             </NavLink>
           </li>
@@ -63,17 +63,17 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/readbooks'
+              to='/user/profile'
             >
               <div className='usernavbar-item'>
                 <span
                   className='usernavbar-item-icon'
                   role='img'
-                  aria-label='read'
+                  aria-label='profile'
                 >
                   📚
                 </span>
-                <p className='usernavbar-item-title'>Read</p>
+                <p className='usernavbar-item-title'>Profile</p>
               </div>
             </NavLink>
           </li>

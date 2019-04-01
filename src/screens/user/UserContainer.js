@@ -3,10 +3,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import UserNavBar from '../../components/misc/UserNavBar';
 import Explore from './Explore';
 import Motivation from './Motivation';
-import PendingBooks from './PendingBooks';
-import ReadBooks from './ReadBooks';
+import Friends from './Friends';
 import BasicTopBar from '../../components/misc/BasicTopBar';
 import BookDetail from './BookDetail';
+import Profile from './Profile';
 
 export default class UserContainer extends Component {
   render() {
@@ -16,8 +16,8 @@ export default class UserContainer extends Component {
         <Switch>
           <Route exact path='/user/explore' component={Explore} />
           <Route exact path='/user/motivation' component={Motivation} />
-          <Route exact path='/user/pendingbooks' component={PendingBooks} />
-          <Route exact path='/user/readbooks' component={ReadBooks} />
+          <Route exact path='/user/friends' component={Friends} />
+          <Route exact path='/user/profile' component={Profile} />
           <Route path='/user/explore/:bookId' component={BookDetail} />
           <Redirect to='/user/explore' />
         </Switch>

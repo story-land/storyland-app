@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-export default class ReadBooks extends Component {
+export default class Friends extends Component {
   render() {
     return (
       <div className='container-fluid'>
         <div className='screen-container'>
-          <h1 className='section-title'>Books that you have read</h1>
+          <h1 className='section-title'>Friends</h1>
         </div>
       </div>
     );

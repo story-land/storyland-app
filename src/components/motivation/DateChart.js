@@ -63,8 +63,6 @@ class DateChart extends Component {
 
   render() {
     const { period, data } = this.state;
-    console.log(period);
-    console.log(data);
     return (
       <div className='chart-section'>
         <div className='chart-input'>
