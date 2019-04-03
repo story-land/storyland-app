@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BookListItem from './BookListItem';
 import userbookService from '../../services/userbook-service';
 
-export default class BooksList extends Component {
+export default class ProfileBooksList extends Component {
   state = {
     books: []
   };
