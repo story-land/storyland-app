@@ -1,109 +1,100 @@
 import React, { Component } from 'react';
-import Trend from 'react-trend';
+import { DateTime } from 'luxon';
 import { Select } from 'antd';
+import { Chart } from 'react-charts';
 import { withAuthConsumer } from '../../contexts/AuthStore';
+import goalsService from '../../services/goals-service';
 
 class DateChart extends Component {
   state = {
     period: 'month',
-    data: []
+    data: {}
   };
 
   handlePeriodChange = event => {
     const periodSelect = event;
-    this.setState({
-      period: periodSelect
-    });
     this.handleDataGraphic(periodSelect);
   };
 
   handleDataGraphic = period => {
-    const { goals } = this.props;
-    let data = [];
+    let pages = [];
+    let labels = [];
     switch (period) {
       case 'year':
-        {
-          data = goals
-            .filter(elem => {
-              return (
-                new Date().getFullYear() ===
-                new Date(elem.updatedAt).getFullYear()
-              );
-            })
-            .map(elem => elem.pagesDay);
-        }
+        goalsService.getLastGoals(365).then(goals => {
+          for (let goal of goals) {
+            let date = new Date(goal.updatedAt);
+            labels.push(DateTime.fromJSDate(date).monthShort);
+            pages.push(goal.pagesDay);
+          }
+        });
         break;
       case 'month':
-        {
-          data = goals
-            .filter(elem => {
-              return (
-                new Date().getMonth() === new Date(elem.updatedAt).getMonth()
-              );
-            })
-            .map(elem => elem.pagesDay);
-        }
+        goalsService.getLastGoals(30).then(goals => {
+          for (let goal of goals) {
+            let date = new Date(goal.updatedAt);
+            labels.push(
+              DateTime.fromJSDate(date).day +
+                DateTime.fromJSDate(date).monthShort
+            );
+            pages.push(goal.pagesDay);
+          }
+        });
         break;
       case 'week':
       default:
-      // Implement later
-      // {
-      //   data = goals
-      //     .reduce(elem => {
-      //       return (
-      //         new Date().getMonth() === new Date(elem.updatedAt).getMonth()
-      //       );
-      //     })
-      //     .map(elem => elem.pagesDay);
-      // }
-      // break;
+        goalsService.getLastGoals(7).then(goals => {
+          for (let goal of goals) {
+            let date = new Date(goal.updatedAt);
+            labels.push(
+              DateTime.fromJSDate(date).weekdayShort +
+                DateTime.fromJSDate(date).day
+            );
+            pages.push(goal.pagesDay);
+          }
+        });
     }
-    this.setState({ data: data });
+    this.setState({
+      data: {
+        labels: labels,
+        pages: pages
+      },
+      period: period
+    });
+  };
+
+  componentWillMount = () => {
+    this.handleDataGraphic('month');
   };
 
   render() {
-    const { period, data } = this.state;
+    const { data } = this.state;
+    const { labels, pages } = data;
+    const dataArr = [];
+    for (let i = 0; i < labels.length; i++) {
+      const obj = {
+        x: labels[i],
+        y: pages[i]
+      };
+    }
+    let dates = [
+      {
+        label: 'Pages read',
+        data: [dataArr]
+      }
+    ];
+
     return (
       <div className='chart-section'>
         <div className='chart-input'>
           <h2 className='category-title'>What you read</h2>
           <Select defaultValue='month' onChange={this.handlePeriodChange}>
-            <Select.Option value='week'>this week</Select.Option>
-            <Select.Option value='month'>this month</Select.Option>
-            <Select.Option value='year'>this year</Select.Option>
+            <Select.Option value='week'>the last week</Select.Option>
+            <Select.Option value='month'>the last month</Select.Option>
+            <Select.Option value='year'>the last year</Select.Option>
           </Select>
         </div>
-        <div className='chart-graphic'>
-          <Trend
-            data={[
-              ...data,
-              3,
-              4,
-              5,
-              15,
-              38,
-              24,
-              10,
-              59,
-              42,
-              12,
-              25,
-              10,
-              59,
-              42,
-              12,
-              25
-            ]}
-            autoDraw
-            autoDrawDuration={5000}
-            autoDrawEasing='ease-in-out'
-            gradient={['#e2474b', '#406d96', '#2f3a56']}
-            strokeWidth={4}
-            smooth
-            height={200}
-            radius={20}
-          />
-        </div>
+        <div className='chart-graphic'>{/* <Chart data={dates} /> */}</div>
       </div>
     );
   }

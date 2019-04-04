@@ -20,35 +20,30 @@ class ReadToday extends Component {
       pagesDay: this.state.pagesDay
     };
     if (goal.pagesDay > 0) {
-      goalsService
-        .createGoal(goal)
-        .then(() => console.log('Goal created'), error => console.log(error));
+      goalsService.createGoal(goal).then();
+      this.props.user.pagesGoal <= this.state.pagesDay
+        ? this.props.congratsBox(true)
+        : this.props.congratsBox(false);
     }
   };
 
   valuePages = () => {
-    const todayGoal = this.props.goals.find(elem => {
+    goalsService.getLastGoals(1).then(goals => {
       const todayDate = new Date();
-      const elemDate = new Date(elem.updatedAt);
-      const day = todayDate.getDate() === elemDate.getDate();
-      const month = todayDate.getMonth() === elemDate.getMonth();
-      const year = todayDate.getFullYear() === elemDate.getFullYear();
+      const goalDate = new Date(goals[0].updatedAt);
+      const day = todayDate.getDate() === goalDate.getDate();
+      const month = todayDate.getMonth() === goalDate.getMonth();
+      const year = todayDate.getFullYear() === goalDate.getFullYear();
       if (day && month && year) {
-        return elem;
+        this.setState({
+          pagesDay: goals[0].pagesDay
+        });
       }
     });
-    if (todayGoal) {
-      this.setState({
-        pagesDay: todayGoal.pagesDay
-      });
-    }
   };
 
   componentDidMount = () => {
-    goalsService.getGoals().then(goals => {
-      this.props.goalsChanged(goals);
-      this.valuePages();
-    });
+    this.valuePages();
   };
 
   render() {

@@ -12,7 +12,7 @@ class Explore extends Component {
 
   onSearch = search => {
     this.setState({ search });
-    if (this.state.search.length >= 4) {
+    if (this.state.search.length >= 3) {
       booksService.getSearchedBook(search).then(books => {
         this.setState({ books });
       });
@@ -21,7 +21,6 @@ class Explore extends Component {
 
   render() {
     const { books, search } = this.state;
-    console.log(search);
     return (
       <div className='screen-container'>
         <SearchBar onSearch={this.onSearch} />
