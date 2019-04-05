@@ -18,9 +18,11 @@ export default class ExploreAllBooks extends Component {
   };
 
   render() {
-    const books = this.state.books.map(book => {
-      return <BookItem key={book.isbn} book={book} />;
-    });
+    const books = this.state.books
+      .sort(() => 0.5 - Math.random())
+      .map(book => {
+        return <BookItem key={book.id} book={book} />;
+      });
 
     return (
       <div className='category-screen'>

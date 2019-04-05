@@ -7,6 +7,7 @@ import Friends from './Friends';
 import BasicTopBar from '../../components/misc/BasicTopBar';
 import BookDetail from './BookDetail';
 import Profile from './Profile';
+import SampleBook from './SampleBook';
 
 export default class UserContainer extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class UserContainer extends Component {
           <Route exact path='/user/motivation' component={Motivation} />
           <Route exact path='/user/friends' component={Friends} />
           <Route exact path='/user/profile' component={Profile} />
+          <Route path='/user/explore/sample/:isbn' component={SampleBook} />
           <Route path='/user/explore/:bookId' component={BookDetail} />
           <Redirect to='/user/explore' />
         </Switch>

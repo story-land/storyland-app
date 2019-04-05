@@ -12,8 +12,9 @@ class Explore extends Component {
 
   onSearch = search => {
     this.setState({ search });
-    if (this.state.search.length >= 3) {
+    if (this.state.search.length > 3) {
       booksService.getSearchedBook(search).then(books => {
+        this.setState({ books: [] });
         this.setState({ books });
       });
     }

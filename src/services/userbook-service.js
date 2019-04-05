@@ -18,7 +18,17 @@ const getReadBooks = () =>
     })
     .then(response => response.data);
 
+const getStateBook = book =>
+  http.get(`/users/books/${book}`).then(response => response.data);
+
+const createStateBook = (book, state) =>
+  http
+    .post(`/users/books/${book}?state=${state}`)
+    .then(response => response.data);
+
 export default {
   getPendingBooks,
-  getReadBooks
+  getReadBooks,
+  getStateBook,
+  createStateBook
 };

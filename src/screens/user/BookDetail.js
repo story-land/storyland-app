@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import booksService from '../../services/books-service';
+import userbooksService from '../../services/userbook-service';
 
 export default class BookDetail extends Component {
   state = {
-    book: {}
+    book: {},
+    state: ''
   };
 
-  handlePendingBook = () => {};
-
-  handleReadBook = () => {};
+  handleStateButton = event => {
+    const state = event.target.value;
+    this.setState({ state });
+    userbooksService.createStateBook(this.state.book.id, state);
+    userbooksService.getStateBook(this.state.book.id).then(state => {
+      this.setState({ state: state });
+    });
+  };
 
   componentDidMount = () => {
     const { bookId } = this.props.match.params;
     booksService.getOneBook(bookId).then(book => {
-      this.setState({
-        book: book
-      });
+      this.setState({ book: book });
+    });
+    userbooksService.getStateBook(bookId).then(state => {
+      this.setState({ state: state });
     });
   };
 
@@ -23,7 +32,7 @@ export default class BookDetail extends Component {
     const authors = [this.state.book.authors]
       .flat()
       .map((author, index) => <span key={index}>{author}</span>);
-    const book = this.state.book;
+    const { book, state } = this.state;
 
     return (
       <div className='book-detail-screen'>
@@ -38,13 +47,69 @@ export default class BookDetail extends Component {
             </div>
           </div>
           <div className='book-detail-buttons'>
-            <button className='my-button pending-button'>
-              Mark as pending
+            <button
+              className={
+                state === 'pending'
+                  ? 'my-button active-state'
+                  : 'my-button pending-button'
+              }
+              value='pending'
+              onClick={this.handleStateButton}
+            >
+              pending
             </button>
-            <button className='my-button read-button'>Mark as read</button>
+            <button
+              className={
+                state === 'reading'
+                  ? 'my-button active-state'
+                  : 'my-button reading-button'
+              }
+              value='reading'
+              onClick={this.handleStateButton}
+            >
+              reading
+            </button>
+            <button
+              className={
+                state === 'read'
+                  ? 'my-button active-state'
+                  : 'my-button reading-button'
+              }
+              value='read'
+              onClick={this.handleStateButton}
+            >
+              read
+            </button>
+          </div>
+          <div className='book-detail-info'>
+            {state && (
+              <p>
+                <strong>State:</strong> {state}
+              </p>
+            )}
+            {book.pageCount && (
+              <p>
+                <strong>Page count:</strong> {book.pageCount}
+              </p>
+            )}
+            {book.googleRating && (
+              <p>
+                <strong>Rating:</strong> {book.googleRating}/5
+              </p>
+            )}
+            {book.pdfSampleLink && (
+              <Link to={`/user/explore/sample/ISBN:${book.isbn}`}>
+                <button className='my-button read-sample-button'>
+                  Read a sample
+                </button>
+              </Link>
+            )}
           </div>
           <div className='book-detail-summary'>
-            <p>{book.description}</p>
+            <p>
+              <strong>Description: </strong>
+              {book.description}
+            </p>
           </div>
         </div>
       </div>

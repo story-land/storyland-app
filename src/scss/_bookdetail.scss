@@ -35,6 +35,15 @@
   background: map-get($color, vivid);
 }
 
-.read-button {
+.read-button,
+.read-sample-button {
   background: map-get($color, cool);
+}
+
+.reading-button {
+  background: map-get($color, vivid);
+}
+
+.active-state {
+  background: map-get($color, soft-blue);
 }
