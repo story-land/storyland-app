@@ -1,19 +1,10 @@
 import http from './base-http-service';
 
-const getPendingBooks = () =>
+const getProfileBooks = state =>
   http
     .get('/users/books', {
       params: {
-        state: 'pending'
-      }
-    })
-    .then(response => response.data);
-
-const getReadBooks = () =>
-  http
-    .get('users/books', {
-      params: {
-        state: 'read'
+        state: state
       }
     })
     .then(response => response.data);
@@ -27,8 +18,7 @@ const createStateBook = (book, state) =>
     .then(response => response.data);
 
 export default {
-  getPendingBooks,
-  getReadBooks,
+  getProfileBooks,
   getStateBook,
   createStateBook
 };
