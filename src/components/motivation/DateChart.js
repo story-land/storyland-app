@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { DateTime } from 'luxon';
 import { Select } from 'antd';
-import { Chart } from 'react-charts';
+import { ResponsiveLine } from 'nivo';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import goalsService from '../../services/goals-service';
 
 class DateChart extends Component {
   state = {
     period: 'month',
-    data: {}
+    data: []
   };
 
   handlePeriodChange = event => {
@@ -17,28 +17,33 @@ class DateChart extends Component {
   };
 
   handleDataGraphic = period => {
-    let pages = [];
-    let labels = [];
+    const data = [];
+
+    const pushToData = (x, y) => {
+      data.push({ x, y });
+    };
+
     switch (period) {
       case 'year':
         goalsService.getLastGoals(365).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            labels.push(DateTime.fromJSDate(date).monthShort);
-            pages.push(goal.pagesDay);
+            pushToData(DateTime.fromJSDate(date).monthShort, goal.pagesDay);
           }
+          this.setDataGraphic(data, period);
         });
         break;
       case 'month':
         goalsService.getLastGoals(30).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            labels.push(
+            pushToData(
               DateTime.fromJSDate(date).day +
-                DateTime.fromJSDate(date).monthShort
+                DateTime.fromJSDate(date).monthShort,
+              goal.pagesDay
             );
-            pages.push(goal.pagesDay);
           }
+          this.setDataGraphic(data, period);
         });
         break;
       case 'week':
@@ -46,20 +51,21 @@ class DateChart extends Component {
         goalsService.getLastGoals(7).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            labels.push(
+            pushToData(
               DateTime.fromJSDate(date).weekdayShort +
-                DateTime.fromJSDate(date).day
+                DateTime.fromJSDate(date).day,
+              goal.pagesDay
             );
-            pages.push(goal.pagesDay);
           }
+          this.setDataGraphic(data, period);
         });
     }
+  };
+
+  setDataGraphic = (data, period) => {
     this.setState({
-      data: {
-        labels: labels,
-        pages: pages
-      },
-      period: period
+      data,
+      period
     });
   };
 
@@ -69,20 +75,69 @@ class DateChart extends Component {
 
   render() {
     const { data } = this.state;
-    const { labels, pages } = data;
-    const dataArr = [];
-    for (let i = 0; i < labels.length; i++) {
-      const obj = {
-        x: labels[i],
-        y: pages[i]
-      };
-    }
-    let dates = [
+
+    const dataArr = [
       {
-        label: 'Pages read',
-        data: [dataArr]
+        id: 'user',
+        data: [...data]
       }
     ];
+
+    const responsiveLine = (
+      <ResponsiveLine
+        data={dataArr}
+        margin={{
+          top: 30,
+          right: 30,
+          bottom: 30,
+          left: 30
+        }}
+        xScale={{
+          type: 'point',
+          stacked: true,
+          min: 'auto',
+          max: 'auto'
+        }}
+        yScale={{
+          type: 'linear',
+          stacked: true,
+          min: 'auto',
+          max: 'auto'
+        }}
+        curve='natural'
+        axisBottom={{
+          orient: 'bottom',
+          legend: '',
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 5,
+          legendOffset: 36,
+          legendPosition: 'center'
+        }}
+        axisLeft={{
+          orient: 'left',
+          legend: '',
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 10,
+          legendOffset: -40,
+          legendPosition: 'center'
+        }}
+        enableGridX={false}
+        lineWidth={3}
+        dotSize={5}
+        dotColor='inherit:darker(1)'
+        dotBorderColor='#ffffff'
+        enableDotLabel={true}
+        dotLabel='y'
+        dotLabelYOffset={-12}
+        enableArea={true}
+        areaOpacity={0.2}
+        animate={true}
+        motionStiffness={90}
+        motionDamping={15}
+      />
+    );
 
     return (
       <div className='chart-section'>
@@ -94,7 +149,7 @@ class DateChart extends Component {
             <Select.Option value='year'>the last year</Select.Option>
           </Select>
         </div>
-        <div className='chart-graphic'>{/* <Chart data={dates} /> */}</div>
+        <div className='chart-graphic'>{responsiveLine}</div>
       </div>
     );
   }

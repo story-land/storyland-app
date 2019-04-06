@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import booksService from '../../services/books-service';
+import debounce from 'lodash/debounce';
 import SearchBar from '../../components/explore/SearchBar';
 import SearchBooksList from '../../components/books/SearchBooksList';
 import ExploreBestRatedBooks from '../../components/explore/ExploreBestRatedBooks';
@@ -12,21 +13,20 @@ class Explore extends Component {
     search: ''
   };
 
-  onSearch = search => {
+  onSearch = debounce(search => {
     this.setState({ search });
     if (search.length > 3) {
       booksService.getSearchedBook(search).then(books => {
-        this.setState({ books: [] });
         this.setState({ books });
       });
     }
-  };
+  }, 1000);
 
   render() {
     const { books, search } = this.state;
     return (
       <div className='screen-container'>
-        <SearchBar onSearch={this.onSearch} />
+        <SearchBar onSearch={this.onSearch.bind(this)} />
         {search && <SearchBooksList books={books} />}
         {!search && (
           <Fragment>

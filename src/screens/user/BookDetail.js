@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import booksService from '../../services/books-service';
 import userbooksService from '../../services/userbook-service';
 
@@ -35,7 +34,7 @@ export default class BookDetail extends Component {
     const { book, state } = this.state;
 
     return (
-      <div className='book-detail-screen'>
+      <div className='screen-container'>
         <div className='book-detail-container'>
           <div className='book-detail-maininfo'>
             <figure className='book-detail-cover'>
@@ -96,13 +95,6 @@ export default class BookDetail extends Component {
               <p>
                 <strong>Rating:</strong> {book.googleRating}/5
               </p>
-            )}
-            {book.pdfSampleLink && (
-              <Link to={`/user/explore/sample/ISBN:${book.isbn}`}>
-                <button className='my-button read-sample-button'>
-                  Read a sample
-                </button>
-              </Link>
             )}
           </div>
           <div className='book-detail-summary'>

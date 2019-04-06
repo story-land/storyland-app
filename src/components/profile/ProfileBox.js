@@ -103,9 +103,12 @@ class ProfileBox extends Component {
                   </p>
                 </div>
                 <div className='card-action profile-link'>
-                  <a onClick={this.editProfile}>
-                    <strong>Edit Profile</strong>
-                  </a>
+                  <button
+                    className='my-button edit-button'
+                    onClick={this.editProfile}
+                  >
+                    Edit Profile
+                  </button>
                 </div>
               </div>
             </div>
@@ -126,6 +129,7 @@ class ProfileBox extends Component {
                     className='profile-avatar-img'
                   />
                   <Upload
+                    className='upload-pic-button'
                     name='logo'
                     listType='picture'
                     beforeUpload={file => {

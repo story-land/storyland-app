@@ -40,6 +40,11 @@
   margin-right: 4vw;
 }
 
+.chart-graphic {
+  height: 250px;
+  width: 100%;
+}
+
 .congrats-box {
   border-radius: 8px;
   background-color: map-get($color, soft-blue);

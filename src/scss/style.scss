@@ -11,6 +11,11 @@
 @import './_motivation';
 @import './_booklist';
 
+html,
+body {
+  overflow: auto;
+}
+
 html a,
 button {
   color: map-get($color, cool);
@@ -27,7 +32,7 @@ body {
 
 .screen-container {
   width: 90%;
-  margin: 5vh auto;
+  margin: 40px auto 80px;
 }
 
 .category-screen {

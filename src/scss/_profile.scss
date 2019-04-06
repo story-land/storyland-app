@@ -40,10 +40,20 @@
 }
 
 .profile-form-group {
-  width: 80%;
+}
+.ant-input-affix-wrapper input {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.profile-form-group input {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .profile-form-image {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   width: 100%;
 }
@@ -63,7 +73,8 @@
   margin-right: 5px;
 }
 
-.update-button {
+.update-button,
+.edit-button {
   background-color: map-get($color, cool);
   margin-left: 5px;
 }
