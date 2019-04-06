@@ -1,0 +1,13 @@
+.collection {
+  border-radius: 20px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.collection .collection-item.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.collection .collection-item.avatar a {
+  color: #000;
+}

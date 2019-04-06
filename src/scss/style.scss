@@ -7,11 +7,13 @@
 @import './_register';
 @import './_bookdetail';
 @import './_explore';
+@import './_profile';
 @import './_motivation';
+@import './_booklist';
 
 html a,
 button {
-  color: map-get($color, soft-vivid);
+  color: map-get($color, cool);
 }
 
 body {

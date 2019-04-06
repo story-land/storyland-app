@@ -5,7 +5,7 @@ export default class ReadBooks extends Component {
   render() {
     return (
       <div className='screen-container'>
-        <h1 className='section-title'>Books that you have read</h1>
+        <h2 className='section-title'>Books that you have read</h2>
         <ProfileBooksList state='read' />
       </div>
     );
