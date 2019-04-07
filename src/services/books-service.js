@@ -2,8 +2,13 @@ import http from './base-http-service';
 
 const getAllBooks = () => http.get('/books').then(response => response.data);
 
-const getRelatedBooks = genres =>
-  http.get(`/books?genres=${genres}`).then(response => response.data);
+const getRelatedBooks = genres => {
+  console.log(genres);
+  if (genres.includes('&')) {
+    genres = genres.replace('&', '@');
+  }
+  return http.get(`/books?genres=${genres}`).then(response => response.data);
+};
 
 const getBestRatedBooks = rating =>
   http.get(`/books?rating=${rating}`).then(response => response.data);
