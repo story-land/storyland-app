@@ -19,8 +19,8 @@ class DateChart extends Component {
   handleDataGraphic = period => {
     const data = [];
 
-    const pushToData = (x, y) => {
-      data.push({ x, y });
+    const unshiftToData = (x, y) => {
+      data.unshift({ x, y });
     };
 
     switch (period) {
@@ -28,7 +28,11 @@ class DateChart extends Component {
         goalsService.getLastGoals(365).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            pushToData(DateTime.fromJSDate(date).monthShort, goal.pagesDay);
+            unshiftToData(
+              DateTime.fromJSDate(date).day +
+                DateTime.fromJSDate(date).monthShort,
+              goal.pagesDay
+            );
           }
           this.setDataGraphic(data, period);
         });
@@ -37,7 +41,7 @@ class DateChart extends Component {
         goalsService.getLastGoals(30).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            pushToData(
+            unshiftToData(
               DateTime.fromJSDate(date).day +
                 DateTime.fromJSDate(date).monthShort,
               goal.pagesDay
@@ -51,7 +55,7 @@ class DateChart extends Component {
         goalsService.getLastGoals(7).then(goals => {
           for (let goal of goals) {
             let date = new Date(goal.updatedAt);
-            pushToData(
+            unshiftToData(
               DateTime.fromJSDate(date).weekdayShort +
                 DateTime.fromJSDate(date).day,
               goal.pagesDay
@@ -69,7 +73,7 @@ class DateChart extends Component {
     });
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.handleDataGraphic('month');
   };
 
@@ -78,18 +82,17 @@ class DateChart extends Component {
 
     const dataArr = [
       {
-        id: 'user',
+        id: 'Pages',
         data: [...data]
       }
     ];
-
     const responsiveLine = (
       <ResponsiveLine
         data={dataArr}
         margin={{
-          top: 30,
+          top: 50,
           right: 30,
-          bottom: 30,
+          bottom: 40,
           left: 30
         }}
         xScale={{
@@ -99,43 +102,44 @@ class DateChart extends Component {
           max: 'auto'
         }}
         yScale={{
-          type: 'linear',
-          stacked: true,
-          min: 'auto',
-          max: 'auto'
+          type: 'number',
+          stacked: false,
+          min: 0,
+          max: 150
         }}
         curve='natural'
         axisBottom={{
           orient: 'bottom',
           legend: '',
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 5,
+          tickSize: 0,
+          tickPadding: 10,
+          tickRotation: 0,
           legendOffset: 36,
           legendPosition: 'center'
         }}
         axisLeft={{
           orient: 'left',
           legend: '',
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 10,
+          tickSize: 0,
+          tickPadding: 15,
+          tickRotation: 0,
           legendOffset: -40,
           legendPosition: 'center'
         }}
-        enableGridX={false}
-        lineWidth={3}
+        enableGridY={false}
+        lineWidth={5}
         dotSize={5}
+        colors='paired'
         dotColor='inherit:darker(1)'
         dotBorderColor='#ffffff'
         enableDotLabel={true}
         dotLabel='y'
-        dotLabelYOffset={-12}
+        dotLabelYOffset={-15}
         enableArea={true}
         areaOpacity={0.2}
         animate={true}
-        motionStiffness={90}
-        motionDamping={15}
+        motionStiffness={100}
+        motionDamping={5}
       />
     );
 

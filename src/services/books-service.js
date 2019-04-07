@@ -3,7 +3,6 @@ import http from './base-http-service';
 const getAllBooks = () => http.get('/books').then(response => response.data);
 
 const getRelatedBooks = genres => {
-  console.log(genres);
   if (genres.includes('&')) {
     genres = genres.replace('&', '@');
   }

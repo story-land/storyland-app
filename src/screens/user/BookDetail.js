@@ -45,7 +45,7 @@ export default class BookDetail extends Component {
       booksService.getOneBook(bookId),
       userbooksService.getStateBook(bookId)
     ]).then(([book, state]) => {
-      const genre = book.genres;
+      const genre = book.genres[0];
       booksService.getRelatedBooks(genre).then(relatedBooks => {
         this.setState({
           book,

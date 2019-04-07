@@ -7,12 +7,12 @@ import ReadingBooks from '../../components/profile/ReadingBooks';
 export default class Profile extends Component {
   render() {
     return (
-      <Fragment>
+      <div className='screen-container'>
         <ProfileBox />
         <ReadingBooks />
         <PendingBooks />
         <ReadBooks />
-      </Fragment>
+      </div>
     );
   }
 }
