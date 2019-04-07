@@ -1,11 +1,17 @@
+.explore-search-bar {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 .book-card {
   text-align: center;
   margin: 0 10px;
 }
 
 .book-cover {
-  width: 120px;
-  height: 180px;
+  width: 130px;
+  height: 190px;
 }
 
 .book-info {
@@ -24,4 +30,14 @@
 
 .book-authors {
   font-size: 0.6em;
+}
+
+.genre-input {
+  display: flex;
+  flex-direction: row;
+}
+
+.genre-input .ant-select {
+  width: 140px;
+  margin: 0 20px;
 }

@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class BookItem extends Component {
+  handleAuthors = () => {
+    if (this.props.book.authors) {
+      let authors = [this.props.book.authors];
+      if (authors.length === 1) authors = authors[0];
+      if (authors.length > 1) authors = authors.join(' & ');
+      return authors;
+    } else {
+      return '';
+    }
+  };
+
   render() {
-    const { imageLink, title, authors, id, genres } = this.props.book;
+    const { imageLink, title, id, genres } = this.props.book;
+    const authors = this.handleAuthors();
     // const genre = genres[0];
-    const author = [authors]
-      .flat()
-      .map((author, index) => <span key={index}>{author}</span>);
 
     return (
       <li className='book-card card'>
@@ -18,7 +27,7 @@ export default class BookItem extends Component {
           </figure>
           <div className='book-info'>
             <h4 className='book-title'>{title}</h4>
-            <p className='book-authors'>{author}</p>
+            <p className='book-authors'>{authors}</p>
           </div>
         </Link>
       </li>

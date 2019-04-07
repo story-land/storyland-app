@@ -35,13 +35,19 @@
   height: 120px;
 }
 
+.upload-pic-button {
+  margin-top: 10px;
+}
+
 .profile-info {
   margin-left: 10px;
 }
 
 .profile-form-group {
+  margin: 10px 0;
 }
-.ant-input-affix-wrapper input {
+
+.ant-input-affix-wrapper .ant-input:not(:last-child) {
   margin: 0 auto;
   box-sizing: border-box;
 }

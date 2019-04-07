@@ -14,21 +14,6 @@ class ProfileBox extends Component {
     avatar: null
   };
 
-  // handleChange = params => {
-  //   if (params.event) {
-  //     console.log(params.event.target.files);
-  //   }
-  //   // const { files } = event.target;
-  //   // this.setState({
-  //   //   avatar: files && files[0] ? files[0] : null
-  //   // });
-  // };
-
-  handleChange(info) {
-    console.log(info.fileList);
-    // this.setState({ 'selectedFiles': info.fileList });
-  }
-
   editProfile = () => {
     this.setState({
       editBox: true
@@ -37,7 +22,10 @@ class ProfileBox extends Component {
 
   cancelEdit = () => {
     this.setState({
-      editBox: false
+      user: this.props.user,
+      error: '',
+      editBox: false,
+      avatar: null
     });
   };
 
@@ -72,7 +60,7 @@ class ProfileBox extends Component {
   };
 
   render() {
-    const { user, editBox, error } = this.state;
+    const { user, editBox, error, avatar } = this.state;
     const { getFieldProps, getFieldError } = this.props.form;
     return (
       <Fragment>
@@ -80,20 +68,15 @@ class ProfileBox extends Component {
           <div className='screen-container'>
             <div className='card horizontal profile-card'>
               <div className='card-image profile-avatar'>
-                {user.avatarURL && (
-                  <img
-                    src={user.avatarURL}
-                    alt='profile-pic'
-                    className='profile-avatar-img'
-                  />
-                )}
-                {!user.avatarURL && (
-                  <img
-                    src='https://profile.actionsprout.com/default.jpeg'
-                    alt='profile-pic'
-                    className='profile-avatar-img'
-                  />
-                )}
+                <img
+                  src={
+                    user.avatarURL
+                      ? user.avatarURL
+                      : 'https://profile.actionsprout.com/default.jpeg'
+                  }
+                  alt='profile-pic'
+                  className='profile-avatar-img'
+                />
               </div>
               <div className='card-stacked'>
                 <div className='card-content'>
@@ -121,9 +104,11 @@ class ProfileBox extends Component {
                 <div className='profile-form-image'>
                   <img
                     src={
-                      !user.avatarURL
-                        ? 'https://profile.actionsprout.com/default.jpeg'
+                      avatar
+                        ? URL.createObjectURL(avatar)
                         : user.avatarURL
+                        ? user.avatarURL
+                        : 'https://profile.actionsprout.com/default.jpeg'
                     }
                     alt='profile-pic'
                     className='profile-avatar-img'

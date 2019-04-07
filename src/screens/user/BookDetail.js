@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { Collapse } from 'antd';
+import Slider from 'react-slick';
+import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
 import userbooksService from '../../services/userbook-service';
+import BookItem from '../../components/books/BookItem';
+
+const Panel = Collapse.Panel;
 
 export default class BookDetail extends Component {
   state = {
     book: {},
+    relatedBooks: [],
     state: ''
   };
 
@@ -17,22 +24,48 @@ export default class BookDetail extends Component {
     });
   };
 
+  formatDate = date => {
+    return new Date(date).toLocaleDateString();
+  };
+
+  handleAuthors = () => {
+    if (this.state.book.authors) {
+      let authors = [this.state.book.authors];
+      if (authors.length === 1) authors = authors[0];
+      if (authors.length > 1) authors = authors.join(' & ');
+      return authors;
+    } else {
+      return '';
+    }
+  };
+
   componentDidMount = () => {
     const { bookId } = this.props.match.params;
-    booksService.getOneBook(bookId).then(book => {
-      this.setState({ book: book });
-    });
-    userbooksService.getStateBook(bookId).then(state => {
-      this.setState({ state: state });
+    Promise.all([
+      booksService.getOneBook(bookId),
+      userbooksService.getStateBook(bookId)
+    ]).then(([book, state]) => {
+      const genre = book.genres;
+      booksService.getRelatedBooks(genre).then(relatedBooks => {
+        this.setState({
+          book,
+          state,
+          relatedBooks
+        });
+      });
     });
   };
 
   render() {
-    const authors = [this.state.book.authors]
-      .flat()
-      .map((author, index) => <span key={index}>{author}</span>);
     const { book, state } = this.state;
-
+    const authors = this.handleAuthors();
+    const publishedDate = this.formatDate(this.state.book.publishedDate);
+    const relatedBooks = this.state.relatedBooks
+      .filter(elem => elem.isbn !== book.isbn)
+      .sort(() => 0.5 - Math.random())
+      .map(book => {
+        return <BookItem key={book.id} book={book} />;
+      });
     return (
       <div className='screen-container'>
         <div className='book-detail-container'>
@@ -80,29 +113,36 @@ export default class BookDetail extends Component {
               read
             </button>
           </div>
-          <div className='book-detail-info'>
-            {state && (
-              <p>
-                <strong>State:</strong> {state}
-              </p>
-            )}
-            {book.pageCount && (
-              <p>
-                <strong>Page count:</strong> {book.pageCount}
-              </p>
-            )}
-            {book.googleRating && (
-              <p>
-                <strong>Rating:</strong> {book.googleRating}/5
-              </p>
-            )}
-          </div>
           <div className='book-detail-summary'>
-            <p>
-              <strong>Description: </strong>
-              {book.description}
-            </p>
+            <Collapse bordered={false} defaultActiveKey={[]}>
+              {book.googleRating && (
+                <Panel header='Rating' key='1'>
+                  {book.googleRating}
+                </Panel>
+              )}
+              {book.pageCount && (
+                <Panel header='Page Count' key='2'>
+                  {book.pageCount} pages
+                </Panel>
+              )}
+              {publishedDate && (
+                <Panel header='Published Date' key='3'>
+                  Date: {publishedDate}
+                </Panel>
+              )}
+              {book.description && (
+                <Panel header='Description' key='4'>
+                  {book.description}
+                </Panel>
+              )}
+            </Collapse>
           </div>
+        </div>
+        <div className='category-screen'>
+          <h4 className='category-title'>Related books</h4>
+          <ul className='book-container'>
+            <Slider {...sliderSettings}>{relatedBooks}</Slider>
+          </ul>
         </div>
       </div>
     );

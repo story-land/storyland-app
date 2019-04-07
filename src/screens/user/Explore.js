@@ -6,6 +6,7 @@ import SearchBooksList from '../../components/books/SearchBooksList';
 import ExploreBestRatedBooks from '../../components/explore/ExploreBestRatedBooks';
 import ExploreRelatedBooks from '../../components/explore/ExploreRelatedBooks';
 import ExploreLatestBooks from '../../components/explore/ExploreLatestBooks';
+import ExploreBooksByGenre from '../../components/explore/ExploreBooksByGenre';
 
 class Explore extends Component {
   state = {
@@ -36,6 +37,7 @@ class Explore extends Component {
             <ExploreRelatedBooks />
             <ExploreBestRatedBooks />
             <ExploreLatestBooks />
+            <ExploreBooksByGenre />
           </Fragment>
         )}
       </div>
