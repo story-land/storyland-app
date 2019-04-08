@@ -31,9 +31,6 @@ class Explore extends Component {
         {search && <SearchBooksList books={books} />}
         {!search && (
           <Fragment>
-            <h1 className='section-title'>
-              Discover books that you might like
-            </h1>
             <ExploreRelatedBooks />
             <ExploreBestRatedBooks />
             <ExploreLatestBooks />

@@ -1,13 +1,23 @@
+.booklist-container .collection,
 .collection {
+  border: 0;
   border-radius: 20px;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  background: map-get($palette, light-grey);
+  color: map-get($palette, main-white);
+}
+
+.collection .collection-item {
+  border-bottom: 1px solid map-get($palette, lighter-grey);
 }
 
 .collection .collection-item.avatar {
   display: flex;
   align-items: center;
+  background: map-get($palette, light-grey);
+  color: map-get($palette, main-white);
 }
 
-.collection .collection-item.avatar a {
-  color: #000;
+.collection .collection-item.avatar .title,
+.collection .collection-item.avatar p {
+  color: map-get($palette, main-white);
 }

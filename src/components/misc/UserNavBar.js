@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faHome);
+library.add(faCompass);
+library.add(faUsers);
+library.add(faUserCircle);
 
 export default class UserNavBar extends Component {
   render() {
@@ -13,14 +24,7 @@ export default class UserNavBar extends Component {
               to='/user/motivation'
             >
               <div className='usernavbar-item'>
-                <span
-                  className='usernavbar-item-icon'
-                  role='img'
-                  aria-label='motivation'
-                >
-                  💪
-                </span>
-                <p className='usernavbar-item-title'>Motivation</p>
+                <FontAwesomeIcon icon='home' />
               </div>
             </NavLink>
           </li>
@@ -31,13 +35,7 @@ export default class UserNavBar extends Component {
               to='/user/explore'
             >
               <div className='usernavbar-item'>
-                <span
-                  className='usernavbar-item-icon'
-                  role='img'
-                  aria-label='explore'
-                />
-                🧭
-                <p className='usernavbar-item-title'>Explore</p>
+                <FontAwesomeIcon icon='compass' />
               </div>
             </NavLink>
           </li>
@@ -48,14 +46,7 @@ export default class UserNavBar extends Component {
               to='/user/friends'
             >
               <div className='usernavbar-item'>
-                <span
-                  className='usernavbar-item-icon'
-                  role='img'
-                  aria-label='friends'
-                >
-                  🔜
-                </span>
-                <p className='usernavbar-item-title'>Friends</p>
+                <FontAwesomeIcon icon='users' />
               </div>
             </NavLink>
           </li>
@@ -66,14 +57,7 @@ export default class UserNavBar extends Component {
               to='/user/profile'
             >
               <div className='usernavbar-item'>
-                <span
-                  className='usernavbar-item-icon'
-                  role='img'
-                  aria-label='profile'
-                >
-                  📚
-                </span>
-                <p className='usernavbar-item-title'>Profile</p>
+                <FontAwesomeIcon icon='user-circle' />
               </div>
             </NavLink>
           </li>

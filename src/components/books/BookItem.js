@@ -25,10 +25,6 @@ export default class BookItem extends Component {
             <img className='book-cover' src={imageLink} alt={title} />
             {/* <span className='badge red'>{genre}</span> */}
           </figure>
-          <div className='book-info'>
-            <h4 className='book-title'>{title}</h4>
-            <p className='book-authors'>{authors}</p>
-          </div>
         </Link>
       </li>
     );

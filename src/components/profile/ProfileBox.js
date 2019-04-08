@@ -1,10 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/auth-service';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { createForm } from '../../utils/createForm';
 import { Upload, Button, Icon } from 'antd';
 import { checkEmail, checkName } from '../../utils/validators';
 import InputField from '../InputField';
+
+library.add(faCog);
 
 class ProfileBox extends Component {
   state = {
@@ -85,13 +90,8 @@ class ProfileBox extends Component {
                     Daily goal: <strong>{user.pagesGoal} pages</strong>
                   </p>
                 </div>
-                <div className='card-action profile-link'>
-                  <button
-                    className='my-button edit-button'
-                    onClick={this.editProfile}
-                  >
-                    Edit Profile
-                  </button>
+                <div className='profile-link'>
+                  <FontAwesomeIcon icon='cog' onClick={this.editProfile} />
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ class ProfileBox extends Component {
         )}
         {editBox && (
           <div className='screen-container'>
-            <div className='card-horizontal profile-card'>
+            <div className='card-horizontal profile-card profile-card-edit'>
               <div className='card-image profile-avatar-edit'>
                 <div className='profile-form-image'>
                   <img

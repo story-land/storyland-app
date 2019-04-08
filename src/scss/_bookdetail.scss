@@ -12,17 +12,20 @@
   align-items: center;
 }
 
-.book-detail-title {
+.detail-title,
+.detail-author {
   margin-left: 4vw;
 }
 
 .detail-title {
   font-size: 1.6em;
   font-weight: bold;
+  color: map-get($palette, main-white);
 }
 
 .detail-author {
   font-size: 1.2em;
+  color: map-get($palette, lighter-grey);
 }
 
 .book-detail-buttons {
@@ -32,18 +35,33 @@
 }
 
 .pending-button {
-  background: map-get($palette, main-yellow);
+  background: map-get($palette, light-grey);
 }
 
-.read-button,
-.read-sample-button {
-  background: map-get($palette, dark-yellow);
+.read-button {
+  background: map-get($palette, light-grey);
 }
 
 .reading-button {
-  background: map-get($palette, main-yellow);
+  background: map-get($palette, light-grey);
 }
 
 .active-state {
+  background: map-get($palette, main-yellow);
+}
+
+.ant-collapse {
   background: map-get($palette, light-grey);
+}
+
+.ant-collapse-borderless > .ant-collapse-item {
+  border-bottom: 1px solid map-get($palette, lighter-grey);
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  color: map-get($palette, main-white);
+}
+
+.ant-collapse-content-box {
+  color: map-get($palette, main-white);
 }

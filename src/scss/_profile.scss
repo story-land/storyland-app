@@ -7,6 +7,11 @@
   padding: 1.5em;
 }
 
+.profile-card-edit {
+  flex-direction: column;
+  justify-content: center;
+}
+
 .profile-avatar {
   width: 90px;
   height: 90px;
@@ -22,6 +27,12 @@
   p {
     color: map-get($palette, main-white);
   }
+}
+
+.profile-link {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .profile-avatar-edit {
@@ -43,7 +54,7 @@
 }
 
 .upload-pic-button {
-  margin-top: 10px;
+  margin: 20px 0;
 }
 
 .profile-info {
@@ -57,6 +68,11 @@
 .ant-input-affix-wrapper .ant-input:not(:last-child) {
   margin: 0 auto;
   box-sizing: border-box;
+  color: map-get($palette, main-white);
+}
+
+.ant-input-affix-wrapper .ant-input-suffix {
+  color: map-get($palette, main-white);
 }
 
 .profile-form-group input {
@@ -88,7 +104,8 @@
 
 .update-button,
 .edit-button {
-  background-color: map-get($palette, dark-yellow);
+  background-color: map-get($palette, main-yellow);
+  color: map-get($palette, main-dark) !important;
   margin-left: 5px;
 }
 
