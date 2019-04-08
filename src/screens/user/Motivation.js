@@ -36,13 +36,15 @@ class Motivation extends Component {
       <div className='screen-container'>
         {congratsText && (
           <div className='congrats-box'>
-            <h4>{congratsText}</h4>
-            <button
-              className='my-button congrats-button'
-              onClick={this.closeCongratsBox}
-            >
-              Close
-            </button>
+            <div className='congrats-text'>
+              <p>{congratsText}</p>
+              <button
+                className='my-button congrats-button'
+                onClick={this.closeCongratsBox}
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
         <h1 className='section-title'>How much did you read today?</h1>

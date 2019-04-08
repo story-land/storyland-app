@@ -21,3 +21,8 @@
 .collection .collection-item.avatar p {
   color: map-get($palette, main-white);
 }
+
+.collection .collection-item.avatar .authors-item {
+  color: map-get($palette, main-white);
+  font-weight: 300;
+}

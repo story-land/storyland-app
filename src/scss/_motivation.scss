@@ -45,10 +45,14 @@
   width: 100%;
 }
 
+.confirm-pages {
+  background: map-get($palette, main-yellow);
+  color: map-get($palette, main-dark) !important;
+}
+
 .congrats-box {
   border-radius: 8px;
   background-color: map-get($palette, light-grey);
-  opacity: 0.95;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -60,13 +64,24 @@
   left: 0;
   right: 0;
   margin: auto;
-  padding: 2vh 2vw;
   width: 80vw;
-  height: 30vh;
+  height: 20vh;
   z-index: 5;
 }
 
+.congrats-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.congrats-box p {
+  color: map-get($palette, main-white);
+}
+
 .congrats-button {
-  margin-top: 2vh;
+  margin: 2vh 0;
   background-color: map-get($palette, main-yellow);
+  color: map-get($palette, main-dark) !important;
 }

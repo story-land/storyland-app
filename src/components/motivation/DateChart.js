@@ -133,6 +133,7 @@ class DateChart extends Component {
           legendPosition: 'center'
         }}
         enableGridY={false}
+        enableGridX={false}
         lineWidth={5}
         dotSize={5}
         colors='paired'

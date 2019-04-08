@@ -61,9 +61,6 @@ body {
   margin-bottom: 10px;
 }
 
-.collection {
-}
-
 .my-button {
   border-radius: 8px;
   border: none;
@@ -72,4 +69,8 @@ body {
   padding: 1vh 2vw;
   text-decoration: none;
   cursor: pointer;
+}
+
+.slick-slider button {
+  display: none !important;
 }

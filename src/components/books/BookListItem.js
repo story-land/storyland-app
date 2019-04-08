@@ -23,7 +23,7 @@ const BookListItem = props => {
         <span className='title'>
           <strong>{title}</strong>
         </span>
-        <p>{authors}</p>
+        <p className='authors-item'>{authors}</p>
       </Link>
       <a href='#!' className='secondary-content'>
         <i className='material-icons' />
