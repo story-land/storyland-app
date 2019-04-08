@@ -15,6 +15,7 @@
 
 html,
 body {
+  height: 100%;
   overflow: auto;
 }
 
@@ -36,6 +37,8 @@ body {
 .screen-wrapper {
   background: map-get($palette, main-dark);
   display: flex;
+  height: 100%;
+  overflow: auto;
 }
 
 .screen-container {
@@ -64,7 +67,7 @@ body {
 .my-button {
   border-radius: 8px;
   border: none;
-  color: #fff;
+  color: map-get($palette, main-dark);
   text-transform: uppercase;
   padding: 1vh 2vw;
   text-decoration: none;

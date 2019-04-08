@@ -186,7 +186,7 @@ class RegisterForm extends Component {
 
         {secondScreen === true && (
           <Fragment>
-            <h4 className='category-title'>
+            <h4 className='choose-register-title'>
               Choose 3 or more books that you like
             </h4>
             <div className='register-books-container'>{registerBooks}</div>

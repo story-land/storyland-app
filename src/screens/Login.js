@@ -6,9 +6,11 @@ const Login = () => {
   return (
     <Fragment>
       <BasicTopBar />
-      <div className='form-container'>
-        <h1 className='reg-title'>Login</h1>
-        <LoginForm />
+      <div className='screen-wrapper'>
+        <div className='form-container'>
+          <h1 className='reg-title'>Login</h1>
+          <LoginForm />
+        </div>
       </div>
     </Fragment>
   );

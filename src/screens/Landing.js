@@ -4,10 +4,10 @@ import logoWhite from '../images/storyland-white.png';
 
 const Landing = () => {
   return (
-    <div className='container-fluid landing-web'>
+    <div className='landing-web'>
       <div className='landing-info'>
         <div className='landing-logo'>
-          <img className='img-fluid' src={logoWhite} alt='storyland-app' />
+          <img src={logoWhite} alt='storyland-app' />
         </div>
         <div className='landing-buttons'>
           <div>

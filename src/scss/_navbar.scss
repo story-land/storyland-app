@@ -20,6 +20,10 @@ nav {
   height: 100%;
 }
 
+.basic-nav-item a {
+  color: map-get($palette, main-dark) !important;
+}
+
 .basic-nav-logo {
   height: 50px;
   padding: 6px 0;

@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/auth-service';
 import { withRouter } from 'react-router-dom';
@@ -39,22 +39,14 @@ class BasicTopBar extends Component {
             {!user.email && (
               <Fragment>
                 <li className='basic-nav-item'>
-                  <NavLink
-                    className='nav-link'
-                    activeClassName='active'
-                    to='/login'
-                  >
+                  <Link className='nav-link' to='/login'>
                     Login
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className='basic-nav-item'>
-                  <NavLink
-                    className='nav-link'
-                    activeClassName='active'
-                    to='/register'
-                  >
+                  <Link className='nav-link' to='/register'>
                     Register
-                  </NavLink>
+                  </Link>
                 </li>
               </Fragment>
             )}
