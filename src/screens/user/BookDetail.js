@@ -56,6 +56,28 @@ export default class BookDetail extends Component {
     });
   };
 
+  componentDidUpdate(prevProps) {
+    const { bookId } = this.props.match.params;
+    if (bookId !== prevProps.match.params.bookId) {
+      Promise.all([
+        booksService.getOneBook(bookId),
+        userbooksService.getStateBook(bookId)
+      ]).then(([book, state]) => {
+        const genre = book.genres[0];
+        booksService.getRelatedBooks(genre).then(relatedBooks => {
+          this.setState(
+            {
+              book,
+              state,
+              relatedBooks
+            },
+            () => (document.querySelector('body').scrollTop = 0)
+          );
+        });
+      });
+    }
+  }
+
   render() {
     const { book, state } = this.state;
     const authors = this.handleAuthors();

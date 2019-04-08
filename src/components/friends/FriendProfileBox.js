@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import userService from '../../services/user-service';
-import { withAuthConsumer } from '../../contexts/AuthStore';
 
 class FriendProfileBox extends Component {
-  state = {
-    friend: {}
-  };
-
   render() {
-    const { id, name, avatarURL, pagesGoal, favGenres } = this.props.friend;
-    const { followButton } = this.props;
-    console.log(name);
+    const {
+      id,
+      name,
+      avatarURL,
+      pagesGoal,
+      favGenres,
+      followers
+    } = this.props.friend;
+    const { userId } = this.props;
+    const followButton = followers.some(
+      follower => follower.follower === userId
+    );
     return (
       <div className='category-screen'>
         <div className='card horizontal profile-card'>
@@ -57,4 +60,4 @@ class FriendProfileBox extends Component {
   }
 }
 
-export default withAuthConsumer(FriendProfileBox);
+export default FriendProfileBox;

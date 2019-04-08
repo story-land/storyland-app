@@ -6,48 +6,62 @@ import { withAuthConsumer } from '../../contexts/AuthStore';
 class UserDetail extends Component {
   state = {
     friend: {},
-    followButton: false
+    followButton: false,
+    loading: true
   };
 
   handleFollow = () => {
-    console.log('hola');
-    // userService.followUser(this.state.friend.id).then(res => {
-    //   if (res === 'followed') {
-    //     this.setState({ followButton: true });
-    //   } else {
-    //     this.setState({ followButton: false });
-    //   }
-    // });
+    const { friend } = this.state;
+    userService.followUser(this.state.friend.id).then(relation => {
+      if (relation) {
+        this.setState({
+          friend: {
+            ...friend,
+            followers: [...friend.followers, relation]
+          }
+        });
+      }
+    });
   };
 
   handleUnfollow = () => {
-    userService.unfollowUser(this.state.friend.id).then(res => {
-      this.setState({ followButton: false });
+    const { friend } = this.state;
+    const { user } = this.props;
+    userService.unfollowUser(this.state.friend.id).then(() => {
+      this.setState({
+        friend: {
+          ...friend,
+          followers: friend.followers.filter(
+            ({ follower }) => follower !== user.id
+          )
+        }
+      });
     });
   };
 
   componentDidMount = () => {
     const userId = this.props.match.params.userId;
-    userService.getUser(userId).then(friend =>
-      this.setState({ friend }, () => {
-        const followButton = this.state.friend.followers
-          .map(elem => elem.follower)
-          .some(elem => elem === this.props.user.id);
-        this.setState({ followButton });
-      })
-    );
+    userService
+      .getUser(userId)
+      .then(friend => this.setState({ friend, loading: false }));
   };
 
   render() {
-    const { friend, followButton } = this.state;
+    const { friend, followButton, loading } = this.state;
+    const { id } = this.props.user;
     return (
       <div className='screen-container'>
-        <FriendProfileBox
-          friend={friend}
-          followButton={followButton}
-          handleFollow={this.handleFollow}
-          handleUnfollow={this.handleUnfollow}
-        />
+        {!loading ? (
+          <FriendProfileBox
+            friend={friend}
+            followButton={followButton}
+            handleFollow={this.handleFollow}
+            handleUnfollow={this.handleUnfollow}
+            userId={id}
+          />
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     );
   }
