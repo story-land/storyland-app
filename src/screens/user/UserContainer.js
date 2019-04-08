@@ -14,15 +14,17 @@ export default class UserContainer extends Component {
     return (
       <Fragment>
         <BasicTopBar />
-        <Switch>
-          <Route exact path='/user/explore' component={Explore} />
-          <Route exact path='/user/motivation' component={Motivation} />
-          <Route exact path='/user/friends' component={Friends} />
-          <Route exact path='/user/profile' component={Profile} />
-          <Route path='/user/explore/:bookId' component={BookDetail} />
-          <Route path='/user/explore/:userId' component={UserDetail} />
-          <Redirect to='/user/explore' />
-        </Switch>
+        <div className='screen-wrapper'>
+          <Switch>
+            <Route exact path='/user/explore' component={Explore} />
+            <Route exact path='/user/motivation' component={Motivation} />
+            <Route exact path='/user/friends' component={Friends} />
+            <Route exact path='/user/profile' component={Profile} />
+            <Route path='/user/explore/:bookId' component={BookDetail} />
+            <Route path='/user/explore/:userId' component={UserDetail} />
+            <Redirect to='/user/explore' />
+          </Switch>
+        </div>
         <UserNavBar />
       </Fragment>
     );

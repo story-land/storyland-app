@@ -3,18 +3,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-  padding: 8px;
+  background: map-get($palette, light-grey);
+  padding: 1.5em;
 }
 
 .profile-avatar {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.card-content {
+  h4,
+  p {
+    color: map-get($palette, main-white);
+  }
 }
 
 .profile-avatar-edit {
@@ -31,8 +38,8 @@
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
 }
 
 .upload-pic-button {
@@ -67,7 +74,7 @@
 .card
   .card-action
   a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: map-get($color, cool);
+  color: map-get($palette, dark-yellow);
 }
 
 .profile-group-submit {
@@ -75,13 +82,13 @@
 }
 
 .cancel-button {
-  background-color: map-get($color, soft-blue);
+  background-color: map-get($palette, light-grey);
   margin-right: 5px;
 }
 
 .update-button,
 .edit-button {
-  background-color: map-get($color, cool);
+  background-color: map-get($palette, dark-yellow);
   margin-left: 5px;
 }
 

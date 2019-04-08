@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/auth-service';
 import { withRouter } from 'react-router-dom';
-import logo from '../../images/logo2.png';
+import logoWhite from '../../images/storyland-main-dark.png';
 
 class BasicTopBar extends Component {
   handleLogout = () => {
@@ -29,7 +29,11 @@ class BasicTopBar extends Component {
             </li>
           </ul>
           <Link to='#' className='brand-logo center'>
-            <img className='basic-nav-logo' src={logo} alt='storyland-app' />
+            <img
+              className='basic-nav-logo'
+              src={logoWhite}
+              alt='storyland-app'
+            />
           </Link>
           <ul id='nav-mobile' className='right'>
             {!user.email && (

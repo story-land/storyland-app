@@ -32,18 +32,18 @@
 }
 
 .pending-button {
-  background: map-get($color, vivid);
+  background: map-get($palette, main-yellow);
 }
 
 .read-button,
 .read-sample-button {
-  background: map-get($color, cool);
+  background: map-get($palette, dark-yellow);
 }
 
 .reading-button {
-  background: map-get($color, vivid);
+  background: map-get($palette, main-yellow);
 }
 
 .active-state {
-  background: map-get($color, soft-blue);
+  background: map-get($palette, light-grey);
 }

@@ -23,7 +23,7 @@
 .confirm-pages {
   width: 70%;
   margin: 1vh auto;
-  background: map-get($color, cool);
+  background: map-get($palette, dark-yellow);
 }
 
 .chart-section {
@@ -47,7 +47,7 @@
 
 .congrats-box {
   border-radius: 8px;
-  background-color: map-get($color, soft-blue);
+  background-color: map-get($palette, light-grey);
   opacity: 0.95;
   position: absolute;
   display: flex;
@@ -68,5 +68,5 @@
 
 .congrats-button {
   margin-top: 2vh;
-  background-color: map-get($color, vivid);
+  background-color: map-get($palette, main-yellow);
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 @import './_presets';
@@ -19,7 +20,7 @@ body {
 
 html a,
 button {
-  color: map-get($color, cool);
+  color: map-get($palette, dark-yellow);
 }
 
 body {
@@ -27,8 +28,14 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.1em;
+  color: map-get($palette, main-white);
+}
+
+.screen-wrapper {
+  background: map-get($palette, main-dark);
+  display: flex;
 }
 
 .screen-container {
@@ -41,17 +48,17 @@ body {
 }
 
 .category-title {
-  font-size: 1.8em;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: map-get($palette, main-white);
+  margin-bottom: 15px;
 }
 
 .section-title {
   font-size: 1.4em;
-  font-weight: bold;
-}
-
-.category-title {
-  font-size: 1.3em;
-  margin-bottom: 15px;
+  font-weight: 900;
+  color: map-get($palette, main-white);
+  margin-bottom: 10px;
 }
 
 .my-button {

@@ -1,12 +1,13 @@
 nav {
-  background: map-get($color, vivid);
+  background: map-get($palette, main-yellow);
 }
 
 //BASIC TOP NAV
 
 .basic-nav {
   padding: 5px 10px;
-  border-bottom: 1px solid map-get($color, cool);
+  border-bottom: 1px solid map-get($palette, dark-yellow);
+  color: map-get($palette, main-dark);
 }
 
 .basic-nav-list {
@@ -21,6 +22,7 @@ nav {
 
 .basic-nav-logo {
   height: 50px;
+  padding: 6px 0;
 }
 
 //USER NAVBAR
@@ -32,7 +34,7 @@ nav {
   min-height: 65px;
   width: 100%;
   background: #fff;
-  box-shadow: 0px 0px 4px 0px map-get($color, cool);
+  box-shadow: 0px 0px 4px 0px map-get($palette, dark-yellow);
 }
 
 .usernavbar-container {
@@ -50,7 +52,7 @@ nav {
 }
 
 .usernavbar-container .active .usernavbar-item {
-  background: map-get($color, soft-blue);
+  background: map-get($palette, light-grey);
 }
 
 .usernavbar-item {

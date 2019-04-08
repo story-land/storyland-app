@@ -33,11 +33,11 @@
 }
 
 .reg-button {
-  background-color: map-get($color, cool);
+  background-color: map-get($palette, dark-yellow);
   margin: 1vh 0;
 }
 
 .log-button {
-  background-color: map-get($color, vivid);
+  background-color: map-get($palette, main-yellow);
   margin: 1vh 0;
 }
