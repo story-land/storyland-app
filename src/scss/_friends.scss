@@ -1,0 +1,11 @@
+.follow-button {
+  font-size: 0.8em;
+  font-weight: bold;
+  background: map-get($color, cool);
+}
+
+.unfollow-button {
+  font-size: 0.8em;
+  font-weight: bold;
+  background: map-get($color, vivid);
+}
