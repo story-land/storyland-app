@@ -29,15 +29,18 @@ class ReadToday extends Component {
 
   valuePages = () => {
     goalsService.getLastGoals(1).then(goals => {
-      const todayDate = new Date();
-      const goalDate = new Date(goals[0].updatedAt);
-      const day = todayDate.getDate() === goalDate.getDate();
-      const month = todayDate.getMonth() === goalDate.getMonth();
-      const year = todayDate.getFullYear() === goalDate.getFullYear();
-      if (day && month && year) {
-        this.setState({
-          pagesDay: goals[0].pagesDay
-        });
+      console.log(goals);
+      if (goals.length !== 0) {
+        const todayDate = new Date();
+        const goalDate = new Date(goals[0].updatedAt);
+        const day = todayDate.getDate() === goalDate.getDate();
+        const month = todayDate.getMonth() === goalDate.getMonth();
+        const year = todayDate.getFullYear() === goalDate.getFullYear();
+        if (day && month && year) {
+          this.setState({
+            pagesDay: goals[0].pagesDay
+          });
+        }
       }
     });
   };

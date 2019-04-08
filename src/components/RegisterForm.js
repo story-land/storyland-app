@@ -5,14 +5,18 @@ import InputField from './InputField';
 import { checkName, checkEmail, checkPassword } from '../utils/validators';
 import { Icon } from 'antd';
 import authService from '../services/auth-service';
+import bookService from '../services/books-service';
+import RegisterBookItem from './RegisterBookItem';
 
 class RegisterForm extends Component {
   state = {
     user: {},
+    registerBooks: [],
     favBooks: [],
     error: '',
     secondScreen: false,
-    isRegistered: false
+    isRegistered: false,
+    postButton: false
   };
 
   submitFirstForm = event => {
@@ -25,29 +29,25 @@ class RegisterForm extends Component {
           user: fields,
           secondScreen: true
         });
+      this.handleRegisterBooks();
     });
   };
 
   submitRegister = event => {
     let { user, favBooks } = this.state;
     event.preventDefault();
-    favBooks = [
-      'Harry Potter',
-      'Señor de los anillos',
-      'Hola',
-      'Qué tal',
-      'Pues bien'
-    ];
-    if (favBooks.length >= 5 && favBooks.length <= 10) {
-      const newUser = { user, favBooks };
-      authService.register(newUser).then(
+    if (favBooks.length > 2) {
+      let fGenres = favBooks.map(elem => elem.genres[0]);
+      fGenres = removeDups(fGenres);
+      fGenres = fGenres.slice(0, 3);
+      user.favGenres = fGenres;
+      authService.register(user).then(
         user => {
           this.setState({
             isRegistered: true
           });
         },
         error => {
-          console.log(user);
           const { message } = error.response.data;
           this.setState({
             error: message,
@@ -56,11 +56,72 @@ class RegisterForm extends Component {
         }
       );
     }
+
+    function removeDups(names) {
+      let unique = {};
+      names.forEach(function(i) {
+        if (!unique[i]) {
+          unique[i] = true;
+        }
+      });
+      return Object.keys(unique);
+    }
+  };
+
+  handleRegisterBooks = () => {
+    bookService.getRegisterBooks().then(books => {
+      this.setState({
+        registerBooks: books
+      });
+    });
+  };
+
+  handleCoverChange = book => {
+    if (this.state.favBooks.includes(book)) {
+      this.setState(
+        {
+          favBooks: [...this.state.favBooks].filter(elem => elem !== book)
+        },
+        () => {
+          this.handlePostButton();
+        }
+      );
+    } else {
+      this.setState({ favBooks: [...this.state.favBooks, book] }, () => {
+        this.handlePostButton();
+      });
+    }
+  };
+
+  handlePostButton = () => {
+    if (this.state.favBooks.length > 2) {
+      this.setState({ postButton: true });
+    } else {
+      this.setState({ postButton: false });
+    }
   };
 
   render() {
     const { getFieldProps, getFieldError } = this.props.form;
-    const { user, error, secondScreen, isRegistered } = this.state;
+    const {
+      user,
+      error,
+      secondScreen,
+      isRegistered,
+      favBooks,
+      postButton
+    } = this.state;
+    const registerBooks = this.state.registerBooks.map(elem => {
+      let isFavBook = favBooks.includes(elem) ? true : false;
+      return (
+        <RegisterBookItem
+          book={elem}
+          key={elem.id}
+          bookClicked={this.handleCoverChange}
+          isActive={isFavBook}
+        />
+      );
+    });
     if (isRegistered) {
       return <Redirect to='/login' />;
     }
@@ -125,28 +186,31 @@ class RegisterForm extends Component {
 
         {secondScreen === true && (
           <Fragment>
-            <h4>Choose 5 books that you like</h4>
-            <div className='books-container'>
-              <div className='book-item'>libro1</div>
-              <div className='book-item'>libro2</div>
-              <div className='book-item'>libro3</div>
-              <div className='book-item'>libro4</div>
-              <div className='book-item'>libro5</div>
-              <div className='book-item'>libro6</div>
-              <div className='book-item'>libro7</div>
-              <div className='book-item'>libro8</div>
-              <div className='book-item'>libro9</div>
-              <div className='book-item'>libro10</div>
-              <div className='book-item'>libro11</div>
-              <div className='book-item'>libro12</div>
+            <h4 className='category-title'>
+              Choose 3 or more books that you like
+            </h4>
+            <div className='register-books-container'>{registerBooks}</div>
+            <div className='form-item-submit'>
+              {!postButton && (
+                <button
+                  type='submit'
+                  className='my-button post-button disabled-button'
+                  onClick={this.submitRegister}
+                  disabled
+                >
+                  Register
+                </button>
+              )}
+              {postButton && (
+                <button
+                  type='submit'
+                  className='my-button post-button'
+                  onClick={this.submitRegister}
+                >
+                  Register
+                </button>
+              )}
             </div>
-            <button
-              type='submit'
-              className='my-button post-button'
-              onClick={this.submitRegister}
-            >
-              Register
-            </button>
           </Fragment>
         )}
       </div>

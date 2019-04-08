@@ -34,7 +34,6 @@ class ExploreRelatedBooks extends Component {
       .map(book => {
         return <BookItem key={book.id} book={book} />;
       });
-
     return (
       <div className='category-screen'>
         <div className='genre-input'>
@@ -46,21 +45,14 @@ class ExploreRelatedBooks extends Component {
             <Select.Option value={`Business & Economics`}>
               Business & Economics
             </Select.Option>
-            <Select.Option value={`Family & Relationships`}>
-              Family & Relationships
-            </Select.Option>
             <Select.Option value='Fiction'>Fiction</Select.Option>
             <Select.Option value={`Health & Fitness`}>
               Health & Fitness
-            </Select.Option>
-            <Select.Option value='Juvenile Fiction'>
-              Juvenile Fiction
             </Select.Option>
             <Select.Option value='Juvenile Nonfiction'>
               Juvenile Nonfiction
             </Select.Option>
             <Select.Option value='History'>History</Select.Option>
-            <Select.Option value={`House & Home`}>House & Home</Select.Option>
             <Select.Option value='Literary Collections'>
               Literary Collections
             </Select.Option>

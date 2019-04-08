@@ -84,3 +84,31 @@
   background-color: map-get($color, cool);
   margin-left: 5px;
 }
+
+.follow-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  margin: -20px 0 0;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.follow-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.follow-content p {
+  margin: 0;
+}
+
+.follow-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}

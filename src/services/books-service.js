@@ -1,5 +1,8 @@
 import http from './base-http-service';
 
+const getRegisterBooks = () =>
+  http.get('/books/register').then(response => response.data);
+
 const getAllBooks = () => http.get('/books').then(response => response.data);
 
 const getRelatedBooks = genres => {
@@ -22,6 +25,7 @@ const getOneBook = book =>
   http.get(`/books/${book}`).then(response => response.data);
 
 export default {
+  getRegisterBooks,
   getAllBooks,
   getRelatedBooks,
   getBestRatedBooks,

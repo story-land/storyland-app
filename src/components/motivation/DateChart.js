@@ -26,26 +26,30 @@ class DateChart extends Component {
     switch (period) {
       case 'year':
         goalsService.getLastGoals(365).then(goals => {
-          for (let goal of goals) {
-            let date = new Date(goal.updatedAt);
-            unshiftToData(
-              DateTime.fromJSDate(date).day +
-                DateTime.fromJSDate(date).monthShort,
-              goal.pagesDay
-            );
+          if (goals) {
+            for (let goal of goals) {
+              let date = new Date(goal.updatedAt);
+              unshiftToData(
+                DateTime.fromJSDate(date).day +
+                  DateTime.fromJSDate(date).monthShort,
+                goal.pagesDay
+              );
+            }
           }
           this.setDataGraphic(data, period);
         });
         break;
       case 'month':
         goalsService.getLastGoals(30).then(goals => {
-          for (let goal of goals) {
-            let date = new Date(goal.updatedAt);
-            unshiftToData(
-              DateTime.fromJSDate(date).day +
-                DateTime.fromJSDate(date).monthShort,
-              goal.pagesDay
-            );
+          if (goals) {
+            for (let goal of goals) {
+              let date = new Date(goal.updatedAt);
+              unshiftToData(
+                DateTime.fromJSDate(date).day +
+                  DateTime.fromJSDate(date).monthShort,
+                goal.pagesDay
+              );
+            }
           }
           this.setDataGraphic(data, period);
         });
@@ -53,13 +57,15 @@ class DateChart extends Component {
       case 'week':
       default:
         goalsService.getLastGoals(7).then(goals => {
-          for (let goal of goals) {
-            let date = new Date(goal.updatedAt);
-            unshiftToData(
-              DateTime.fromJSDate(date).weekdayShort +
-                DateTime.fromJSDate(date).day,
-              goal.pagesDay
-            );
+          if (goals) {
+            for (let goal of goals) {
+              let date = new Date(goal.updatedAt);
+              unshiftToData(
+                DateTime.fromJSDate(date).weekdayShort +
+                  DateTime.fromJSDate(date).day,
+                goal.pagesDay
+              );
+            }
           }
           this.setDataGraphic(data, period);
         });

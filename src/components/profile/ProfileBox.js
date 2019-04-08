@@ -65,7 +65,7 @@ class ProfileBox extends Component {
     return (
       <Fragment>
         {!editBox && (
-          <div className='screen-container'>
+          <div className='category-screen'>
             <div className='card horizontal profile-card'>
               <div className='card-image profile-avatar'>
                 <img
