@@ -6,7 +6,7 @@ nav {
 
 .basic-nav {
   padding: 5px 10px;
-  border-bottom: 1px solid map-get($palette, dark-yellow);
+  border-bottom: 1px solid map-get($palette, lighter-grey);
   color: map-get($palette, main-dark);
 }
 
@@ -22,11 +22,15 @@ nav {
 
 .basic-nav-item a {
   color: map-get($palette, main-dark) !important;
+  margin: 0;
 }
 
 .basic-nav-logo {
   height: 50px;
   padding: 6px 0;
+}
+
+.right-register-topbar {
 }
 
 //USER NAVBAR

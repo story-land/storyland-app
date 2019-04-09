@@ -105,7 +105,7 @@
 .update-button,
 .edit-button {
   background-color: map-get($palette, main-yellow);
-  color: map-get($palette, main-dark) !important;
+  color: map-get($palette, main-dark);
   margin-left: 5px;
 }
 

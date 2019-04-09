@@ -3,6 +3,7 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 10,
   swipeToSlide: true,
+  variableWidth: true,
   responsive: [
     {
       breakpoint: 1024,

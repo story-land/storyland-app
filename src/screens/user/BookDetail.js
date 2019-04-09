@@ -100,7 +100,7 @@ export default class BookDetail extends Component {
               <h4 className='detail-author'>{authors}</h4>
             </div>
           </div>
-          <div className='book-detail-buttons'>
+          <div className='book-detail-buttons collection'>
             <button
               className={
                 state === 'pending'

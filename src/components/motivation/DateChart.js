@@ -8,6 +8,7 @@ import goalsService from '../../services/goals-service';
 class DateChart extends Component {
   state = {
     period: 'month',
+    pagesRead: 0,
     data: []
   };
 
@@ -73,9 +74,13 @@ class DateChart extends Component {
   };
 
   setDataGraphic = (data, period) => {
+    const pagesRead = data.reduce((acc, elem) => {
+      return acc + elem.y;
+    }, 0);
     this.setState({
       data,
-      period
+      period,
+      pagesRead
     });
   };
 
@@ -84,8 +89,7 @@ class DateChart extends Component {
   };
 
   render() {
-    const { data } = this.state;
-
+    const { data, pagesRead } = this.state;
     const dataArr = [
       {
         id: 'Pages',
@@ -96,10 +100,10 @@ class DateChart extends Component {
       <ResponsiveLine
         data={dataArr}
         margin={{
-          top: 50,
-          right: 30,
-          bottom: 40,
-          left: 30
+          top: 30,
+          right: 20,
+          bottom: 30,
+          left: 20
         }}
         xScale={{
           type: 'point',
@@ -114,36 +118,17 @@ class DateChart extends Component {
           max: 150
         }}
         curve='natural'
-        axisBottom={{
-          orient: 'bottom',
-          legend: '',
-          tickSize: 0,
-          tickPadding: 10,
-          tickRotation: 0,
-          legendOffset: 36,
-          legendPosition: 'center'
-        }}
-        axisLeft={{
-          orient: 'left',
-          legend: '',
-          tickSize: 0,
-          tickPadding: 15,
-          tickRotation: 0,
-          legendOffset: -40,
-          legendPosition: 'center'
-        }}
+        axisTop={null}
+        axisRight={null}
+        axisBottom={null}
+        axisLeft={null}
         enableGridY={false}
         enableGridX={false}
-        lineWidth={5}
-        dotSize={5}
-        colors='paired'
+        lineWidth={7}
+        dotSize={0}
+        colors='#fafafa'
         dotColor='inherit:darker(1)'
-        dotBorderColor='#ffffff'
-        enableDotLabel={true}
-        dotLabel='y'
         dotLabelYOffset={-15}
-        enableArea={true}
-        areaOpacity={0.2}
         animate={true}
         motionStiffness={100}
         motionDamping={5}
@@ -151,10 +136,15 @@ class DateChart extends Component {
     );
 
     return (
-      <div className='chart-section'>
-        <div className='chart-input'>
-          <h2 className='category-title'>What you read</h2>
-          <Select defaultValue='month' onChange={this.handlePeriodChange}>
+      <div className='category-screen'>
+        <div className='pages-read-wrapper'>
+          <h2 className='pages-read-count'>{pagesRead}</h2>
+          <h4 className='pages-read-in'>pages read in</h4>
+          <Select
+            className='pages-period-select'
+            defaultValue='month'
+            onChange={this.handlePeriodChange}
+          >
             <Select.Option value='week'>the last week</Select.Option>
             <Select.Option value='month'>the last month</Select.Option>
             <Select.Option value='year'>the last year</Select.Option>

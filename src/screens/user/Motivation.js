@@ -47,9 +47,8 @@ class Motivation extends Component {
             </div>
           </div>
         )}
-        <h1 className='section-title'>How much did you read today?</h1>
-        <ReadToday congratsBox={this.handleCongratsText} />
         <DateChart />
+        <ReadToday congratsBox={this.handleCongratsText} />
       </div>
     );
   }

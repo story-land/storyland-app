@@ -29,7 +29,6 @@ class ReadToday extends Component {
 
   valuePages = () => {
     goalsService.getLastGoals(1).then(goals => {
-      console.log(goals);
       if (goals.length !== 0) {
         const todayDate = new Date();
         const goalDate = new Date(goals[0].updatedAt);
@@ -53,21 +52,25 @@ class ReadToday extends Component {
     const { pagesDay } = this.state;
     return (
       <div className='pages-read-container'>
-        <div className='input-field pages-input'>
-          <input
-            type='number'
-            name='pages'
-            onChange={this.handlePagesChange}
-            value={pagesDay}
-          />
-          <p>pages</p>
+        <h4 className='how-many-pages-title'>
+          How many pages did you read today?
+        </h4>
+        <div className='pages-read-today'>
+          <div className='input-field pages-input'>
+            <input
+              type='number'
+              name='pages'
+              onChange={this.handlePagesChange}
+              value={pagesDay}
+            />
+          </div>
+          <button
+            className='my-button confirm-pages'
+            onClick={this.handlePagesSubmit}
+          >
+            pages read today
+          </button>
         </div>
-        <button
-          className='my-button confirm-pages'
-          onClick={this.handlePagesSubmit}
-        >
-          Confirm
-        </button>
       </div>
     );
   }

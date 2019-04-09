@@ -35,7 +35,7 @@ class BasicTopBar extends Component {
               alt='storyland-app'
             />
           </Link>
-          <ul id='nav-mobile' className='right'>
+          <ul id='nav-mobile' className='right right-register-topbar'>
             {!user.email && (
               <Fragment>
                 <li className='basic-nav-item'>

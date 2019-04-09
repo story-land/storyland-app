@@ -1,8 +1,101 @@
-.pages-read-container {
-  width: 40%;
-  margin: 5vh auto;
+.pages-read-wrapper {
+  margin: -4vh 10vw 0;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  color: map-get($palette, main-white);
+}
+
+.pages-read-count {
+  font-size: 7em;
+  font-weight: 900;
+  color: map-get($palette, main-white);
+  margin: 0;
+}
+
+.pages-read-in {
+  font-size: 2.2em;
+  font-weight: 300;
+  color: map-get($palette, main-white);
+  margin: 0 0 2vh;
+}
+
+.pages-period-select {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.ant-select-selection-selected-value {
+  text-align: center;
+  float: none;
+}
+
+.ant-select-dropdown-menu,
+.ant-select-selection {
+  text-align: center;
+  border: 1px solid map-get($palette, main-white);
+}
+
+.ant-select-focused .ant-select-selection,
+.ant-select-selection:focus,
+.ant-select-selection:active {
+  border: 1px solid map-get($palette, main-white);
+}
+
+.pages-period-select > .ant-select-selection,
+.pages-period-select > .ant-select-dropdown-menu,
+.ant-select-dropdown-menu-root,
+.ant-select-dropdown-menu-vertical,
+.ant-select-dropdown-menu-item {
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: 300;
+  background: map-get($palette, main-dark);
+  color: map-get($palette, main-white) !important;
+}
+
+.ant-select-dropdown-menu-item-selected {
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: 300;
+  background: map-get($palette, main-dark);
+  color: map-get($palette, main-yellow) !important;
+}
+
+.ant-select-arrow {
+  color: map-get($palette, main-white);
+}
+
+.chart-graphic {
+  margin: 4vh 0 -7vh;
+  height: 200px;
+  width: 100%;
+}
+
+.pages-read-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-many-pages-title {
+  color: map-get($palette, main-white);
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+.pages-read-today {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.pages-read-today > .input-field {
+  margin: 0;
 }
 
 .pages-input {
@@ -10,44 +103,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
-  margin: 0;
+  margin-right: 2vw !important;
 }
 
 .pages-input input[type='number'] {
-  font-size: 1.8em;
+  font-size: 2.5em;
   text-align: center;
-  width: 50px;
+  width: 100px;
   margin: 0 10px;
+  padding-bottom: 1vh;
 }
 
 .confirm-pages {
-  width: 70%;
-  margin: 1vh auto;
-  background: map-get($palette, dark-yellow);
-}
-
-.chart-section {
-  margin: 8vh 0 5vh;
-}
-
-.chart-input {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-}
-
-.chart-input h2 {
-  margin-right: 4vw;
-}
-
-.chart-graphic {
-  height: 250px;
-  width: 100%;
-}
-
-.confirm-pages {
-  background: map-get($palette, main-yellow);
-  color: map-get($palette, main-dark) !important;
+  background: map-get($palette, main-white);
+  color: map-get($palette, main-dark);
+  padding: 1.5vh 2vw !important;
+  text-transform: lowercase !important;
 }
 
 .congrats-box {
@@ -83,5 +154,5 @@
 .congrats-button {
   margin: 2vh 0;
   background-color: map-get($palette, main-yellow);
-  color: map-get($palette, main-dark) !important;
+  color: map-get($palette, main-dark);
 }

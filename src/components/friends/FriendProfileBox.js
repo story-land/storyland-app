@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class FriendProfileBox extends Component {
   render() {
     const {
-      id,
       name,
       avatarURL,
       pagesGoal,
