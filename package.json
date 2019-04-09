@@ -23,7 +23,7 @@
     "react-slick": "^0.23.2",
     "slick-carousel": "^1.8.1"
   },
-  "homepage": "YOUR_GITHUB_PAGES_URL_HERE!",
+  "homepage": "https://story-land.github.io/storyland-app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
