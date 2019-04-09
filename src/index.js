@@ -12,7 +12,7 @@ import { AuthStore } from './contexts/AuthStore';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <AuthStore>
       <App />
     </AuthStore>
