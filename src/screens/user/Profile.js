@@ -10,7 +10,6 @@ export default class Profile extends Component {
     return (
       <div className='screen-container'>
         <ProfileBox />
-        <SocialProfileBox />
         <ReadingBooks />
         <PendingBooks />
         <ReadBooks />

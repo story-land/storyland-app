@@ -45,6 +45,12 @@
   border: 0;
 }
 
+.pending-button > button:focus,
+.reading-button > button:focus,
+.read-button > button:focus {
+  background: map-get($palette, main-dark);
+}
+
 .active-state {
   background: map-get($palette, main-yellow);
   color: map-get($palette, main-dark);

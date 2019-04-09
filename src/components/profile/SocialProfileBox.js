@@ -20,24 +20,22 @@ class SocialProfileBox extends Component {
   render() {
     const { followed, following } = this.state;
     return (
-      <div className='category-screen'>
-        <ul className='collection follow-container'>
-          <div className='follow-item'>
-            <div className='follow-content'>
-              <p>Followed by</p>
-              <span className='follow-title'>{followed}</span>
-              <p>readers</p>
-            </div>
+      <ul className='collection follow-container'>
+        <div className='follow-item'>
+          <div className='follow-content'>
+            <p>Followed by</p>
+            <span className='follow-title'>{followed}</span>
+            <p>readers</p>
           </div>
-          <div className='follow-item'>
-            <div className='follow-content'>
-              <p>Following</p>
-              <span className='follow-title'>{following}</span>
-              <p>readers</p>
-            </div>
+        </div>
+        <div className='follow-item'>
+          <div className='follow-content'>
+            <p>Following</p>
+            <span className='follow-title'>{following}</span>
+            <p>readers</p>
           </div>
-        </ul>
-      </div>
+        </div>
+      </ul>
     );
   }
 }

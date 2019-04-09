@@ -105,18 +105,6 @@ class DateChart extends Component {
           bottom: 30,
           left: 20
         }}
-        xScale={{
-          type: 'point',
-          stacked: true,
-          min: 'auto',
-          max: 'auto'
-        }}
-        yScale={{
-          type: 'number',
-          stacked: false,
-          min: 0,
-          max: 150
-        }}
         curve='natural'
         axisTop={null}
         axisRight={null}
@@ -129,6 +117,8 @@ class DateChart extends Component {
         colors='#fafafa'
         dotColor='inherit:darker(1)'
         dotLabelYOffset={-15}
+        isInteractive={false}
+        enableStackTooltip={false}
         animate={true}
         motionStiffness={100}
         motionDamping={5}

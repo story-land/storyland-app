@@ -5,6 +5,7 @@ nav {
 //BASIC TOP NAV
 
 .basic-nav {
+  height: 60px;
   padding: 5px 10px;
   border-bottom: 1px solid map-get($palette, lighter-grey);
   color: map-get($palette, main-dark);

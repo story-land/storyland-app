@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: space-around;
   background: map-get($palette, light-grey);
-  padding: 1.5em;
+  padding: 1em 1.5em;
 }
 
 .profile-card-edit {
@@ -35,14 +35,6 @@
   right: 0;
 }
 
-.profile-avatar-edit {
-  width: 120px;
-  height: 120px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-}
-
 .profile-avatar-img,
 .card.horizontal .card-image img {
   border-radius: 50%;
@@ -53,12 +45,29 @@
   height: 90px;
 }
 
+.follow-container {
+  margin: 1vh 0 !important;
+  padding: 2vh 0 !important;
+  border-radius: 0 !important;
+  border-top: 1px solid map-get($palette, lighter-grey) !important;
+}
+
 .upload-pic-button {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px 0;
 }
 
 .profile-info {
   margin-left: 10px;
+}
+
+#profile-form {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .profile-form-group {
@@ -69,6 +78,8 @@
   margin: 0 auto;
   box-sizing: border-box;
   color: map-get($palette, main-white);
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 .ant-input-affix-wrapper .ant-input-suffix {
@@ -80,11 +91,45 @@
   margin: 0 auto;
 }
 
+.profile-avatar-edit {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .profile-form-image {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+}
+
+.profile-avatar-img-edit {
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+}
+
+.ant-upload-list,
+.ant-upload-list-picture {
+  width: 80%;
+  margin: 0 auto;
+  color: map-get($palette, main-white) !important;
+  border-radius: 20px;
+}
+
+.ant-upload-list-item i {
+  color: map-get($palette, main-white) !important;
+}
+
+.ant-upload button,
+.ant-upload-select button,
+.ant-upload-select-picture button {
+  background: map-get($palette, light-grey) !important;
+  color: map-get($palette, main-white) !important;
+  border: 1px solid map-get($palette, main-white) !important;
 }
 
 .card
@@ -99,6 +144,7 @@
 
 .cancel-button {
   background-color: map-get($palette, light-grey);
+  color: map-get($palette, main-white) !important;
   margin-right: 5px;
 }
 

@@ -8,6 +8,7 @@ import { createForm } from '../../utils/createForm';
 import { Upload, Button, Icon } from 'antd';
 import { checkEmail, checkName } from '../../utils/validators';
 import InputField from '../InputField';
+import SocialProfileBox from './SocialProfileBox';
 
 library.add(faCog);
 
@@ -90,6 +91,7 @@ class ProfileBox extends Component {
                     Daily goal: <strong>{user.pagesGoal} pages</strong>
                   </p>
                 </div>
+                <SocialProfileBox />
                 <div className='profile-link'>
                   <FontAwesomeIcon icon='cog' onClick={this.editProfile} />
                 </div>
@@ -98,7 +100,7 @@ class ProfileBox extends Component {
           </div>
         )}
         {editBox && (
-          <div className='screen-container'>
+          <div className='category-screen'>
             <div className='card-horizontal profile-card profile-card-edit'>
               <div className='card-image profile-avatar-edit'>
                 <div className='profile-form-image'>
@@ -111,7 +113,7 @@ class ProfileBox extends Component {
                         : 'https://profile.actionsprout.com/default.jpeg'
                     }
                     alt='profile-pic'
-                    className='profile-avatar-img'
+                    className='profile-avatar-img-edit'
                   />
                   <Upload
                     className='upload-pic-button'
@@ -123,7 +125,7 @@ class ProfileBox extends Component {
                     }}
                   >
                     <Button htmlType='button'>
-                      <Icon type='upload' /> Upload
+                      <Icon type='upload' /> Change avatar
                     </Button>
                   </Upload>
                 </div>
