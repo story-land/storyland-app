@@ -24,7 +24,7 @@ class ProfileBox extends Component {
     if (this.props.user) {
       let genres = [this.props.user.favGenres];
       if (genres.length === 1) genres = genres[0];
-      if (genres.length > 1) genres = genres.join(' & ');
+      if (genres.length > 1) genres = genres.slice(0, 2).join(' & ');
       return genres;
     } else {
       return '';

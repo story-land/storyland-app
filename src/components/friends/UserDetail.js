@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import userService from '../../services/user-service';
+import booksService from '../../services/books-service';
 import FriendProfileBox from './FriendProfileBox';
 import { withAuthConsumer } from '../../contexts/AuthStore';
+import ReadingBookItem from './ReadingBookItem';
 
 class UserDetail extends Component {
   state = {
     friend: {},
+    readingBook: {},
     followButton: false,
     loading: true
   };
@@ -41,24 +44,38 @@ class UserDetail extends Component {
 
   componentDidMount = () => {
     const userId = this.props.match.params.userId;
-    userService
-      .getUser(userId)
-      .then(friend => this.setState({ friend, loading: false }));
+    userService.getUser(userId).then(friend => {
+      const bookReading = friend.userbooks.find(
+        elem => elem.state === 'reading'
+      );
+      if (bookReading) {
+        booksService.getOneBook(bookReading.book).then(readingBook => {
+          this.setState({ friend, readingBook, loading: false });
+        });
+      } else {
+        this.setState({ friend, loading: false });
+      }
+    });
   };
 
   render() {
-    const { friend, followButton, loading } = this.state;
+    const { friend, followButton, loading, readingBook } = this.state;
     const { id } = this.props.user;
     return (
       <div className='screen-container'>
         {!loading ? (
-          <FriendProfileBox
-            friend={friend}
-            followButton={followButton}
-            handleFollow={this.handleFollow}
-            handleUnfollow={this.handleUnfollow}
-            userId={id}
-          />
+          <Fragment>
+            <FriendProfileBox
+              friend={friend}
+              followButton={followButton}
+              handleFollow={this.handleFollow}
+              handleUnfollow={this.handleUnfollow}
+              userId={id}
+            />
+            {readingBook.title && (
+              <ReadingBookItem book={readingBook} friendName={friend.name} />
+            )}
+          </Fragment>
         ) : (
           <p>Loading</p>
         )}

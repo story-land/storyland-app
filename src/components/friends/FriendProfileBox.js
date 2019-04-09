@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 
 class FriendProfileBox extends Component {
+  handleGenres = () => {
+    if (this.props.friend) {
+      let genres = [this.props.friend.favGenres];
+      if (genres.length === 1) genres = genres[0];
+      if (genres.length > 1) genres = genres.slice(0, 2).join(' & ');
+      return genres;
+    } else {
+      return '';
+    }
+  };
+
   render() {
-    const {
-      name,
-      avatarURL,
-      pagesGoal,
-      favGenres,
-      followers
-    } = this.props.friend;
+    const { name, avatarURL, pagesGoal, followers } = this.props.friend;
     const { userId } = this.props;
     const followButton = followers.some(
       follower => follower.follower === userId
     );
+    const genres = this.handleGenres();
     return (
       <div className='category-screen'>
         <div className='card horizontal profile-card'>
@@ -31,7 +37,7 @@ class FriendProfileBox extends Component {
             <div className='card-content'>
               <h4>{name}</h4>
               <p>
-                Daily goal: <strong>{pagesGoal} pages</strong>
+                Favorite genres: <strong>{genres}</strong>
               </p>
             </div>
             <div className='card-action profile-link'>
