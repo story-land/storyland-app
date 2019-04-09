@@ -60,7 +60,7 @@ class UserDetail extends Component {
             userId={id}
           />
         ) : (
-          <p>Loading...</p>
+          <p>Loading</p>
         )}
       </div>
     );

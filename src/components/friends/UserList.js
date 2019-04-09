@@ -40,6 +40,8 @@ class UserList extends Component {
   };
 
   render() {
+    const { loading } = this.state;
+
     return (
       <div className='category-screen'>
         <h2 className='category-title'>
@@ -60,7 +62,7 @@ class UserList extends Component {
                 else return <UserItem user={user} key={user.id} />;
               })
             ) : (
-              <p>Loading...</p>
+              <p>Loading</p>
             )}
           </ul>
         </div>
