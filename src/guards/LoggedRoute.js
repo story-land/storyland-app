@@ -12,7 +12,7 @@ const LoggedRoute = ({ component: Component, ...rest }) => {
             if (!isAuthenticated()) {
               return <Component {...props} />;
             }
-            return <Redirect to='/user/explore' />;
+            return <Redirect to='/user/motivation' />;
           }}
         />
       )}

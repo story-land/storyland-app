@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.book-container {
+  margin: 3vh 0;
+}
+
 .book-card {
   text-align: center;
   margin: 0 10px;
@@ -41,7 +45,8 @@
   flex-direction: row;
 }
 
-.genre-input .ant-select {
-  width: 140px;
+.genre-input .ant-select .ant-select-selection {
+  font-size: 1em !important;
+  width: 40vw !important;
   margin: 0 20px;
 }

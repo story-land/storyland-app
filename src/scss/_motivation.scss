@@ -39,15 +39,21 @@
 
 .ant-select-focused .ant-select-selection,
 .ant-select-selection:focus,
-.ant-select-selection:active {
-  border: 1px solid map-get($palette, main-white);
+.ant-select-selection:active,
+.ant-select-selection:hover {
+  border: 1px solid map-get($palette, main-white) !important;
+  border-radius: 0;
 }
 
 .pages-period-select > .ant-select-selection,
 .pages-period-select > .ant-select-dropdown-menu,
 .ant-select-dropdown-menu-root,
 .ant-select-dropdown-menu-vertical,
-.ant-select-dropdown-menu-item {
+.ant-select-dropdown-menu-item,
+.ant-select-selection-selected-value,
+.ant-select-selection .ant-select-selection--single,
+.ant-select,
+.ant-select-enabled {
   text-align: center;
   font-size: 20px !important;
   font-weight: 300;

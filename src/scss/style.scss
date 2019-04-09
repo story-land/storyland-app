@@ -53,10 +53,10 @@ body {
 }
 
 .category-title {
-  font-size: 1.5em;
-  font-weight: 700;
+  font-size: 1.4em;
+  font-weight: 300;
   color: map-get($palette, main-white);
-  margin-bottom: 15px;
+  margin-bottom: 2vh;
 }
 
 .section-title {
@@ -110,6 +110,13 @@ input[type='number']:not(.browser-default):focus:not([readonly]),
 input[type='search']:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid map-get($palette, main-yellow);
+}
+
+.ant-input-affix-wrapper:hover,
+.ant-input:not(.ant-input-disabled) {
+  border-bottom: 1px solid map-get($palette, main-yellow) !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
 }
 
 .slick-slider button {

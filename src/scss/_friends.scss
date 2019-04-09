@@ -1,5 +1,28 @@
+// Friends List
+
+.friendslist-container .collection {
+  border: 0;
+  border-radius: 20px;
+  background: map-get($palette, light-grey);
+  color: map-get($palette, main-white);
+  margin-top: 4vh;
+}
+
+.currently-reading {
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.currently-reading-text {
+  font-style: normal;
+}
+
+.currently-reading-title {
+  font-size: 1em;
+  font-weight: 500;
+}
+
 .follow-button {
-  font-size: 0.8em;
   font-weight: bold;
   background: map-get($palette, dark-yellow);
 }
