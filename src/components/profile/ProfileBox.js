@@ -20,6 +20,17 @@ class ProfileBox extends Component {
     avatar: null
   };
 
+  handleGenres = () => {
+    if (this.props.user) {
+      let genres = [this.props.user.favGenres];
+      if (genres.length === 1) genres = genres[0];
+      if (genres.length > 1) genres = genres.join(' & ');
+      return genres;
+    } else {
+      return '';
+    }
+  };
+
   editProfile = () => {
     this.setState({
       editBox: true
@@ -68,6 +79,7 @@ class ProfileBox extends Component {
   render() {
     const { user, editBox, error, avatar } = this.state;
     const { getFieldProps, getFieldError } = this.props.form;
+    const genres = this.handleGenres();
     return (
       <Fragment>
         {!editBox && (
@@ -89,6 +101,9 @@ class ProfileBox extends Component {
                   <h4>{user.name}</h4>
                   <p>
                     Daily goal: <strong>{user.pagesGoal} pages</strong>
+                  </p>
+                  <p>
+                    Genres: <strong>{genres}</strong>
                   </p>
                 </div>
                 <SocialProfileBox />
