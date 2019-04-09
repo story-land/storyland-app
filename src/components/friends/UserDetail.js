@@ -4,6 +4,7 @@ import booksService from '../../services/books-service';
 import FriendProfileBox from './FriendProfileBox';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import ReadingBookItem from './ReadingBookItem';
+import RelatedFriendBooks from './RelatedFriendBooks';
 
 class UserDetail extends Component {
   state = {
@@ -79,6 +80,7 @@ class UserDetail extends Component {
         ) : (
           <p>Loading</p>
         )}
+        {friend.name && <RelatedFriendBooks friend={friend} />}
       </div>
     );
   }

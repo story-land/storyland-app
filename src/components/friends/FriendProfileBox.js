@@ -13,7 +13,7 @@ class FriendProfileBox extends Component {
   };
 
   render() {
-    const { name, avatarURL, pagesGoal, followers } = this.props.friend;
+    const { name, avatarURL, followers } = this.props.friend;
     const { userId } = this.props;
     const followButton = followers.some(
       follower => follower.follower === userId

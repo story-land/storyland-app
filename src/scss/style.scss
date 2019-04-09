@@ -114,7 +114,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .ant-input-affix-wrapper:hover,
 .ant-input:not(.ant-input-disabled) {
-  border-bottom: 1px solid map-get($palette, main-yellow) !important;
   border-right: 0 !important;
   border-left: 0 !important;
 }

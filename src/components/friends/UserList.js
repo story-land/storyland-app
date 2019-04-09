@@ -49,7 +49,7 @@ class UserList extends Component {
         </h2>
         <div className='friendslist-container'>
           <ul className='collection'>
-            {!this.state.loading ? (
+            {!loading ? (
               this.state.users.map(user => {
                 if (user.readingBook)
                   return (

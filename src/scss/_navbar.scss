@@ -21,8 +21,13 @@ nav {
   height: 100%;
 }
 
+.basic-nav-item-back {
+  font-size: 1.2em;
+}
+
 .basic-nav-item a {
   color: map-get($palette, main-dark) !important;
+  padding: 0 1.8vw !important;
   margin: 0;
 }
 
@@ -32,6 +37,7 @@ nav {
 }
 
 .right-register-topbar {
+  margin-left: 10vw !important;
 }
 
 //USER NAVBAR

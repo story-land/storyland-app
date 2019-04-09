@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ProfileBox from '../../components/profile/ProfileBox';
-import SocialProfileBox from '../../components/profile/SocialProfileBox';
 import PendingBooks from '../../components/profile/PendingBooks';
 import ReadBooks from '../../components/profile/ReadBooks';
 import ReadingBooks from '../../components/profile/ReadingBooks';
