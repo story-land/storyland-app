@@ -1,2 +1,1 @@
-const PUBLIC_URL =
-  process.env.NODE_ENV !== 'production' ? '' : '/storyland-app';
+const PUBLIC_URL = 'https://story-land.github.io/storyland-app';
