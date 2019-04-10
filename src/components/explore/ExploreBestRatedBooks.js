@@ -36,7 +36,10 @@ export default class ExploreBestRatedBooks extends Component {
             key={book.id}
             book={book}
             badge={
-              `${book.googleRating}${' '}` && <FontAwesomeIcon icon='star' />
+              <React.Fragment>
+                {book.googleRating} <FontAwesomeIcon icon='star' />
+              </React.Fragment>
+              // `${book.googleRating}${' '}` && <FontAwesomeIcon icon='star' />
             }
           />
         );
