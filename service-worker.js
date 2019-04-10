@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/storyland-app/precache-manifest.274cca670358cc4e2565b9dfea00205f.js"
+  "/storyland-app/precache-manifest.bd12d5dc05384ceecf55226c0acc76bf.js"
 );
 
 workbox.clientsClaim();
