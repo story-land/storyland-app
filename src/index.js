@@ -7,7 +7,7 @@ import 'react-slick/dist/react-slick';
 import './scss/style.scss';
 
 import App from './App';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowseRouter as Router } from 'react-router-dom';
 import { AuthStore } from './contexts/AuthStore';
 import * as serviceWorker from './serviceWorker';
 
