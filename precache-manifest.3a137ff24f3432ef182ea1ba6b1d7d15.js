@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/storyland-app/static/media/storyland-main-dark.e6a93caf.png"
   },
   {
-    "revision": "d7983f23cf363d88634d",
+    "revision": "414a8b02401575061912",
     "url": "/storyland-app/static/css/main.e5a129ce.chunk.css"
   },
   {
@@ -24,12 +24,8 @@ self.__precacheManifest = [
     "url": "/storyland-app/static/media/storyland-white.7075a412.png"
   },
   {
-    "revision": "d7983f23cf363d88634d",
-    "url": "/storyland-app/static/js/main.4d8a1cb7.chunk.js"
-  },
-  {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/storyland-app/static/media/slick.d41f55a7.ttf"
+    "revision": "414a8b02401575061912",
+    "url": "/storyland-app/static/js/main.e75c99db.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -40,11 +36,15 @@ self.__precacheManifest = [
     "url": "/storyland-app/static/media/slick.b7c9e1e4.woff"
   },
   {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/storyland-app/static/media/slick.d41f55a7.ttf"
+  },
+  {
     "revision": "75096179855e98f64b10",
     "url": "/storyland-app/static/css/2.0ee6d583.chunk.css"
   },
   {
-    "revision": "bf9251bebc309bd3254213515be13b71",
+    "revision": "cf92a083e23e06e2ee7ace786897c521",
     "url": "/storyland-app/index.html"
   }
 ];
