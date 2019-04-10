@@ -7,18 +7,18 @@ import 'react-slick/dist/react-slick';
 import './scss/style.scss';
 
 import App from './App';
-import { BrowseRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { AuthStore } from './contexts/AuthStore';
 import * as serviceWorker from './serviceWorker';
 
 import { PUBLIC_URL } from './ constants';
 
 ReactDOM.render(
-  <Router basename={PUBLIC_URL}>
+  <BrowserRouter basename={PUBLIC_URL}>
     <AuthStore>
       <App />
     </AuthStore>
-  </Router>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
