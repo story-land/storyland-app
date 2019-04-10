@@ -128,8 +128,9 @@
 }
 
 .congrats-box {
-  border-radius: 8px;
+  border: 1px solid map-get($palette, main-white);
   background-color: map-get($palette, light-grey);
+  padding: 20px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -141,8 +142,8 @@
   left: 0;
   right: 0;
   margin: auto;
-  width: 80vw;
-  height: 20vh;
+  width: 90vw;
+  height: 25vh;
   z-index: 5;
 }
 
@@ -151,6 +152,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2em;
 }
 
 .congrats-box p {

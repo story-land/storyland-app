@@ -38,7 +38,7 @@ class BasicTopBar extends Component {
               <FontAwesomeIcon icon='arrow-left' />
             </li>
           </ul>
-          <Link className='brand-logo center' to='/user/home'>
+          <Link className='brand-logo center' to='/home'>
             <img
               className='basic-nav-logo'
               src={logoWhite}

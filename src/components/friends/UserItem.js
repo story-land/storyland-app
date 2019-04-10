@@ -12,7 +12,7 @@ export default class UserItem extends Component {
     const { book } = this.state;
     return (
       <li className='collection-item avatar'>
-        <Link to={`/user/friends/${id}`}>
+        <Link to={`/friends/${id}`}>
           <img src={avatarURL} alt={name} className='circle' />
           <span className='title'>
             <strong>{name}</strong>

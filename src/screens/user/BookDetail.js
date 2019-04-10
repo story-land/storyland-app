@@ -86,7 +86,9 @@ export default class BookDetail extends Component {
       .filter(elem => elem.isbn !== book.isbn)
       .sort(() => 0.5 - Math.random())
       .map(book => {
-        return <BookItem key={book.id} book={book} />;
+        let badge = book.genres[0];
+        if (badge.includes(' ')) badge = badge.substr(0, badge.indexOf(' '));
+        return <BookItem key={book.id} book={book} badge={badge} />;
       });
     return (
       <div className='screen-container'>

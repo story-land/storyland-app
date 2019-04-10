@@ -30,3 +30,19 @@
   color: map-get($palette, main-white);
   font-weight: 300;
 }
+
+span.badge {
+  background: map-get($palette, main-yellow);
+  color: map-get($palette, main-dark);
+  box-shadow: 0 3px 2px map-get($palette, main-dark);
+}
+
+.book-badge {
+  position: absolute;
+  bottom: 1vh;
+  right: 0;
+  font-size: 0.8em !important;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

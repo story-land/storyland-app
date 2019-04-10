@@ -26,7 +26,9 @@ export default class ExploreLatestBooks extends Component {
     const books = this.state.books
       .sort(() => 0.5 - Math.random())
       .map(book => {
-        return <BookItem key={book.id} book={book} />;
+        const badge = `${new Date(book.publishedDate).getMonth() +
+          1}/${new Date(book.publishedDate).getFullYear()}`;
+        return <BookItem key={book.id} book={book} badge={badge} />;
       });
     const { loading } = this.state;
     return (

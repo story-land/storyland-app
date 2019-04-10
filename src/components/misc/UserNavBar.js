@@ -18,11 +18,7 @@ export default class UserNavBar extends Component {
       <div className='usernavbar'>
         <ul className='usernavbar-container'>
           <li>
-            <NavLink
-              className='nav-link'
-              activeClassName='active'
-              to='/user/home'
-            >
+            <NavLink className='nav-link' activeClassName='active' to='/home'>
               <div className='usernavbar-item'>
                 <FontAwesomeIcon icon='home' />
               </div>
@@ -32,7 +28,7 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/explore'
+              to='/explore'
             >
               <div className='usernavbar-item'>
                 <FontAwesomeIcon icon='compass' />
@@ -43,7 +39,7 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/friends'
+              to='/friends'
             >
               <div className='usernavbar-item'>
                 <FontAwesomeIcon icon='users' />
@@ -54,7 +50,7 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/profile'
+              to='/profile'
             >
               <div className='usernavbar-item'>
                 <FontAwesomeIcon icon='user-circle' />

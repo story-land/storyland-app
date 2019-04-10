@@ -23,7 +23,9 @@ export default class RelatedFriendBooks extends Component {
     const books = this.state.books
       .sort(() => 0.5 - Math.random())
       .map(book => {
-        return <BookItem key={book.id} book={book} />;
+        let badge = book.genres[0];
+        if (badge.includes(' ')) badge = badge.substr(0, badge.indexOf(' '));
+        return <BookItem key={book.id} book={book} badge={badge} />;
       });
     const { name } = this.props.friend;
     const friendName = name.substr(0, name.indexOf(' '));

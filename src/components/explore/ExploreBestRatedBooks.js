@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
 import BookItem from '../books/BookItem';
 import Loading from '../misc/Loading';
+
+library.add(faStar);
 
 export default class ExploreBestRatedBooks extends Component {
   state = {
@@ -26,7 +31,15 @@ export default class ExploreBestRatedBooks extends Component {
     const books = this.state.books
       .sort(() => 0.5 - Math.random())
       .map(book => {
-        return <BookItem key={book.id} book={book} />;
+        return (
+          <BookItem
+            key={book.id}
+            book={book}
+            badge={
+              `${book.googleRating}${' '}` && <FontAwesomeIcon icon='star' />
+            }
+          />
+        );
       });
     const { loading } = this.state;
     return (

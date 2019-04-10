@@ -12,13 +12,13 @@ class Motivation extends Component {
     if (isAchievedGoal) {
       this.setState({
         congratsBox: true,
-        congratsText: 'Congrats!! You rocked your goal'
+        congratsText: 'Congrats!! You rocked your goal!'
       });
     } else {
       this.setState({
         congratsBox: true,
         congratsText:
-          "Good! It's better than nothing. Keep improving to reach your daily goal"
+          "Good!! It's better than nothing. Keep improving to reach your daily goal."
       });
     }
   };

@@ -6,6 +6,7 @@ import { checkEmail, checkPassword } from '../utils/validators';
 import { Icon } from 'antd';
 import authService from '../services/auth-service';
 import { withAuthConsumer } from '../contexts/AuthStore';
+import userService from '../services/user-service';
 
 class LoginForm extends Component {
   state = {
@@ -22,6 +23,9 @@ class LoginForm extends Component {
         authService.login(fields).then(
           user => {
             this.setState({ isAuthenticated: true }, () => {
+              userService
+                .getUser(user.id)
+                .then(fullUser => this.props.onUserChanged(fullUser));
               this.props.onUserChanged(user);
             });
           },
@@ -40,7 +44,7 @@ class LoginForm extends Component {
     const { getFieldProps, getFieldError } = this.props.form;
     const { error, isAuthenticated } = this.state;
     if (isAuthenticated) {
-      return <Redirect to='/user/explore' />;
+      return <Redirect to='/home' />;
     }
     return (
       <div className='reg-container'>

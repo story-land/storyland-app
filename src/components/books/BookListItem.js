@@ -18,7 +18,7 @@ const BookListItem = props => {
 
   return (
     <li className='collection-item avatar'>
-      <Link to={`/user/explore/${id}`}>
+      <Link to={`/explore/${id}`}>
         <img src={imageLink} alt={title} className='circle' />
         <span className='title'>
           <strong>{title}</strong>
