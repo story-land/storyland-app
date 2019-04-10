@@ -35,6 +35,7 @@ body {
 }
 
 .screen-wrapper {
+  position: relative;
   background: map-get($palette, main-dark);
   background-size: cover;
   display: flex;

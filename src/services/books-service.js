@@ -24,6 +24,14 @@ const getSearchedBook = search =>
 const getOneBook = book =>
   http.get(`/books/${book}`).then(response => response.data);
 
+const postCoverBook = file => {
+  const data = new FormData();
+  data.append('cover', file);
+  return http
+    .post('/books/scancover', data)
+    .then(res => Promise.resolve(res.data));
+};
+
 export default {
   getRegisterBooks,
   getAllBooks,
@@ -31,5 +39,6 @@ export default {
   getBestRatedBooks,
   getLatestBooks,
   getSearchedBook,
-  getOneBook
+  getOneBook,
+  postCoverBook
 };

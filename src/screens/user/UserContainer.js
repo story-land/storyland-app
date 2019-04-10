@@ -16,8 +16,8 @@ export default class UserContainer extends Component {
         <BasicTopBar />
         <div className='screen-wrapper'>
           <Switch>
+            <Route exact path='/user/home' component={Motivation} />
             <Route exact path='/user/explore' component={Explore} />
-            <Route exact path='/user/motivation' component={Motivation} />
             <Route exact path='/user/friends' component={Friends} />
             <Route exact path='/user/profile' component={Profile} />
             <Route path='/user/explore/:bookId' component={BookDetail} />

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import booksService from '../../services/books-service';
 import debounce from 'lodash/debounce';
+import { Icon } from 'antd';
 import SearchBar from '../../components/explore/SearchBar';
 import SearchBooksList from '../../components/books/SearchBooksList';
 import ExploreBestRatedBooks from '../../components/explore/ExploreBestRatedBooks';
@@ -11,7 +12,8 @@ import ExploreBooksByGenre from '../../components/explore/ExploreBooksByGenre';
 class Explore extends Component {
   state = {
     books: [],
-    search: ''
+    search: '',
+    coverBook: false
   };
 
   onSearch = debounce(search => {
@@ -23,12 +25,32 @@ class Explore extends Component {
     }
   }, 1000);
 
+  uploadCover = file => {
+    booksService.postCoverBook(file).then(books => {
+      this.setState({ books, coverBook: true });
+    });
+  };
+
+  closeCoverSearch = () => {
+    this.setState({ search: '', coverBook: false });
+  };
+
   render() {
-    const { books, search } = this.state;
+    const { books, search, coverBook } = this.state;
     return (
       <div className='screen-container'>
-        <SearchBar onSearch={this.onSearch.bind(this)} />
-        {search && <SearchBooksList books={books} />}
+        <SearchBar
+          onSearch={this.onSearch.bind(this)}
+          uploadCover={this.uploadCover.bind(this)}
+        />
+        {(search || coverBook) && <SearchBooksList books={books} />}
+        {coverBook && (
+          <Icon
+            type='close-circle'
+            className='close-cover-search'
+            onClick={this.closeCoverSearch}
+          />
+        )}
         {!search && (
           <Fragment>
             <ExploreRelatedBooks />

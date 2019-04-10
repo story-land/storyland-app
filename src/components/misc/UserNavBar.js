@@ -21,7 +21,7 @@ export default class UserNavBar extends Component {
             <NavLink
               className='nav-link'
               activeClassName='active'
-              to='/user/motivation'
+              to='/user/home'
             >
               <div className='usernavbar-item'>
                 <FontAwesomeIcon icon='home' />
