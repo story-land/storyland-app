@@ -4,11 +4,13 @@ import { Select } from 'antd';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
 import BookItem from '../books/BookItem';
+import Loading from '../misc/Loading';
 
 class ExploreRelatedBooks extends Component {
   state = {
     books: [],
-    genre: ''
+    genre: '',
+    loading: false
   };
 
   handleSelectChange = event => {
@@ -17,9 +19,12 @@ class ExploreRelatedBooks extends Component {
   };
 
   handleGenreBooks = genre => {
-    booksService.getRelatedBooks(genre).then(response => {
-      this.setState({
-        books: response
+    this.setState({ loading: true }, () => {
+      booksService.getRelatedBooks(genre).then(response => {
+        this.setState({
+          books: response,
+          loading: false
+        });
       });
     });
   };
@@ -34,6 +39,7 @@ class ExploreRelatedBooks extends Component {
       .map(book => {
         return <BookItem key={book.id} book={book} />;
       });
+    const { loading } = this.state;
     return (
       <div className='category-screen'>
         <div className='genre-input'>
@@ -66,9 +72,12 @@ class ExploreRelatedBooks extends Component {
             <Select.Option value='Social Science'>Social Science</Select.Option>
           </Select>
         </div>
-        <ul className='book-container'>
-          <Slider {...sliderSettings}>{books}</Slider>
-        </ul>
+        {loading && <Loading />}
+        {!loading && (
+          <ul className='book-container'>
+            <Slider {...sliderSettings}>{books}</Slider>
+          </ul>
+        )}
       </div>
     );
   }

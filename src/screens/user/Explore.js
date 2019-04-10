@@ -3,6 +3,7 @@ import booksService from '../../services/books-service';
 import debounce from 'lodash/debounce';
 import { Icon } from 'antd';
 import SearchBar from '../../components/explore/SearchBar';
+import Loading from '../../components/misc/Loading';
 import SearchBooksList from '../../components/books/SearchBooksList';
 import ExploreBestRatedBooks from '../../components/explore/ExploreBestRatedBooks';
 import ExploreRelatedBooks from '../../components/explore/ExploreRelatedBooks';
@@ -13,7 +14,8 @@ class Explore extends Component {
   state = {
     books: [],
     search: '',
-    coverBook: false
+    coverBook: false,
+    loading: false
   };
 
   onSearch = debounce(search => {
@@ -26,8 +28,9 @@ class Explore extends Component {
   }, 1000);
 
   uploadCover = file => {
+    this.setState({ loading: true });
     booksService.postCoverBook(file).then(books => {
-      this.setState({ books, coverBook: true });
+      this.setState({ books, coverBook: true, loading: false });
     });
   };
 
@@ -36,7 +39,7 @@ class Explore extends Component {
   };
 
   render() {
-    const { books, search, coverBook } = this.state;
+    const { books, search, coverBook, loading } = this.state;
     return (
       <div className='screen-container'>
         <SearchBar
@@ -51,7 +54,8 @@ class Explore extends Component {
             onClick={this.closeCoverSearch}
           />
         )}
-        {!search && (
+        {loading && <Loading />}
+        {!search && !coverBook && !loading && (
           <Fragment>
             <ExploreRelatedBooks />
             <ExploreBestRatedBooks />

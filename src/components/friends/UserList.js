@@ -3,6 +3,7 @@ import { withAuthConsumer } from '../../contexts/AuthStore';
 import userService from '../../services/user-service';
 import booksService from '../../services/books-service';
 import UserItem from './UserItem';
+import Loading from '../misc/Loading';
 
 class UserList extends Component {
   state = {
@@ -62,7 +63,7 @@ class UserList extends Component {
                 else return <UserItem user={user} key={user.id} />;
               })
             ) : (
-              <p>Loading</p>
+              <Loading />
             )}
           </ul>
         </div>

@@ -13,6 +13,15 @@
   display: none;
 }
 
+.preloader-wrapper.active {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
 .close-cover-search {
   position: absolute;
   font-size: 26px;

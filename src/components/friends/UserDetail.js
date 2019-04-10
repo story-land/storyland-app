@@ -5,6 +5,7 @@ import FriendProfileBox from './FriendProfileBox';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import ReadingBookItem from './ReadingBookItem';
 import RelatedFriendBooks from './RelatedFriendBooks';
+import Loading from '../misc/Loading';
 
 class UserDetail extends Component {
   state = {
@@ -78,7 +79,7 @@ class UserDetail extends Component {
             )}
           </Fragment>
         ) : (
-          <p>Loading</p>
+          <Loading />
         )}
         {friend.name && <RelatedFriendBooks friend={friend} />}
       </div>
