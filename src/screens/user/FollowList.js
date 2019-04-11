@@ -38,7 +38,10 @@ class FollowList extends Component {
         });
       });
       Promise.all(followPromises).then(users => {
-        this.setState({ users, loading: false });
+        this.setState(
+          { users, loading: false },
+          () => (document.querySelector('body').scrollTop = 0)
+        );
       });
     }
     if (followstate === 'followers') {

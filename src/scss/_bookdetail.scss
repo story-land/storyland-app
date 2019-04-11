@@ -35,6 +35,7 @@
   justify-content: center;
   border-radius: 0 !important;
   border-bottom: 1px solid map-get($palette, lighter-grey) !important;
+  animation: 0 !important;
 }
 
 .pending-button,
@@ -75,4 +76,10 @@
 
 .ant-collapse-content-box {
   color: map-get($palette, main-white);
+}
+
+.buy-link-button,
+.buy-link-button:focus,
+.buy-link-button:active {
+  color: map-get($palette, main-yellow) !important;
 }

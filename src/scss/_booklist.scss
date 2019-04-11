@@ -8,6 +8,7 @@
   border-radius: 20px;
   background: map-get($palette, light-grey);
   color: map-get($palette, main-white);
+  animation: slide-in-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .collection .collection-item {
@@ -65,4 +66,17 @@ span.badge {
   border-radius: 30%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

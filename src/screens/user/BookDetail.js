@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Collapse, Icon } from 'antd';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import Slider from 'react-slick';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
 import userbooksService from '../../services/userbook-service';
 import BookItem from '../../components/books/BookItem';
 
+library.add(faEuroSign);
+library.add(faCalendarDay);
 const Panel = Collapse.Panel;
 
 export default class BookDetail extends Component {
@@ -147,7 +153,7 @@ export default class BookDetail extends Component {
             >
               {book.googleRating && (
                 <Panel header='Rating' key='1'>
-                  {book.googleRating} <Icon type='star' theme='filled' />
+                  {book.googleRating} <Icon type='star' theme='filled' /> of 5
                 </Panel>
               )}
               {book.pageCount && (
@@ -157,11 +163,24 @@ export default class BookDetail extends Component {
               )}
               {publishedDate && (
                 <Panel header='Published Date' key='3'>
-                  Date: {publishedDate}
+                  <FontAwesomeIcon icon='calendar-day' /> {publishedDate}
+                </Panel>
+              )}
+              {book.googleBuyLink && book.googlePrice && (
+                <Panel header='Price & Buy Link' key='4'>
+                  <a className='buy-link-button' href={book.googleBuyLink}>
+                    {book.googlePrice}
+                    <FontAwesomeIcon icon='euro-sign' /> in Google Play Store
+                  </a>
+                </Panel>
+              )}
+              {book.isbn && (
+                <Panel header='ISBN' key='5'>
+                  ISBN: {book.isbn}
                 </Panel>
               )}
               {book.description && (
-                <Panel header='Description' key='4'>
+                <Panel header='Description' key='6'>
                   {book.description}
                 </Panel>
               )}

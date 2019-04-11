@@ -46,7 +46,11 @@ class ExploreRelatedBooks extends Component {
       <div className='category-screen'>
         <div className='genre-input'>
           <h4 className='category-title'>Books by genre</h4>
-          <Select defaultValue='Fiction' onChange={this.handleSelectChange}>
+          <Select
+            className='pages-period-select'
+            defaultValue='Fiction'
+            onChange={this.handleSelectChange}
+          >
             <Select.Option value={`Biography & Autobiography`}>
               Biography & Autobiography
             </Select.Option>

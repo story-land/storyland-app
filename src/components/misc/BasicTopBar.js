@@ -17,7 +17,7 @@ class BasicTopBar extends Component {
     authService.logout().then(() => {
       const { history } = this.props;
       this.props.onUserChanged({});
-      history.push('/login');
+      history.push('/');
     });
   };
 
@@ -53,7 +53,6 @@ class BasicTopBar extends Component {
                   </Link>
                 </li>
               </ul>
-
             </Fragment>
           )}
           {user.email && (
