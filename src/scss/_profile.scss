@@ -180,6 +180,10 @@
   text-align: center;
 }
 
+.follow-item a {
+  color: map-get($palette, main-white) !important;
+}
+
 .follow-content p {
   margin: 0;
 }

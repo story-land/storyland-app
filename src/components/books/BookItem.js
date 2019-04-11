@@ -7,7 +7,7 @@ export default class BookItem extends Component {
   };
 
   showImgBadge = () => {
-    this.setState({ showBadge: true }, () => console.log('done'));
+    this.setState({ showBadge: true });
   };
 
   render() {

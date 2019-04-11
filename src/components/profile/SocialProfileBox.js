@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import userService from '../../services/user-service';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 
@@ -23,16 +24,20 @@ class SocialProfileBox extends Component {
       <ul className='collection follow-container'>
         <div className='follow-item'>
           <div className='follow-content'>
-            <p>Followed by</p>
-            <span className='follow-title'>{followed}</span>
-            <p>readers</p>
+            <Link to='/friends/list/followers'>
+              <p>Followed by</p>
+              <span className='follow-title'>{followed}</span>
+              <p>readers</p>
+            </Link>
           </div>
         </div>
         <div className='follow-item'>
           <div className='follow-content'>
-            <p>Following</p>
-            <span className='follow-title'>{following}</span>
-            <p>readers</p>
+            <Link to='/friends/list/following'>
+              <p>Following</p>
+              <span className='follow-title'>{following}</span>
+              <p>readers</p>
+            </Link>
           </div>
         </div>
       </ul>

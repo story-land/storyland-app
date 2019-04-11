@@ -48,12 +48,17 @@
 .pending-button > button:focus,
 .reading-button > button:focus,
 .read-button > button:focus {
-  background: map-get($palette, main-dark);
+  background: map-get($palette, main-yellow) !important;
+}
+
+.pending-button > button:active,
+.reading-button > button:active,
+.read-button > button:active {
 }
 
 .active-state {
-  background: map-get($palette, main-yellow);
-  color: map-get($palette, main-dark);
+  background: map-get($palette, main-yellow) !important;
+  color: map-get($palette, main-dark) !important;
 }
 
 .ant-collapse {

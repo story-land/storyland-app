@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse } from 'antd';
+import { Collapse, Icon } from 'antd';
 import Slider from 'react-slick';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
@@ -138,10 +138,16 @@ export default class BookDetail extends Component {
             </button>
           </div>
           <div className='book-detail-summary'>
-            <Collapse bordered={false} defaultActiveKey={[]}>
+            <Collapse
+              bordered={false}
+              defaultActiveKey={[]}
+              expandIcon={({ isActive }) => (
+                <Icon type='caret-right' rotate={isActive ? 90 : 0} />
+              )}
+            >
               {book.googleRating && (
                 <Panel header='Rating' key='1'>
-                  {book.googleRating}
+                  {book.googleRating} <Icon type='star' theme='filled' />
                 </Panel>
               )}
               {book.pageCount && (

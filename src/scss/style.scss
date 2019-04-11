@@ -73,13 +73,13 @@ body {
   border: none;
   color: map-get($palette, main-dark);
   text-transform: uppercase;
-  padding: 1vh 2vw;
+  padding: 1vh 1.5vw;
   text-decoration: none;
   cursor: pointer;
 }
 
 button:focus {
-  background-color: map-get($palette, main-yellow) !important;
+  background-color: transparent;
 }
 
 input:not([type]),

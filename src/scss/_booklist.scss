@@ -15,10 +15,30 @@
 }
 
 .collection .collection-item.avatar {
-  display: flex;
-  align-items: center;
   background: map-get($palette, light-grey);
   color: map-get($palette, main-white);
+}
+
+.booklist-container > .collection .collection-item.avatar {
+  background: map-get($palette, light-grey);
+  color: map-get($palette, main-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1vh 2vw;
+}
+
+.avatar-img-book {
+  width: 70px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.avatar-info-book {
+  margin-left: 5vw;
 }
 
 .collection .collection-item.avatar .title,
@@ -34,15 +54,15 @@
 span.badge {
   background: map-get($palette, main-yellow);
   color: map-get($palette, main-dark);
-  box-shadow: 0 3px 2px map-get($palette, main-dark);
+  box-shadow: 0 3px 2px map-get($palette, light-grey);
 }
 
 .book-badge {
   position: absolute;
-  bottom: 1vh;
+  top: 0.5vh;
   right: 0;
   font-size: 0.8em !important;
-  border-radius: 10px;
+  border-radius: 30%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }

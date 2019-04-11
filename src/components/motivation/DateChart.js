@@ -89,6 +89,10 @@ class DateChart extends Component {
     this.handleDataGraphic('month');
   };
 
+  componentDidUpdate = () => {
+    this.handleDataGraphic(this.state.period);
+  };
+
   render() {
     const { data, pagesRead } = this.state;
     const dataArr = [

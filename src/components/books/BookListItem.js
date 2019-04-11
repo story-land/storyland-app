@@ -18,16 +18,17 @@ const BookListItem = props => {
 
   return (
     <li className='collection-item avatar'>
-      <Link to={`/explore/${id}`}>
-        <img src={imageLink} alt={title} className='circle' />
-        <span className='title'>
-          <strong>{title}</strong>
-        </span>
-        <p className='authors-item'>{authors}</p>
-      </Link>
-      <a href='#!' className='secondary-content'>
-        <i className='material-icons' />
-      </a>
+      <div>
+        <img src={imageLink} alt={title} className='avatar-img-book' />
+      </div>
+      <div className='avatar-info-book'>
+        <Link to={`/explore/${id}`}>
+          <span className='title'>
+            <strong>{title}</strong>
+          </span>
+          <p className='authors-item'>{authors}</p>
+        </Link>
+      </div>
     </li>
   );
 };

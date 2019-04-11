@@ -23,12 +23,12 @@
 }
 
 .follow-button {
-  font-weight: bold;
-  background: map-get($palette, dark-yellow);
+  font-size: 0.9em;
+  background: map-get($palette, main-yellow);
 }
 
 .unfollow-button {
-  font-size: 0.8em;
-  font-weight: bold;
-  background: map-get($palette, main-yellow);
+  font-size: 0.9em;
+  background: map-get($palette, lighter-grey);
+  color: map-get($palette, main-white) !important;
 }
