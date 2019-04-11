@@ -102,6 +102,7 @@ class RegisterForm extends Component {
   };
 
   render() {
+    document.querySelector('body').scrollTop = 0;
     const { getFieldProps, getFieldError } = this.props.form;
     const {
       user,

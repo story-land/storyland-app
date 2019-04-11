@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 import sliderSettings from '../../utils/sliderSettings';
 import booksService from '../../services/books-service';
 import BookItem from '../books/BookItem';
 import Loading from '../misc/Loading';
 
-export default class ExploreLatestBooks extends Component {
+class ExploreLatestBooks extends Component {
   state = {
     books: [],
     loading: false
@@ -23,6 +24,7 @@ export default class ExploreLatestBooks extends Component {
   };
 
   render() {
+    const isUser = this.props.isAuthenticated();
     const books = this.state.books
       .sort(() => 0.5 - Math.random())
       .map(book => {
@@ -33,7 +35,7 @@ export default class ExploreLatestBooks extends Component {
     const { loading } = this.state;
     return (
       <div className='category-screen'>
-        <h4 className='category-title'>Latest books</h4>
+        {isUser && <h4 className='category-title'>Latest books</h4>}
         {loading && <Loading />}
         {!loading && (
           <ul className='book-container'>
@@ -44,3 +46,5 @@ export default class ExploreLatestBooks extends Component {
     );
   }
 }
+
+export default withAuthConsumer(ExploreLatestBooks);

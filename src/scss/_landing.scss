@@ -1,23 +1,24 @@
 .landing-web {
-  background: linear-gradient(
-    to bottom right,
-    map-get($palette, main-dark),
-    map-get($palette, light-grey)
-  );
+  background: map-get($palette, main-dark);
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.landing-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.separation-line {
+  border-bottom: 1px solid map-get($palette, lighter-grey);
+  width: 50%;
+  margin: 0 auto;
+}
+.landing-first-section {
+  background: url('../images/landing-1.png');
+  background-size: cover;
+  height: 70vh;
 }
 
 .landing-logo {
   text-align: center;
-  padding: 8vh 0;
+  padding: 6vh 0;
+  margin-bottom: 4vh;
 }
 
 .landing-logo img {
@@ -26,23 +27,96 @@
   width: 60vw;
 }
 
+.landing-screen {
+  width: 100vw;
+}
+
+.landing-screen-text {
+  text-align: left;
+  padding: 2vh 10vw 2vh 6vw;
+}
+
+.landing-screen-title {
+  color: map-get($palette, main-white);
+  font-size: 2.4em;
+  font-weight: 900;
+  line-height: 6vh;
+  margin-bottom: 4vh;
+}
+
+.landing-section-title {
+  color: map-get($palette, main-yellow);
+  font-weight: 900;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.landing-section-subtitle {
+  color: map-get($palette, main-white);
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 4vh;
+  text-align: center;
+}
+
+.landing-screen-text p {
+  font-size: 1.4em;
+}
+
+.catalog-text {
+  padding: 2vh 6vw;
+  margin: -4vh 0 4vh;
+}
+
+.chart-text {
+  padding: 2vh 6vw;
+  margin: 2vh 0 4vh;
+}
+
+.third-landing {
+  margin: 10vh 0;
+}
+
+.chart-landing {
+  height: 30vh;
+}
+
+.buddies-screen,
+.fifth-landing {
+  margin: 10vh 0;
+}
+
+.landing-buddies {
+  margin-bottom: 4vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.landing-buddies img {
+  width: 45%;
+}
+
 .landing-buttons {
   display: flex;
-  flex-direction: column;
-  margin: 10vh auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 4vh auto;
 }
 
 .landing-buttons button {
   color: map-get($palette, main-dark);
-  width: 30vw;
+  width: 32vw;
 }
 
 .reg-button {
   background-color: map-get($palette, dark-yellow);
-  margin: 1vh 0;
+  margin: 1vh 1vw;
 }
 
 .log-button {
   background-color: map-get($palette, main-yellow);
-  margin: 1vh 0;
+  margin: 1vh 1vw;
 }

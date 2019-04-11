@@ -41,6 +41,7 @@ class LoginForm extends Component {
   };
 
   render() {
+    document.querySelector('body').scrollTop = 0;
     const { getFieldProps, getFieldError } = this.props.form;
     const { error, isAuthenticated } = this.state;
     if (isAuthenticated) {
