@@ -30,24 +30,18 @@ class BasicTopBar extends Component {
     return (
       <nav className='basic-nav'>
         <div className='nav-wrapper basic-nav-list'>
-          <ul id='nav-mobile' className='left'>
-            <li
-              className='basic-nav-item basic-nav-item-back'
-              onClick={this.handleBack}
-            >
-              <FontAwesomeIcon icon='arrow-left' />
-            </li>
-          </ul>
-          <Link className='brand-logo center' to='/home'>
-            <img
-              className='basic-nav-logo'
-              src={logoWhite}
-              alt='storyland-app'
-            />
-          </Link>
-          <ul id='nav-mobile' className='right right-register-topbar'>
-            {!user.email && (
-              <Fragment>
+          {!user.email && (
+            <Fragment>
+              <div className='nav-logo'>
+                <Link className='brand-logo' to='/'>
+                  <img
+                    className='basic-nav-logo'
+                    src={logoWhite}
+                    alt='storyland-app'
+                  />
+                </Link>
+              </div>
+              <ul id='nav-mobile' className='right right-register-topbar'>
                 <li className='basic-nav-item'>
                   <Link className='nav-link' to='/register'>
                     Register
@@ -58,19 +52,37 @@ class BasicTopBar extends Component {
                     Login
                   </Link>
                 </li>
-              </Fragment>
-            )}
-            {user.email && (
-              <Fragment>
+              </ul>
+
+            </Fragment>
+          )}
+          {user.email && (
+            <Fragment>
+              <ul id='nav-mobile' className='left'>
                 <li
                   className='basic-nav-item basic-nav-item-back'
+                  onClick={this.handleBack}
+                >
+                  <FontAwesomeIcon icon='arrow-left' />
+                </li>
+              </ul>
+              <Link className='brand-logo center' to='/home'>
+                <img
+                  className='basic-nav-logo'
+                  src={logoWhite}
+                  alt='storyland-app'
+                />
+              </Link>
+              <ul id='nav-mobile' className='right right-register-topbar'>
+                <li
+                  className='basic-nav-item basic-nav-item-logout'
                   onClick={this.handleLogout}
                 >
                   <FontAwesomeIcon icon='sign-out-alt' />
                 </li>
-              </Fragment>
-            )}
-          </ul>
+              </ul>
+            </Fragment>
+          )}
         </div>
       </nav>
     );

@@ -5,7 +5,8 @@ import DateChart from '../../components/motivation/DateChart';
 class Motivation extends Component {
   state = {
     congratsBox: false,
-    congratsText: ''
+    congratsText: '',
+    refreshChart: true
   };
 
   handleCongratsText = isAchievedGoal => {
@@ -27,12 +28,12 @@ class Motivation extends Component {
     this.setState({
       congratsBox: false,
       congratsText: '',
-      refreshChart: true
+      refreshChart: !this.state.refreshChart
     });
   };
 
   render() {
-    const { congratsText } = this.state;
+    const { congratsText, refreshChart } = this.state;
     return (
       <div className='screen-container'>
         {congratsText && (
@@ -48,7 +49,7 @@ class Motivation extends Component {
             </div>
           </div>
         )}
-        <DateChart />
+        <DateChart refresh={refreshChart} />
         <ReadToday congratsBox={this.handleCongratsText} />
       </div>
     );

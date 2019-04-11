@@ -6,13 +6,13 @@
   );
   background-size: cover;
   height: 100vh;
-  padding: 10vw;
 }
 
 .landing-info {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-logo {
@@ -33,8 +33,8 @@
 }
 
 .landing-buttons button {
-  color: #fff;
-  width: 50vw;
+  color: map-get($palette, main-dark);
+  width: 30vw;
 }
 
 .reg-button {
