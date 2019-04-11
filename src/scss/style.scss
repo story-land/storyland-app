@@ -42,7 +42,6 @@ body {
   display: flex;
   height: 100%;
   min-height: 100vh;
-  margin-bottom: 65px;
   overflow: auto;
 }
 
@@ -111,14 +110,29 @@ input[type='datetime-local']:not(.browser-default):focus:not([readonly]),
 input[type='tel']:not(.browser-default):focus:not([readonly]),
 input[type='number']:not(.browser-default):focus:not([readonly]),
 input[type='search']:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]),
+input:not([type]):focus:not([readonly]),
+input[type='text']:not(.browser-default):focus:not([readonly]),
+input[type='password']:not(.browser-default):focus:not([readonly]),
+input[type='email']:not(.browser-default):focus:not([readonly]),
+input[type='url']:not(.browser-default):focus:not([readonly]),
+input[type='time']:not(.browser-default):focus:not([readonly]),
+input[type='date']:not(.browser-default):focus:not([readonly]),
+input[type='datetime']:not(.browser-default):focus:not([readonly]),
+input[type='datetime-local']:not(.browser-default):focus:not([readonly]),
+input[type='tel']:not(.browser-default):focus:not([readonly]),
+input[type='number']:not(.browser-default):focus:not([readonly]),
+input[type='search']:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid map-get($palette, main-yellow);
+  border-bottom: 1px solid map-get($palette, main-yellow) !important;
+  box-shadow: none !important;
 }
 
 .ant-input-affix-wrapper:hover,
 .ant-input:not(.ant-input-disabled) {
   border-right: 0 !important;
   border-left: 0 !important;
+  box-shadow: none !important;
 }
 
 .ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled) {

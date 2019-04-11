@@ -26,7 +26,8 @@ class Motivation extends Component {
   closeCongratsBox = () => {
     this.setState({
       congratsBox: false,
-      congratsText: ''
+      congratsText: '',
+      refreshChart: true
     });
   };
 

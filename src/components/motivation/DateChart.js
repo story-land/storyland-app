@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import { Select } from 'antd';
 import { ResponsiveLine } from 'nivo';
 import { withAuthConsumer } from '../../contexts/AuthStore';
+import CountUp from 'react-countup';
 import goalsService from '../../services/goals-service';
 
 class DateChart extends Component {
@@ -128,7 +129,13 @@ class DateChart extends Component {
     return (
       <div className='category-screen'>
         <div className='pages-read-wrapper'>
-          <h2 className='pages-read-count'>{pagesRead}</h2>
+          <CountUp
+            className='pages-read-count'
+            start={0}
+            duration={3}
+            end={pagesRead}
+            redraw={true}
+          />
           <h4 className='pages-read-in'>pages read in</h4>
           <Select
             className='pages-period-select'
