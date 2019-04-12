@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Icon } from 'antd';
 import BookListItem from './BookListItem';
 
 export default class SearchBooksList extends Component {
@@ -20,7 +21,14 @@ export default class SearchBooksList extends Component {
 
     return (
       <div className='booklist-container'>
-        <ul className='collection'>{books}</ul>
+        <ul className='collection'>
+          <Icon
+            type='close-circle'
+            className='close-cover-search'
+            onClick={this.props.closeList}
+          />
+          {books}
+        </ul>
       </div>
     );
   }

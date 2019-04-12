@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import booksService from '../../services/books-service';
 import debounce from 'lodash/debounce';
-import { Icon } from 'antd';
 import SearchBar from '../../components/explore/SearchBar';
 import Loading from '../../components/misc/Loading';
 import SearchBooksList from '../../components/books/SearchBooksList';
@@ -46,13 +45,8 @@ class Explore extends Component {
           onSearch={this.onSearch.bind(this)}
           uploadCover={this.uploadCover.bind(this)}
         />
-        {(search || coverBook) && <SearchBooksList books={books} />}
-        {coverBook && (
-          <Icon
-            type='close-circle'
-            className='close-cover-search'
-            onClick={this.closeCoverSearch}
-          />
+        {(search || coverBook) && (
+          <SearchBooksList books={books} closeList={this.closeCoverSearch} />
         )}
         {loading && <Loading />}
         {!search && !coverBook && !loading && (
