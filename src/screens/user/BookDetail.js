@@ -175,9 +175,10 @@ export default class BookDetail extends Component {
                   {book.pageCount} pages
                 </Panel>
               )}
-              {publishedDate && (
-                <Panel header='Published Date' key='4'>
-                  <FontAwesomeIcon icon='calendar-day' /> {publishedDate}
+              {book.publisher && publishedDate && (
+                <Panel header='Publisher & Published Date' key='4'>
+                  {book.publisher} <FontAwesomeIcon icon='calendar-day' />{' '}
+                  {publishedDate}
                 </Panel>
               )}
               {book.googleBuyLink && book.googlePrice && (
