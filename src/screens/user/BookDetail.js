@@ -71,14 +71,11 @@ export default class BookDetail extends Component {
       ]).then(([book, state]) => {
         const genre = book.genres[0];
         booksService.getRelatedBooks(genre).then(relatedBooks => {
-          this.setState(
-            {
-              book,
-              state,
-              relatedBooks
-            },
-            () => (document.querySelector('body').scrollTop = 0)
-          );
+          this.setState({
+            book,
+            state,
+            relatedBooks
+          });
         });
       });
     }

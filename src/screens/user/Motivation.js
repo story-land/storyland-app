@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReadToday from '../../components/motivation/ReadToday';
 import DateChart from '../../components/motivation/DateChart';
+import LastReadBooks from '../../components/motivation/LastReadBooks';
 
 class Motivation extends Component {
   state = {
@@ -51,6 +52,8 @@ class Motivation extends Component {
         )}
         <DateChart refresh={refreshChart} />
         <ReadToday congratsBox={this.handleCongratsText} />
+        <div className='motivation-space-section' />
+        <LastReadBooks refresh={refreshChart} />
       </div>
     );
   }

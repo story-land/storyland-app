@@ -39,7 +39,6 @@ export default class ExploreBestRatedBooks extends Component {
               <React.Fragment>
                 {book.googleRating} <FontAwesomeIcon icon='star' />
               </React.Fragment>
-              // `${book.googleRating}${' '}` && <FontAwesomeIcon icon='star' />
             }
           />
         );

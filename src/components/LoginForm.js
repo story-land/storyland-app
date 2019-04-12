@@ -22,11 +22,9 @@ class LoginForm extends Component {
       if (!hasErrors) {
         authService.login(fields).then(
           user => {
-            this.setState({ isAuthenticated: true }, () => {
-              userService
-                .getUser(user.id)
-                .then(fullUser => this.props.onUserChanged(fullUser));
-              this.props.onUserChanged(user);
+            userService.getUser(user.id).then(fullUser => {
+              this.props.onUserChanged(fullUser);
+              this.setState({ isAuthenticated: true });
             });
           },
           error => {
@@ -41,7 +39,6 @@ class LoginForm extends Component {
   };
 
   render() {
-    document.querySelector('body').scrollTop = 0;
     const { getFieldProps, getFieldError } = this.props.form;
     const { error, isAuthenticated } = this.state;
     if (isAuthenticated) {
