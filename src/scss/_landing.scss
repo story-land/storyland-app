@@ -36,7 +36,6 @@
   max-width: 100vw;
   max-height: 70vh;
   width: 60vw;
-  animation: heartbeat 3s ease-in-out infinite both;
 }
 
 .landing-screen {
@@ -125,12 +124,6 @@
 
 .reg-button {
   background-color: map-get($palette, main-yellow);
-  margin: 1vh 1vw;
-}
-
-.log-button {
-  background-color: map-get($palette, dark-yellow);
-  margin: 1vh 1vw;
 }
 
 @keyframes heartbeat {

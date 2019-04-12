@@ -8,7 +8,7 @@ const Login = () => {
       <BasicTopBar />
       <div className='screen-wrapper'>
         <div className='form-container'>
-          <h1 className='reg-title'>Login</h1>
+          <h1 className='reg-title'>Log in</h1>
           <LoginForm />
         </div>
       </div>

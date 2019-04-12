@@ -46,12 +46,12 @@ class BasicTopBar extends Component {
                 <ul id='nav-mobile' className='right right-register-topbar'>
                   <li className='basic-nav-item'>
                     <Link className='nav-link' to='/register'>
-                      Register
+                      Sign up
                     </Link>
                   </li>
                   <li className='basic-nav-item'>
                     <Link className='nav-link' to='/login'>
-                      Login
+                      Log in
                     </Link>
                   </li>
                 </ul>

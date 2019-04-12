@@ -120,11 +120,6 @@ const Landing = () => {
               <button className='my-button reg-button'>Get Started</button>
             </Link>
           </div>
-          <div>
-            <Link to='/login'>
-              <button className='my-button log-button'>Login</button>
-            </Link>
-          </div>
         </div>
       </div>
     </div>

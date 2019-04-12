@@ -8,7 +8,7 @@ const Register = () => {
       <BasicTopBar />
       <div className='screen-wrapper'>
         <div className='form-container'>
-          <h1 className='reg-title'>Register</h1>
+          <h1 className='reg-title'>Sign up</h1>
           <RegisterForm />
         </div>
       </div>
