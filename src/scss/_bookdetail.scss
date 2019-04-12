@@ -83,3 +83,7 @@
 .buy-link-button:active {
   color: map-get($palette, main-yellow) !important;
 }
+
+.not-books-found {
+  margin-left: 100px;
+}

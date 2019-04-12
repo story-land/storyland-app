@@ -1,7 +1,6 @@
 .reg-title {
   text-align: center;
   color: map-get($palette, main-white);
-  margin-top: 5vh;
 }
 
 .form-container {
@@ -9,11 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 8vh auto;
+  margin: 50px auto;
 }
 
 .reg-container {
-  height: 100vh;
+  height: auto;
   width: 80vw;
 }
 

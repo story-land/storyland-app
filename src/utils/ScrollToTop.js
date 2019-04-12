@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class ScrollToTop extends Component {
+class ScrollToTop extends PureComponent {
+  componentDidMount = () => window.scrollTo(0, 0);
+
   componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
+    if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
     }
   }

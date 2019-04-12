@@ -41,13 +41,15 @@ body {
   background-size: cover;
   display: flex;
   height: 100%;
-  min-height: 100vh;
   overflow: auto;
 }
 
 .screen-container {
   width: 90%;
-  margin: 40px auto 80px;
+  margin: 120px 50% 60px 50%;
+  transform: translate(-50%);
+  position: absolute;
+  top: 0;
 }
 
 .category-screen {

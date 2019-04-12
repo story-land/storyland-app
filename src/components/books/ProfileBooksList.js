@@ -16,9 +16,22 @@ export default class ProfileBooksList extends Component {
   };
 
   render() {
-    const books = this.state.books.map(book => {
-      return <BookListItem book={book} key={book.id} />;
-    });
+    let books = [];
+    if (this.state.books.length > 0) {
+      books = this.state.books.map(book => {
+        return <BookListItem book={book} key={book.id} />;
+      });
+    } else if (this.state.books.length === 0) {
+      books = (
+        <li className='collection-item avatar'>
+          <span className='title not-books-found'>
+            <strong>Not books found</strong>
+          </span>
+        </li>
+      );
+    }
+    console.log(books);
+
     return (
       <div className='booklist-container'>
         <ul className='collection'>{books}</ul>

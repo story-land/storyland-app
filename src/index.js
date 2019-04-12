@@ -10,12 +10,15 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthStore } from './contexts/AuthStore';
 import * as serviceWorker from './serviceWorker';
+import ScrollToTop from './utils/ScrollToTop';
 
 ReactDOM.render(
   <BrowserRouter>
-    <AuthStore>
-      <App />
-    </AuthStore>
+    <ScrollToTop>
+      <AuthStore>
+        <App />
+      </AuthStore>
+    </ScrollToTop>
   </BrowserRouter>,
   document.getElementById('root')
 );
