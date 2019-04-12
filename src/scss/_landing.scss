@@ -3,7 +3,7 @@
   background-size: cover;
   height: 100%;
   min-height: 100vh;
-  animation: color-change-2x 3s infinite alternate both;
+  // animation: color-change-2x 2s infinite alternate both;
 }
 
 @keyframes color-change-2x {
@@ -20,6 +20,7 @@
   width: 50%;
   margin: 0 auto;
 }
+
 .landing-first-section {
   background: url('../images/landing-1.png');
   background-size: cover;
@@ -35,7 +36,7 @@
 .landing-logo img {
   max-width: 100vw;
   max-height: 70vh;
-  width: 60vw;
+  width: 70vw;
 }
 
 .landing-screen {
@@ -49,7 +50,7 @@
 
 .landing-screen-title {
   color: map-get($palette, main-white);
-  font-size: 2.4em;
+  font-size: 2.2em;
   font-weight: 900;
   line-height: 6vh;
   margin-bottom: 4vh;
@@ -84,17 +85,28 @@
   margin: 2vh 0 4vh;
 }
 
+.second-landing {
+  background: map-get($palette, main-dark);
+  padding: 7vh 0;
+}
+
 .third-landing {
-  margin: 10vh 0;
+  padding: 7vh 0;
+  background: map-get($palette, light-grey);
 }
 
 .chart-landing {
   height: 30vh;
 }
 
-.buddies-screen,
+.buddies-screen {
+  background: map-get($palette, main-dark);
+  padding: 7vh 0;
+}
+
 .fifth-landing {
-  margin: 10vh 0;
+  background: map-get($palette, light-grey);
+  padding: 7vh 0;
 }
 
 .landing-buddies {

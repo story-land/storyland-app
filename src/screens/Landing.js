@@ -32,7 +32,6 @@ const Landing = () => {
           </h3>
         </div>
       </div>
-      <hr className='separation-line' />
       <div className='landing-screen third-landing'>
         <div className='chart-landing'>
           <ResponsiveLine
@@ -88,7 +87,6 @@ const Landing = () => {
           </h3>
         </div>
       </div>
-      <hr className='separation-line' />
       <div className='landing-screen buddies-screen'>
         <div className='landing-buddies'>
           <img alt='storyland-buddy' src='https://joeschmoe.io/api/v1/jordan' />
@@ -106,7 +104,6 @@ const Landing = () => {
           </h3>
         </div>
       </div>
-      <hr className='separation-line' />
       <div className='landind-screen fifth-landing'>
         <div className='landing-screen-text'>
           <h2 className='landing-section-title'>Start now.</h2>
