@@ -19,7 +19,7 @@ class Explore extends Component {
   };
 
   onSearch = debounce(search => {
-    this.setState({ search });
+    this.setState({ books: [], search });
     if (search.length > 3) {
       booksService.getSearchedBook(search).then(books => {
         this.setState({ books });
@@ -35,7 +35,7 @@ class Explore extends Component {
   };
 
   closeCoverSearch = () => {
-    this.setState({ search: '', coverBook: false });
+    this.setState({ books: [], search: '', coverBook: false });
   };
 
   render() {
