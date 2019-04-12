@@ -5,12 +5,14 @@ import FriendProfileBox from './FriendProfileBox';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import ReadingBookItem from './ReadingBookItem';
 import RelatedFriendBooks from './RelatedFriendBooks';
+import ReadThisYear from './ReadThisYear';
 import Loading from '../misc/Loading';
 
 class UserDetail extends Component {
   state = {
     friend: {},
     readingBook: {},
+    readBooks: [],
     followButton: false,
     loading: true
   };
@@ -50,10 +52,25 @@ class UserDetail extends Component {
       const bookReading = friend.userbooks.find(
         elem => elem.state === 'reading'
       );
-      if (bookReading) {
-        booksService.getOneBook(bookReading.book).then(readingBook => {
-          this.setState({ friend, readingBook, loading: false });
+      const readBooks = friend.userbooks.filter(elem => elem.state === 'read');
+      if (bookReading && readBooks) {
+        const readPromises = readBooks.map(async book => {
+          return booksService.getOneBook(book.book).then(elem => elem);
         });
+        const readingPromise = booksService
+          .getOneBook(bookReading.book)
+          .then(elem => elem);
+
+        Promise.all([readingPromise, ...readPromises]).then(
+          ([readingBook, ...readBooks]) => {
+            this.setState({
+              friend,
+              readingBook,
+              readBooks,
+              loading: false
+            });
+          }
+        );
       } else {
         this.setState({ friend, loading: false });
       }
@@ -61,7 +78,13 @@ class UserDetail extends Component {
   };
 
   render() {
-    const { friend, followButton, loading, readingBook } = this.state;
+    const {
+      friend,
+      followButton,
+      loading,
+      readingBook,
+      readBooks
+    } = this.state;
     const { id } = this.props.user;
     return (
       <div className='screen-container'>
@@ -76,6 +99,9 @@ class UserDetail extends Component {
             />
             {readingBook.title && (
               <ReadingBookItem book={readingBook} friendName={friend.name} />
+            )}
+            {readBooks && (
+              <ReadThisYear books={readBooks} friendName={friend.name} />
             )}
           </Fragment>
         ) : (

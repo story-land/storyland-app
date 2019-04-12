@@ -13,6 +13,7 @@ class Explore extends Component {
   state = {
     books: [],
     search: '',
+    textSearch: false,
     coverBook: false,
     loading: false
   };
@@ -29,16 +30,21 @@ class Explore extends Component {
   uploadCover = file => {
     this.setState({ loading: true });
     booksService.postCoverBook(file).then(books => {
-      this.setState({ books, coverBook: true, loading: false });
+      this.setState({
+        books,
+        coverBook: true,
+        loading: false,
+        textSearch: true
+      });
     });
   };
 
   closeCoverSearch = () => {
-    this.setState({ books: [], search: '', coverBook: false });
+    this.setState({ books: [], coverBook: false, textSearch: false });
   };
 
   render() {
-    const { books, search, coverBook, loading } = this.state;
+    const { books, search, coverBook, loading, textSearch } = this.state;
     return (
       <div className='screen-container'>
         <SearchBar
@@ -46,7 +52,11 @@ class Explore extends Component {
           uploadCover={this.uploadCover.bind(this)}
         />
         {(search || coverBook) && (
-          <SearchBooksList books={books} closeList={this.closeCoverSearch} />
+          <SearchBooksList
+            books={books}
+            closeList={this.closeCoverSearch}
+            textSearch={textSearch}
+          />
         )}
         {loading && <Loading />}
         {!search && !coverBook && !loading && (

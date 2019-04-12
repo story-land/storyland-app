@@ -80,17 +80,19 @@ class UserList extends Component {
           <div className='friendslist-container'>
             <ul className='collection'>
               {!loading ? (
-                this.state.users.map(user => {
-                  if (user.readingBook)
-                    return (
-                      <UserItem
-                        user={user}
-                        book={user.readingBook}
-                        key={user.id}
-                      />
-                    );
-                  else return <UserItem user={user} key={user.id} />;
-                })
+                this.state.users
+                  .sort(() => 0.5 - Math.random())
+                  .map(user => {
+                    if (user.readingBook)
+                      return (
+                        <UserItem
+                          user={user}
+                          book={user.readingBook}
+                          key={user.id}
+                        />
+                      );
+                    else return <UserItem user={user} key={user.id} />;
+                  })
               ) : (
                 <Loading />
               )}

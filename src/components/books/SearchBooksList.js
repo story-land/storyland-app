@@ -22,11 +22,13 @@ export default class SearchBooksList extends Component {
     return (
       <div className='booklist-container'>
         <ul className='collection'>
-          <Icon
-            type='close-circle'
-            className='close-cover-search'
-            onClick={this.props.closeList}
-          />
+          {this.props.textSearch && (
+            <Icon
+              type='close-circle'
+              className='close-cover-search'
+              onClick={this.props.closeList}
+            />
+          )}
           {books}
         </ul>
       </div>

@@ -30,7 +30,6 @@ export default class ProfileBooksList extends Component {
         </li>
       );
     }
-    console.log(books);
 
     return (
       <div className='booklist-container'>
