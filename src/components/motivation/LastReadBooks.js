@@ -23,42 +23,49 @@ class LastReadBooks extends Component {
   };
 
   handleReadPeriod = period => {
-    if (period === 'month') {
-      const readIdBooks = this.props.user.userbooks
-        .filter(elem => elem.state === 'read')
-        .filter(
-          elem => new Date(elem.createdAt).getMonth() === new Date().getMonth()
-        )
-        .map(elem => elem.book);
-      const readBooks = readIdBooks.map(async elem => {
-        return booksService.getOneBook(elem).then(elem => elem);
-      });
-      Promise.all(readBooks).then(readBooks =>
-        this.setState({
-          readBooks,
-          bookCount: readBooks.length,
-          loading: false
-        })
-      );
-    }
+    if (this.props.user.userbooks) {
+      if (period === 'month') {
+        const readIdBooks = this.props.user.userbooks
+          .filter(elem => elem.state === 'read')
+          .filter(
+            elem =>
+              new Date(elem.createdAt).getMonth() === new Date().getMonth()
+          )
+          .map(elem => elem.book);
+        const readBooks = readIdBooks.map(async elem => {
+          return booksService.getOneBook(elem).then(elem => elem);
+        });
+        Promise.all(readBooks).then(readBooks =>
+          this.setState({
+            readBooks,
+            bookCount: readBooks.length,
+            loading: false
+          })
+        );
+      }
 
-    if (period === 'year') {
-      const readIdBooks = this.props.user.userbooks
-        .filter(elem => elem.state === 'read')
-        .filter(
-          elem => new Date(elem.createdAt).getYear() === new Date().getYear()
-        )
-        .map(elem => elem.book);
-      const readBooks = readIdBooks.map(async elem => {
-        return booksService.getOneBook(elem).then(elem => elem);
+      if (period === 'year') {
+        const readIdBooks = this.props.user.userbooks
+          .filter(elem => elem.state === 'read')
+          .filter(
+            elem => new Date(elem.createdAt).getYear() === new Date().getYear()
+          )
+          .map(elem => elem.book);
+        const readBooks = readIdBooks.map(async elem => {
+          return booksService.getOneBook(elem).then(elem => elem);
+        });
+        Promise.all(readBooks).then(readBooks =>
+          this.setState({
+            readBooks,
+            bookCount: readBooks.length,
+            loading: false
+          })
+        );
+      }
+    } else {
+      this.setState({
+        loading: false
       });
-      Promise.all(readBooks).then(readBooks =>
-        this.setState({
-          readBooks,
-          bookCount: readBooks.length,
-          loading: false
-        })
-      );
     }
   };
 

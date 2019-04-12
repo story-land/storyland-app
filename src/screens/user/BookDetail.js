@@ -21,6 +21,17 @@ export default class BookDetail extends Component {
     state: ''
   };
 
+  handleGenres = () => {
+    if (this.state.book.genres) {
+      let genres = [this.state.book.genres];
+      if (genres.length === 1) genres = genres[0];
+      if (genres.length > 1) genres = genres.slice(0, 2).join(' & ');
+      return genres;
+    } else {
+      return '';
+    }
+  };
+
   handleStateButton = event => {
     const state = event.target.value;
     this.setState({ state });
@@ -83,13 +94,14 @@ export default class BookDetail extends Component {
 
   render() {
     const { book, state } = this.state;
+    const genres = this.handleGenres();
     const authors = this.handleAuthors();
     const publishedDate = this.formatDate(this.state.book.publishedDate);
     const relatedBooks = this.state.relatedBooks
       .filter(elem => elem.isbn !== book.isbn)
       .sort(() => 0.5 - Math.random())
       .map(book => {
-        let badge = book.genres[0];
+        let badge = book.genres[0] ? book.genres[0] : 'Miscellany';
         if (badge.includes(' ')) badge = badge.substr(0, badge.indexOf(' '));
         return <BookItem key={book.id} book={book} badge={badge} />;
       });
@@ -153,18 +165,23 @@ export default class BookDetail extends Component {
                   {book.googleRating} <Icon type='star' theme='filled' /> of 5
                 </Panel>
               )}
+              {genres && (
+                <Panel header='Genre' key='2'>
+                  {genres}
+                </Panel>
+              )}
               {book.pageCount && (
-                <Panel header='Page Count' key='2'>
+                <Panel header='Page Count' key='3'>
                   {book.pageCount} pages
                 </Panel>
               )}
               {publishedDate && (
-                <Panel header='Published Date' key='3'>
+                <Panel header='Published Date' key='4'>
                   <FontAwesomeIcon icon='calendar-day' /> {publishedDate}
                 </Panel>
               )}
               {book.googleBuyLink && book.googlePrice && (
-                <Panel header='Price & Buy Link' key='4'>
+                <Panel header='Price & Buy Link' key='5'>
                   <a className='buy-link-button' href={book.googleBuyLink}>
                     {book.googlePrice}
                     <FontAwesomeIcon icon='euro-sign' /> in Google Play Store
@@ -172,12 +189,12 @@ export default class BookDetail extends Component {
                 </Panel>
               )}
               {book.isbn && (
-                <Panel header='ISBN' key='5'>
+                <Panel header='ISBN' key='6'>
                   ISBN: {book.isbn}
                 </Panel>
               )}
               {book.description && (
-                <Panel header='Description' key='6'>
+                <Panel header='Description' key='7'>
                   {book.description}
                 </Panel>
               )}
