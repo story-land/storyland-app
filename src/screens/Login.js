@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import BasicTopBar from '../components/misc/BasicTopBar';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/auth/LoginForm';
 
 const Login = () => {
   return (

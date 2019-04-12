@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
-import { createForm } from '../utils/createForm';
+import { createForm } from '../../utils/createForm';
 import InputField from './InputField';
-import { checkName, checkEmail, checkPassword } from '../utils/validators';
+import { checkName, checkEmail, checkPassword } from '../../utils/validators';
 import { Icon } from 'antd';
-import authService from '../services/auth-service';
-import bookService from '../services/books-service';
+import authService from '../../services/auth-service';
+import bookService from '../../services/books-service';
 import RegisterBookItem from './RegisterBookItem';
 
 class RegisterForm extends Component {

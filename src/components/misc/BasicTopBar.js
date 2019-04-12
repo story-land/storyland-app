@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import ScrollToTop from '../../utils/ScrollToTop';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,62 +29,64 @@ class BasicTopBar extends Component {
   render() {
     const { user } = this.props;
     return (
-      <nav className='basic-nav'>
-        <div className='nav-wrapper basic-nav-list'>
-          {!user.email && (
-            <Fragment>
-              <div className='nav-logo'>
-                <Link className='brand-logo' to='/'>
+      <ScrollToTop>
+        <nav className='basic-nav'>
+          <div className='nav-wrapper basic-nav-list'>
+            {!user.email && (
+              <Fragment>
+                <div className='nav-logo'>
+                  <Link className='brand-logo' to='/'>
+                    <img
+                      className='basic-nav-logo'
+                      src={logoWhite}
+                      alt='storyland-app'
+                    />
+                  </Link>
+                </div>
+                <ul id='nav-mobile' className='right right-register-topbar'>
+                  <li className='basic-nav-item'>
+                    <Link className='nav-link' to='/register'>
+                      Register
+                    </Link>
+                  </li>
+                  <li className='basic-nav-item'>
+                    <Link className='nav-link' to='/login'>
+                      Login
+                    </Link>
+                  </li>
+                </ul>
+              </Fragment>
+            )}
+            {user.email && (
+              <Fragment>
+                <ul id='nav-mobile' className='left'>
+                  <li
+                    className='basic-nav-item basic-nav-item-back'
+                    onClick={this.handleBack}
+                  >
+                    <FontAwesomeIcon icon='arrow-left' />
+                  </li>
+                </ul>
+                <Link className='brand-logo center' to='/home'>
                   <img
                     className='basic-nav-logo'
                     src={logoWhite}
                     alt='storyland-app'
                   />
                 </Link>
-              </div>
-              <ul id='nav-mobile' className='right right-register-topbar'>
-                <li className='basic-nav-item'>
-                  <Link className='nav-link' to='/register'>
-                    Register
-                  </Link>
-                </li>
-                <li className='basic-nav-item'>
-                  <Link className='nav-link' to='/login'>
-                    Login
-                  </Link>
-                </li>
-              </ul>
-            </Fragment>
-          )}
-          {user.email && (
-            <Fragment>
-              <ul id='nav-mobile' className='left'>
-                <li
-                  className='basic-nav-item basic-nav-item-back'
-                  onClick={this.handleBack}
-                >
-                  <FontAwesomeIcon icon='arrow-left' />
-                </li>
-              </ul>
-              <Link className='brand-logo center' to='/home'>
-                <img
-                  className='basic-nav-logo'
-                  src={logoWhite}
-                  alt='storyland-app'
-                />
-              </Link>
-              <ul id='nav-mobile' className='right right-register-topbar'>
-                <li
-                  className='basic-nav-item basic-nav-item-logout'
-                  onClick={this.handleLogout}
-                >
-                  <FontAwesomeIcon icon='sign-out-alt' />
-                </li>
-              </ul>
-            </Fragment>
-          )}
-        </div>
-      </nav>
+                <ul id='nav-mobile' className='right right-register-topbar'>
+                  <li
+                    className='basic-nav-item basic-nav-item-logout'
+                    onClick={this.handleLogout}
+                  >
+                    <FontAwesomeIcon icon='sign-out-alt' />
+                  </li>
+                </ul>
+              </Fragment>
+            )}
+          </div>
+        </nav>
+      </ScrollToTop>
     );
   }
 }

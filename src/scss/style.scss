@@ -16,7 +16,6 @@
 html,
 body {
   height: 100%;
-  overflow: auto;
 }
 
 html a,
@@ -36,7 +35,6 @@ body {
 }
 
 .screen-wrapper {
-  position: relative;
   background: map-get($palette, main-dark);
   background-size: cover;
   display: flex;

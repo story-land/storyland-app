@@ -7,7 +7,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { createForm } from '../../utils/createForm';
 import { Upload, Button, Icon } from 'antd';
 import { checkEmail, checkName } from '../../utils/validators';
-import InputField from '../InputField';
+import InputField from '../auth/InputField';
 import SocialProfileBox from './SocialProfileBox';
 
 library.add(faCog);

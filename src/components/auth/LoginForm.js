@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { createForm } from '../utils/createForm';
+import { createForm } from '../../utils/createForm';
 import InputField from './InputField';
-import { checkEmail, checkPassword } from '../utils/validators';
+import { checkEmail, checkPassword } from '../../utils/validators';
 import { Icon } from 'antd';
-import authService from '../services/auth-service';
-import { withAuthConsumer } from '../contexts/AuthStore';
-import userService from '../services/user-service';
+import authService from '../../services/auth-service';
+import { withAuthConsumer } from '../../contexts/AuthStore';
+import userService from '../../services/user-service';
 
 class LoginForm extends Component {
   state = {
