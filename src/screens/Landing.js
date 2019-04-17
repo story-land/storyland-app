@@ -18,7 +18,7 @@ const Landing = () => {
             </h2>
             <p>
               The app that helps you to read more, to keep your books organized
-              and dicover new ones with your friends
+              and discover new ones with your friends
             </p>
           </div>
         </div>
@@ -96,7 +96,7 @@ const Landing = () => {
           <img alt='storyland-buddy' src='https://joeschmoe.io/api/v1/jed' />
           <img alt='storyland-buddy' src='https://joeschmoe.io/api/v1/jenni' />
         </div>
-        <div className='landing-screen-text'>
+        <div className='landing-screen-text buddies-text'>
           <h2 className='landing-section-title'>Connect with your friends.</h2>
           <h3 className='landing-section-subtitle'>
             Discover what they are reading, their tastes and what books they
