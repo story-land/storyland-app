@@ -172,7 +172,7 @@
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1799px) {
+@media (min-width: 1000px) and (max-width: 1799px) {
   .landing-web {
     background: map-get($palette, main-dark);
   }
@@ -238,7 +238,7 @@
 
   .second-landing > .category-screen {
     width: 50vw;
-    height: 40vh;
+    height: 50vh;
   }
 
   .second-landing > .catalog-text {

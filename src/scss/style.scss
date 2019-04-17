@@ -145,8 +145,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   display: none !important;
 }
 
-@media (min-width: 1200px) and (max-width: 1799px) {
+@media (min-width: 1000px) and (max-width: 1799px) {
   body {
-    background: red;
   }
 }

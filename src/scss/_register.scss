@@ -102,3 +102,33 @@
 .disabled-button {
   opacity: 0.2;
 }
+
+@media (min-width: 1000px) and (max-width: 1799px) {
+  .form-container {
+    margin: 10vh auto;
+  }
+
+  .reg-container {
+    height: auto;
+    width: 60vw;
+  }
+
+  .next-button {
+    width: 15vw;
+    margin: 0 auto;
+  }
+
+  .choose-register-title {
+    margin: 4vh 0;
+  }
+
+  .register-books-container {
+    padding: 0 2vw;
+  }
+
+  .register-book-item {
+    width: 150px;
+    height: 210px;
+    margin-bottom: 3vh;
+  }
+}
