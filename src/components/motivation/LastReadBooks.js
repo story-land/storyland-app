@@ -90,7 +90,7 @@ class LastReadBooks extends Component {
         return <BookItem key={book.id} book={book} badge={badge} />;
       });
     return (
-      <div className='category-screen'>
+      <div className='category-screen read-books-motivation-screen'>
         <div className='pages-read-wrapper'>
           <CountUp
             className='pages-read-count'

@@ -173,3 +173,86 @@
 .motivation-space-category {
   height: 8vh;
 }
+
+@media (min-width: 1000px) and (max-width: 1799px) {
+  .read-today-screen {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 50vh;
+  }
+
+  .pages-read-wrapper {
+    width: 30vw;
+    margin: 0 4vw 0;
+  }
+
+  .pages-read-count {
+    font-size: 9em;
+    margin: 0;
+    margin-bottom: -3vh;
+  }
+
+  .pages-read-in {
+    font-size: 2.5em;
+    margin: 0 0 2vh;
+  }
+
+  .pages-period-select {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .chart-graphic {
+    width: 45vw;
+    margin: 10vh auto 0;
+    height: 50vh;
+  }
+
+  .pages-read-container {
+    margin-top: 8vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .how-many-pages-title {
+    font-size: 1.6em;
+    font-weight: 300;
+    margin-right: 2vw;
+  }
+
+  .pages-read-today {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .read-books-motivation-screen {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .read-books-motivation-screen > .motivation-space-category {
+    display: none;
+  }
+
+  .read-books-motivation-screen > .category-screen {
+    width: 50vw;
+    height: 30vh;
+    margin: 0;
+    margin-top: 10vh;
+  }
+
+  .read-books-motivation-screen > .slick-track {
+    width: 100%;
+  }
+
+  .pages-period-select {
+    width: 30vw;
+    margin: 0 auto;
+  }
+}

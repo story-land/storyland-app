@@ -1,7 +1,7 @@
 const sliderSettings = {
-  infinite: true,
+  infinite: false,
   speed: 500,
-  slidesToShow: 10,
+  slidesToShow: 5,
   swipeToSlide: true,
   variableWidth: true,
   responsive: [

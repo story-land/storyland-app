@@ -146,6 +146,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 @media (min-width: 1000px) and (max-width: 1799px) {
-  body {
+  .screen-container {
+    margin: 140px 50% 60px 50%;
+  }
+
+  .category-screen {
+    margin: 8vh 0;
   }
 }

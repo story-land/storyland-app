@@ -101,7 +101,7 @@ nav {
 @media (min-width: 1000px) and (max-width: 1799px) {
   .basic-nav-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     text-decoration: none;
     list-style: none;
@@ -109,8 +109,34 @@ nav {
     height: 100%;
   }
 
+  .nav > ul.left {
+    display: none !important;
+  }
+
+  .basic-nav-item-back {
+    display: none;
+  }
+
+  .basic-nav-item-logout {
+    margin-right: 4vw;
+  }
+
+  nav .brand-logo.center {
+    left: 10vw;
+  }
+
   .nav-logo {
     height: 60px;
     width: 100px;
+  }
+
+  .usernavbar {
+    position: sticky;
+    height: 65px;
+    min-height: 65px;
+    width: 80%;
+    margin: 0 auto;
+    background: map-get($palette, main-dark);
+    border-bottom: 1px solid map-get($palette, lighter-grey);
   }
 }

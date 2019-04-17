@@ -91,3 +91,33 @@
     opacity: 1;
   }
 }
+
+@media (min-width: 1000px) and (max-width: 1799px) {
+  .explore-search-bar {
+    width: 60%;
+    margin: 4vh auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .explore-container > category-screen {
+    margin: 10vh auto !important;
+  }
+
+  .book-cover {
+    width: 150px;
+    max-width: 150px;
+    height: 210px;
+  }
+
+  .genre-input > .category-title {
+    width: 20vw;
+  }
+
+  .genre-input {
+    justify-content: start;
+  }
+}

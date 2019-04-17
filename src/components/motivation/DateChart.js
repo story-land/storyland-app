@@ -133,7 +133,7 @@ class DateChart extends Component {
     );
 
     return (
-      <div className='category-screen'>
+      <div className='category-screen read-today-screen'>
         <div className='pages-read-wrapper'>
           <CountUp
             className='pages-read-count'

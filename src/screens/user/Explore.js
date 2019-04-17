@@ -46,7 +46,7 @@ class Explore extends Component {
   render() {
     const { books, search, coverBook, loading, textSearch } = this.state;
     return (
-      <div className='screen-container'>
+      <div className='screen-container explore-container'>
         <SearchBar
           onSearch={this.onSearch.bind(this)}
           uploadCover={this.uploadCover.bind(this)}
