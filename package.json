@@ -13,7 +13,7 @@
     "luxon": "^1.12.0",
     "materialize-css": "^1.0.0-rc.2",
     "nivo": "^0.31.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "npm": "^6.9.0",
     "rc-form": "^2.4.3",
     "react": "^16.8.5",
